@@ -1,0 +1,1160 @@
+{
+  "AFG": {
+    "income_group": "Low income",
+    "population": 43844111,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "AGO": {
+    "income_group": "Lower middle income",
+    "population": 39040039,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "ALB": {
+    "income_group": "Upper middle income",
+    "population": 2349580,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "AND": {
+    "income_group": "High income",
+    "population": 82904,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "ARE": {
+    "income_group": "High income",
+    "population": 11513149,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "ARG": {
+    "income_group": "Upper middle income",
+    "population": 45851378,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "ARM": {
+    "income_group": "Upper middle income",
+    "population": 3086700,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "ATG": {
+    "income_group": "High income",
+    "population": 94209,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "AUS": {
+    "income_group": "High income",
+    "population": 27614411,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "AUT": {
+    "income_group": "High income",
+    "population": 9208163,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "AZE": {
+    "income_group": "Upper middle income",
+    "population": 10246996,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "BDI": {
+    "income_group": "Low income",
+    "population": 14390003,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "BEL": {
+    "income_group": "High income",
+    "population": 11941781,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "BEN": {
+    "income_group": "Lower middle income",
+    "population": 14814460,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "BFA": {
+    "income_group": "Low income",
+    "population": 24074580,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "BGD": {
+    "income_group": "Lower middle income",
+    "population": 175686899,
+    "population_year": 2025,
+    "region": "South Asia"
+  },
+  "BGR": {
+    "income_group": "High income",
+    "population": 6433302,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "BHR": {
+    "income_group": "High income",
+    "population": 1600366,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "BHS": {
+    "income_group": "High income",
+    "population": 403033,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "BIH": {
+    "income_group": "Upper middle income",
+    "population": 3140095,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "BLR": {
+    "income_group": "Upper middle income",
+    "population": 9085991,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "BLZ": {
+    "income_group": "Upper middle income",
+    "population": 422924,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "BOL": {
+    "income_group": "Lower middle income",
+    "population": 12581843,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "BRA": {
+    "income_group": "Upper middle income",
+    "population": 212812405,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "BRB": {
+    "income_group": "High income",
+    "population": 282623,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "BRN": {
+    "income_group": "High income",
+    "population": 466330,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "BTN": {
+    "income_group": "Lower middle income",
+    "population": 796682,
+    "population_year": 2025,
+    "region": "South Asia"
+  },
+  "BWA": {
+    "income_group": "Upper middle income",
+    "population": 2562122,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "CAF": {
+    "income_group": "Low income",
+    "population": 5513282,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "CAN": {
+    "income_group": "High income",
+    "population": 41651653,
+    "population_year": 2025,
+    "region": "North America"
+  },
+  "CHE": {
+    "income_group": "High income",
+    "population": 9092436,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "CHL": {
+    "income_group": "High income",
+    "population": 19859921,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "CHN": {
+    "income_group": "Upper middle income",
+    "population": 1406585000,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "CIV": {
+    "income_group": "Lower middle income",
+    "population": 32711547,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "CMR": {
+    "income_group": "Lower middle income",
+    "population": 29879337,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "COD": {
+    "income_group": "Low income",
+    "population": 112832473,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "COG": {
+    "income_group": "Lower middle income",
+    "population": 6484437,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "COL": {
+    "income_group": "Upper middle income",
+    "population": 53425635,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "COM": {
+    "income_group": "Lower middle income",
+    "population": 882847,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "CPV": {
+    "income_group": "Upper middle income",
+    "population": 527326,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "CRI": {
+    "income_group": "High income",
+    "population": 5152950,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "CUB": {
+    "income_group": "Upper middle income",
+    "population": 10937203,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "CYP": {
+    "income_group": "High income",
+    "population": 1370754,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "CZE": {
+    "income_group": "High income",
+    "population": 10886878,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "DEU": {
+    "income_group": "High income",
+    "population": 83491249,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "DJI": {
+    "income_group": "Lower middle income",
+    "population": 1184076,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "DMA": {
+    "income_group": "Upper middle income",
+    "population": 65871,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "DNK": {
+    "income_group": "High income",
+    "population": 6009169,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "DOM": {
+    "income_group": "Upper middle income",
+    "population": 11520487,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "DZA": {
+    "income_group": "Upper middle income",
+    "population": 47435312,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "ECU": {
+    "income_group": "Upper middle income",
+    "population": 18289896,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "EGY": {
+    "income_group": "Lower middle income",
+    "population": 118365995,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "ERI": {
+    "income_group": "Low income",
+    "population": 3607003,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "ESP": {
+    "income_group": "High income",
+    "population": 49355143,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "EST": {
+    "income_group": "High income",
+    "population": 1366475,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "ETH": {
+    "income_group": "Low income",
+    "population": 135472051,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "FIN": {
+    "income_group": "High income",
+    "population": 5646436,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "FJI": {
+    "income_group": "Upper middle income",
+    "population": 933154,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "FRA": {
+    "income_group": "High income",
+    "population": 68720337,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "FSM": {
+    "income_group": "Upper middle income",
+    "population": 113683,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "GAB": {
+    "income_group": "Upper middle income",
+    "population": 2593130,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "GBR": {
+    "income_group": "High income",
+    "population": 69487000,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "GEO": {
+    "income_group": "Upper middle income",
+    "population": 3935766,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "GHA": {
+    "income_group": "Lower middle income",
+    "population": 35064272,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "GIN": {
+    "income_group": "Lower middle income",
+    "population": 15099727,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "GMB": {
+    "income_group": "Low income",
+    "population": 2822093,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "GNB": {
+    "income_group": "Low income",
+    "population": 2249515,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "GNQ": {
+    "income_group": "Upper middle income",
+    "population": 1938431,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "GRC": {
+    "income_group": "High income",
+    "population": 10413962,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "GRD": {
+    "income_group": "Upper middle income",
+    "population": 117303,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "GTM": {
+    "income_group": "Upper middle income",
+    "population": 18687881,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "GUY": {
+    "income_group": "High income",
+    "population": 835986,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "HND": {
+    "income_group": "Lower middle income",
+    "population": 11005850,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "HRV": {
+    "income_group": "High income",
+    "population": 3876200,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "HTI": {
+    "income_group": "Lower middle income",
+    "population": 11906095,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "HUN": {
+    "income_group": "High income",
+    "population": 9514251,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "IDN": {
+    "income_group": "Upper middle income",
+    "population": 285721236,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "IND": {
+    "income_group": "Lower middle income",
+    "population": 1463865525,
+    "population_year": 2025,
+    "region": "South Asia"
+  },
+  "IRL": {
+    "income_group": "High income",
+    "population": 5484367,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "IRN": {
+    "income_group": "Upper middle income",
+    "population": 92417681,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "IRQ": {
+    "income_group": "Upper middle income",
+    "population": 47020774,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "ISL": {
+    "income_group": "High income",
+    "population": 392404,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "ISR": {
+    "income_group": "High income",
+    "population": 10122800,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "ITA": {
+    "income_group": "High income",
+    "population": 58915656,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "JAM": {
+    "income_group": "Upper middle income",
+    "population": 2837077,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "JOR": {
+    "income_group": "Upper middle income",
+    "population": 11520684,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "JPN": {
+    "income_group": "High income",
+    "population": 123366734,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "KAZ": {
+    "income_group": "Upper middle income",
+    "population": 20843754,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "KEN": {
+    "income_group": "Lower middle income",
+    "population": 57532493,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "KGZ": {
+    "income_group": "Lower middle income",
+    "population": 7343064,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "KHM": {
+    "income_group": "Lower middle income",
+    "population": 17847982,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "KIR": {
+    "income_group": "Lower middle income",
+    "population": 136488,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "KNA": {
+    "income_group": "High income",
+    "population": 46922,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "KOR": {
+    "income_group": "High income",
+    "population": 51684564,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "KWT": {
+    "income_group": "High income",
+    "population": 4865298,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "LAO": {
+    "income_group": "Lower middle income",
+    "population": 7873046,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "LBN": {
+    "income_group": "Lower middle income",
+    "population": 5849421,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "LBR": {
+    "income_group": "Low income",
+    "population": 5731206,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "LBY": {
+    "income_group": "Upper middle income",
+    "population": 7458555,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "LCA": {
+    "income_group": "Upper middle income",
+    "population": 180149,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "LIE": {
+    "income_group": "High income",
+    "population": 41024,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "LKA": {
+    "income_group": "Upper middle income",
+    "population": 21756000,
+    "population_year": 2025,
+    "region": "South Asia"
+  },
+  "LSO": {
+    "income_group": "Lower middle income",
+    "population": 2363325,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "LTU": {
+    "income_group": "High income",
+    "population": 2888774,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "LUX": {
+    "income_group": "High income",
+    "population": 686970,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "LVA": {
+    "income_group": "High income",
+    "population": 1847785,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "MAR": {
+    "income_group": "Lower middle income",
+    "population": 38430770,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "MCO": {
+    "income_group": "High income",
+    "population": 38341,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "MDA": {
+    "income_group": "Upper middle income",
+    "population": 2360527,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "MDG": {
+    "income_group": "Low income",
+    "population": 32740678,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "MDV": {
+    "income_group": "Upper middle income",
+    "population": 529676,
+    "population_year": 2025,
+    "region": "South Asia"
+  },
+  "MEX": {
+    "income_group": "Upper middle income",
+    "population": 131946900,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "MHL": {
+    "income_group": "Upper middle income",
+    "population": 36282,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "MKD": {
+    "income_group": "Upper middle income",
+    "population": 1820909,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "MLI": {
+    "income_group": "Low income",
+    "population": 25198821,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "MLT": {
+    "income_group": "High income",
+    "population": 579704,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "MMR": {
+    "income_group": "Lower middle income",
+    "population": 54850648,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "MNE": {
+    "income_group": "Upper middle income",
+    "population": 623129,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "MNG": {
+    "income_group": "Upper middle income",
+    "population": 3568978,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "MOZ": {
+    "income_group": "Low income",
+    "population": 35631653,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "MRT": {
+    "income_group": "Lower middle income",
+    "population": 5315065,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "MUS": {
+    "income_group": "Upper middle income",
+    "population": 1243741,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "MWI": {
+    "income_group": "Low income",
+    "population": 22216120,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "MYS": {
+    "income_group": "Upper middle income",
+    "population": 35977838,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "NAM": {
+    "income_group": "Lower middle income",
+    "population": 3092816,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "NER": {
+    "income_group": "Low income",
+    "population": 27917831,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "NGA": {
+    "income_group": "Lower middle income",
+    "population": 237527782,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "NIC": {
+    "income_group": "Lower middle income",
+    "population": 7007502,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "NLD": {
+    "income_group": "High income",
+    "population": 18087633,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "NOR": {
+    "income_group": "High income",
+    "population": 5610870,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "NPL": {
+    "income_group": "Lower middle income",
+    "population": 29618118,
+    "population_year": 2025,
+    "region": "South Asia"
+  },
+  "NRU": {
+    "income_group": "High income",
+    "population": 12025,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "NZL": {
+    "income_group": "High income",
+    "population": 5324700,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "OMN": {
+    "income_group": "High income",
+    "population": 5494691,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "PAK": {
+    "income_group": "Lower middle income",
+    "population": 255219554,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "PAN": {
+    "income_group": "High income",
+    "population": 4571189,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "PER": {
+    "income_group": "Upper middle income",
+    "population": 34576665,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "PHL": {
+    "income_group": "Upper middle income",
+    "population": 116786962,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "PLW": {
+    "income_group": "High income",
+    "population": 17663,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "PNG": {
+    "income_group": "Lower middle income",
+    "population": 10762817,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "POL": {
+    "income_group": "High income",
+    "population": 36435861,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "PRK": {
+    "income_group": "Low income",
+    "population": 26571036,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "PRT": {
+    "income_group": "High income",
+    "population": 10804871,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "PRY": {
+    "income_group": "Upper middle income",
+    "population": 7013078,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "QAT": {
+    "income_group": "High income",
+    "population": 2972215,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "ROU": {
+    "income_group": "High income",
+    "population": 19020271,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "RUS": {
+    "income_group": "High income",
+    "population": 143513328,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "RWA": {
+    "income_group": "Low income",
+    "population": 14569341,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "SAU": {
+    "income_group": "High income",
+    "population": 36973555,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "SDN": {
+    "income_group": "Low income",
+    "population": 51662147,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "SEN": {
+    "income_group": "Lower middle income",
+    "population": 18931966,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "SGP": {
+    "income_group": "High income",
+    "population": 6111175,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "SLB": {
+    "income_group": "Lower middle income",
+    "population": 838645,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "SLE": {
+    "income_group": "Low income",
+    "population": 8819794,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "SLV": {
+    "income_group": "Upper middle income",
+    "population": 6365503,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "SMR": {
+    "income_group": "High income",
+    "population": 34109,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "SOM": {
+    "income_group": "Low income",
+    "population": 19654739,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "SRB": {
+    "income_group": "Upper middle income",
+    "population": 6549143,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "SSD": {
+    "income_group": "Low income",
+    "population": 12188788,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "STP": {
+    "income_group": "Lower middle income",
+    "population": 240254,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "SUR": {
+    "income_group": "Upper middle income",
+    "population": 639850,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "SVK": {
+    "income_group": "High income",
+    "population": 5413813,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "SVN": {
+    "income_group": "High income",
+    "population": 2130986,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "SWE": {
+    "income_group": "High income",
+    "population": 10596620,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "SWZ": {
+    "income_group": "Lower middle income",
+    "population": 1256174,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "SYC": {
+    "income_group": "High income",
+    "population": 122730,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "SYR": {
+    "income_group": "Low income",
+    "population": 25620427,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "TCD": {
+    "income_group": "Low income",
+    "population": 21003705,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "TGO": {
+    "income_group": "Lower middle income",
+    "population": 8591626,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "THA": {
+    "income_group": "Upper middle income",
+    "population": 71619863,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "TJK": {
+    "income_group": "Lower middle income",
+    "population": 10786734,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "TKM": {
+    "income_group": "Upper middle income",
+    "population": 7618847,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "TLS": {
+    "income_group": "Lower middle income",
+    "population": 1418517,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "TON": {
+    "income_group": "Upper middle income",
+    "population": 103742,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "TTO": {
+    "income_group": "High income",
+    "population": 1367764,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "TUN": {
+    "income_group": "Lower middle income",
+    "population": 12348573,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "TUR": {
+    "income_group": "Upper middle income",
+    "population": 85878556,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "TUV": {
+    "income_group": "Upper middle income",
+    "population": 9492,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "TZA": {
+    "income_group": "Lower middle income",
+    "population": 70545865,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "UGA": {
+    "income_group": "Low income",
+    "population": 51384894,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "UKR": {
+    "income_group": "Upper middle income",
+    "population": 38980376,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "URY": {
+    "income_group": "High income",
+    "population": 3384688,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "USA": {
+    "income_group": "High income",
+    "population": 341784857,
+    "population_year": 2025,
+    "region": "North America"
+  },
+  "UZB": {
+    "income_group": "Lower middle income",
+    "population": 37053428,
+    "population_year": 2025,
+    "region": "Europe & Central Asia"
+  },
+  "VCT": {
+    "income_group": "Upper middle income",
+    "population": 99924,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "VEN": {
+    "income_group": "Lower middle income",
+    "population": 28516896,
+    "population_year": 2025,
+    "region": "Latin America & Caribbean "
+  },
+  "VNM": {
+    "income_group": "Upper middle income",
+    "population": 101598527,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "VUT": {
+    "income_group": "Lower middle income",
+    "population": 335169,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "WSM": {
+    "income_group": "Upper middle income",
+    "population": 219306,
+    "population_year": 2025,
+    "region": "East Asia & Pacific"
+  },
+  "YEM": {
+    "income_group": "Low income",
+    "population": 41773878,
+    "population_year": 2025,
+    "region": "Middle East, North Africa, Afghanistan & Pakistan"
+  },
+  "ZAF": {
+    "income_group": "Upper middle income",
+    "population": 64747319,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "ZMB": {
+    "income_group": "Lower middle income",
+    "population": 21913874,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  },
+  "ZWE": {
+    "income_group": "Lower middle income",
+    "population": 16950795,
+    "population_year": 2025,
+    "region": "Sub-Saharan Africa "
+  }
+}

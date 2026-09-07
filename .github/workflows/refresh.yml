@@ -1,0 +1,31 @@
+name: Refresh source snapshot
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: data-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: PYTHONPATH=src python -m blindspot all
+      - name: Commit validated snapshot
+        run: |
+          git config user.name "blindspot-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/current data/history site/data
+          git diff --cached --quiet || git commit -m "data: refresh source snapshot"
+          git push

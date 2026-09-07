@@ -1,0 +1,51 @@
+{
+  "candidates": {
+    "logistic_regression": {
+      "metrics": {
+        "auroc": 0.835,
+        "average_precision": 0.8048,
+        "brier": 0.2124,
+        "n": 29336
+      },
+      "weights": [
+        0.356075,
+        0.929932,
+        -2.715851,
+        -1.234276,
+        0.071313,
+        0.729122,
+        0.438393
+      ]
+    },
+    "series_rate_baseline": {
+      "metrics": {
+        "auroc": 0.7873,
+        "average_precision": 0.7376,
+        "brier": 0.2072,
+        "n": 29336
+      }
+    }
+  },
+  "experimental": true,
+  "feature_names": [
+    "normalized_gap",
+    "historical_presence_rate",
+    "series_presence_rate",
+    "log_population",
+    "cadence",
+    "goal"
+  ],
+  "limitations": [
+    "Publication-year vintages are unavailable before Blindspot launch.",
+    "A missing reference-year observation may be published later and is not proof of collection failure.",
+    "Features describe associations and must not be interpreted causally."
+  ],
+  "schema_version": "1.0.0",
+  "selected": "series_rate_baseline",
+  "split": {
+    "temporal": true,
+    "testing_from": 2022,
+    "training_through": 2021
+  },
+  "target": "No observation in the next configured reporting window"
+}

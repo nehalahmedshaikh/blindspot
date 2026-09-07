@@ -1,0 +1,12 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+site/data/*.tmp
+data/current/dashboard.json
+data/current/metrics.json
+dist/
+node_modules/
+.DS_Store

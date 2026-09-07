@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Blindspot maps where global development evidence is missing, stale, or fragile.">
+  <title>Blindspot — Global measurement-gap observatory</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="masthead">
+    <a class="brand" href="#">BLINDSPOT<span>.</span></a>
+    <nav aria-label="Primary">
+      <a href="#atlas">Atlas</a><a href="#priority">Priority</a><a href="#indicators">Indicators</a><a href="#method">Method</a>
+    </nav>
+    <a class="data-link" href="data/downloads/gap_rankings.csv">Download data ↗</a>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="eyebrow">Global measurement-gap observatory · v0.1</div>
+      <h1>We cannot act on<br>what we <em>cannot see.</em></h1>
+      <p class="lede">An open atlas of missing, stale, and fragile evidence across 51 headline indicators and every UN member state.</p>
+      <div class="hero-meta">
+        <div><strong id="country-count">193</strong><span>countries</span></div>
+        <div><strong>51</strong><span>headline series</span></div>
+        <div><strong>17</strong><span>global goals</span></div>
+        <div><strong id="window-label">2015—now</strong><span>evidence window</span></div>
+      </div>
+    </section>
+
+    <aside id="status-banner" class="status-banner" hidden></aside>
+
+    <section id="atlas" class="panel atlas-panel">
+      <div class="section-heading">
+        <div><span class="number">01</span><h2>The atlas of absence</h2></div>
+        <p>Color shows the evidence system—not development performance. Darker means a larger measurement gap.</p>
+      </div>
+      <div class="controls" aria-label="Atlas filters">
+        <label>View
+          <select id="metric-select">
+            <option value="priority">Measurement priority</option>
+            <option value="staleness">Staleness</option>
+            <option value="missingness">Missingness</option>
+          </select>
+        </label>
+        <label>Goal
+          <select id="goal-select"><option value="all">All 17 goals</option></select>
+        </label>
+        <label>Find country
+          <select id="country-select"><option value="">Choose a country</option></select>
+        </label>
+      </div>
+      <div class="map-wrap">
+        <svg id="world-map" role="img" aria-label="World map colored by measurement gaps" viewBox="0 0 1000 500"></svg>
+        <div id="tooltip" class="tooltip" role="status" hidden></div>
+        <div class="legend"><span>Lower gap</span><i></i><i></i><i></i><i></i><i></i><span>Higher gap</span></div>
+      </div>
+      <div id="country-profile" class="country-profile" aria-live="polite">
+        <div class="empty-state">Select a country on the map to inspect its evidence profile.</div>
+      </div>
+    </section>
+
+    <section id="priority" class="panel dark-panel">
+      <div class="section-heading inverse">
+        <div><span class="number">02</span><h2>What should we measure next?</h2></div>
+        <p>A transparent triage heuristic. Change the weights and see which blind spots remain important.</p>
+      </div>
+      <div class="weight-grid">
+        <label>Staleness <output id="out-staleness">35%</output><input id="weight-staleness" type="range" min="0" max="100" value="35"></label>
+        <label>Missingness <output id="out-completeness_deficit">25%</output><input id="weight-completeness_deficit" type="range" min="0" max="100" value="25"></label>
+        <label>Global scarcity <output id="out-global_scarcity">20%</output><input id="weight-global_scarcity" type="range" min="0" max="100" value="20"></label>
+        <label>Population <output id="out-population_percentile">20%</output><input id="weight-population_percentile" type="range" min="0" max="100" value="20"></label>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Country</th><th>Goal</th><th>Missing measurement</th><th>Latest</th><th>Score</th></tr></thead>
+          <tbody id="ranking-body"></tbody>
+        </table>
+      </div>
+      <p class="fine-print">Conditional indicators are excluded. This ranking is not a causal estimate or automatic funding recommendation.</p>
+    </section>
+
+    <section id="indicators" class="panel">
+      <div class="section-heading">
+        <div><span class="number">03</span><h2>Indicator coverage</h2></div>
+        <p>Coverage is the share of countries with enough observations in the latest five completed years, adjusted for cadence.</p>
+      </div>
+      <label class="search-label">Search indicators <input id="series-search" type="search" placeholder="Try ‘water’, ‘poverty’, or ‘16’"></label>
+      <div id="series-grid" class="series-grid"></div>
+    </section>
+
+    <section id="method" class="panel method-panel">
+      <div class="section-heading">
+        <div><span class="number">04</span><h2>Designed to be challenged</h2></div>
+        <p>Every claim links back to a definition, source status, and downloadable row.</p>
+      </div>
+      <div class="method-grid">
+        <article><h3>Absence ≠ failure</h3><p>“Not observed” means the selected official source has no matching country–series–year observation. It does not prove a country failed to collect data.</p></article>
+        <article><h3>Status is preserved</h3><p>Country, adjusted, estimated, modeled, and global-monitoring observations remain distinguishable rather than being silently collapsed.</p></article>
+        <article><h3>Applicability first</h3><p>Conditional indicators are visible for exploration but excluded from priority scores until a defensible country-level applicability registry exists.</p></article>
+        <article><h3>Prediction is experimental</h3><p id="model-summary">The continuity model is evaluated through temporal backtests and yields to a simpler baseline when it does not improve calibration.</p></article>
+      </div>
+      <div class="downloads">
+        <a href="data/downloads/gap_rankings.csv">Gap rankings <span>CSV ↗</span></a>
+        <a href="data/downloads/country_scores.csv">Country scores <span>CSV ↗</span></a>
+        <a href="data/methodology.json">Method contract <span>JSON ↗</span></a>
+        <a href="data/manifest.json">Provenance manifest <span>JSON ↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer><strong>BLINDSPOT.</strong><span>Evidence about the evidence.</span><span id="freshness">Loading source status…</span></footer>
+  <script src="geo.js" defer></script>
+  <script src="app.js" defer></script>
+</body>
+</html>
