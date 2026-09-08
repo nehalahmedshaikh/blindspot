@@ -1,16 +1,11 @@
 term,estimate_percentage_points,standard_error,ci_low,ci_high
-Intercept,31.96,1.15,29.7,34.22
-Log population (1 SD),-6.43,0.63,-7.66,-5.2
-Income: Low income vs High income,15.6,2.12,11.46,19.75
-Income: Lower middle income vs High income,8.5,1.68,5.21,11.8
-Income: Upper middle income vs High income,3.68,1.46,0.81,6.55
-Region: East Asia & Pacific vs Europe & Central Asia,6.09,1.71,2.73,9.44
-Region: Latin America & Caribbean vs Europe & Central Asia,5.08,2.01,1.13,9.03
-"Region: Middle East, North Africa, Afghanistan & Pakistan vs Europe & Central Asia",9.91,1.92,6.15,13.67
-Region: North America vs Europe & Central Asia,3.71,3.52,-3.19,10.61
-Region: South Asia vs Europe & Central Asia,8.77,2.08,4.69,12.86
-Region: Sub-Saharan Africa vs Europe & Central Asia,6.11,2.03,2.13,10.09
-SDG family: Partnership vs People,-0.44,1.13,-2.66,1.78
-SDG family: Peace vs People,-13.19,1.24,-15.61,-10.76
-SDG family: Planet vs People,16.7,0.9,14.95,18.46
-SDG family: Prosperity vs People,6.47,0.75,5.0,7.94
+Log population (1 SD),-4.85,0.46,-5.76,-3.95
+Income: Low income vs High income,9.46,1.54,6.45,12.47
+Income: Lower middle income vs High income,4.14,1.04,2.09,6.19
+Income: Upper middle income vs High income,1.03,0.91,-0.74,2.81
+Region: East Asia & Pacific vs Europe & Central Asia,4.49,1.18,2.17,6.81
+Region: Latin America & Caribbean vs Europe & Central Asia,2.04,1.22,-0.35,4.44
+"Region: Middle East, North Africa, Afghanistan & Pakistan vs Europe & Central Asia",6.56,1.36,3.89,9.23
+Region: North America vs Europe & Central Asia,6.66,2.79,1.19,12.13
+Region: South Asia vs Europe & Central Asia,4.15,1.39,1.42,6.88
+Region: Sub-Saharan Africa vs Europe & Central Asia,2.72,1.39,-0.01,5.44

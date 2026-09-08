@@ -1,0 +1,211 @@
+rank,series_code,goal,description,mean_missingness_pct,missing_expected_observations,cumulative_share_pct
+1,AG_LND_DGRD,15,Proportion of land that is degraded over total land area (%),100.0,193.0,0.8
+2,GF_COM_PPPI,17,"Amount of United States dollars committed to public-private partnerships for infrastructure, million USD nominal",100.0,193.0,1.6
+3,SH_AAP_ASMORT,3,"Age-standardized mortality rate attributed to ambient air pollution (deaths per 100,000 population)",100.0,193.0,2.4
+4,SH_HLF_EMED,3,Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis (%),100.0,193.0,3.2
+5,SH_STA_WASHARI,3,"Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene from diarrhoea, intestinal nematode infections, malnutrition and acute respiratory infections (deaths per 100,000 population)",100.0,193.0,4.0
+6,SH_SUD_ALCOL,3,"Alcohol use disorders, 12-month prevalence (%)",100.0,193.0,4.8
+7,SE_DEV_ONTRK,4,"Proportion of children aged 36−59 months who are developmentally on track in at least three of the following domains: literacy-numeracy, physical development, social-emotional development, and learning (% of children aged 36-59 months)",99.7,192.5,5.5
+8,SL_EMP_RCOST_MO,10,Migrant recruitment costs (number of months of earnings),99.6,192.2,6.3
+9,SH_STA_FGMS,5,"Proportion of girls and women aged 15-49 years who have undergone female genital mutilation, by age (%)",99.2,191.4,7.1
+10,AG_PRD_XSUBDY,2,Agricultural export subsidies (millions of current United States dollars),98.9,190.8,7.9
+11,DI_ILL_IN,16,Total value of inward illicit financial flows,98.8,190.6,8.7
+12,SP_DISP_RESOL,16,Proportion of the population who have experienced a dispute in the past two years who accessed a formal or informal dispute resolution mechanism (%),98.7,190.4,9.5
+13,VC_VOH_SXPH,11,"Proportion of persons victim of non-sexual or sexual harassment, in the previous 12 months (%)",98.1,189.4,10.3
+14,SG_PLN_MSTKSDG_R,17,"Number of countries reporting progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals, Recipient (1 = YES; 0 = NO)",97.7,188.6,11.0
+15,SG_PLN_RECNDI,17,Proportion of project objectives in new development interventions drawn from country-led result frameworks - data by recipient (%),97.1,187.4,11.8
+16,VC_VAW_SXVLN,16,"Proportion of population aged 18-29 years who experienced sexual violence by age 18, by sex (% of population aged 18-29)",97.1,187.4,12.6
+17,SG_XPD_PR,1,Proportion of government spending which benefits the poorest 20 percent (%),96.4,186.0,13.3
+18,SH_FPL_MTMM,3,Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years),96.3,185.8,14.1
+19,SH_FPL_INFM,5,"Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)",96.2,185.6,14.9
+20,VC_VAW_PHYPYV,16,Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years),95.8,184.8,15.6
+21,SG_SCP_POLINS,12,Countries with policy instrument for sustainable consumption and production (1 = YES; 0 = NO),95.5,184.4,16.4
+22,VC_ARM_SZTRACE,16,"Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments",95.1,183.6,17.1
+23,VC_PRR_ROBB,16,"Police reporting rate for robbery in the previous 12 months, by sex (%)",94.7,182.8,17.9
+24,IU_COR_BRIB,16,"Prevalence rate of bribery, by sex (%)",94.5,182.4,18.6
+25,ER_WLD_TRPOACH,15,Proportion of traded wildlife that was poached or illicitly trafficked,94.4,182.2,19.4
+26,SH_MDD_CHLD,2,Prevalence of minimum dietary diversity among children aged 6-23 months (%),94.2,181.8,20.1
+27,SG_CPA_SDEVP,17,Mechanisms in place to enhance policy coherence for sustainable development (%),93.9,181.2,20.9
+28,SP_DYN_MRBF18,5,Proportion of women aged 20-24 years who were married or in a union before age 18 (%),93.7,180.8,21.6
+29,ER_UNCLOS_IMPLE,14,Score for the implementation of UNCLOS and its two implementing agreements (%),93.6,180.6,22.4
+30,SL_TLF_CHLDEA,8,"Proportion of children engaged in economic activity, by sex and age  (%)",93.5,180.4,23.1
+31,VC_VOV_ROBB,16,"Proportion of population subjected to robbery in the previous 12 months, by sex (%)",93.2,179.8,23.8
+32,DC_TOF_URBINFRA,11,Total official development assistance and other official flows in support of urban infrastructure or urban infrastructure projects (millions of constant 2023 United States dollars),91.5,176.6,24.6
+33,IU_DMK_INCL,16,Proportion of population who believe decision-making is inclusive (%),91.5,176.6,25.3
+34,SP_LGL_LNDSTR,1,"Proportion of people with secure tenure rights to land out of total adult population, by sex (%)",91.3,176.2,26.0
+35,SG_CPA_MIGRS,10,"Countries with migration policies to facilitate orderly, safe, regular and responsible migration and mobility of people, by policy domain (1 = Requires further progress; 2 = Partially meets; 3 = Meets; 4 = Fully meets)",90.9,175.4,26.7
+36,EN_ACS_URB_OPENSP,11,Average share of urban population with convenient access to open public spaces (%),90.2,174.0,27.4
+37,SH_OOP_XPD_EARNNET40,3,"Proportion of the population with positive out-of-pocket household expenditure on health exceeding 40% of household discretionary budget, by location, quintile, type of household and characteristics of the head of household (%)",90.2,174.0,28.2
+38,VC_SNS_WALN_DRK,16,Proportion of population that feel safe walking alone around the area they live after dark (%),90.2,174.0,28.9
+39,SG_REG_BRTH,16,Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age),90.1,173.8,29.6
+40,SG_URB_CSPART,11,Proportion of cities with a direct participation structure of civil society in urban planning and management that operate regularly and democratically,89.5,172.8,30.3
+41,NV_IND_SSIS_NC,9,Proportion of small-scale industries in total industry value added based on national classification (%),89.4,172.6,31.0
+42,SG_SCP_PROCN,12,Number of countries implementing sustainable public procurement policies and action plans,89.3,172.4,31.7
+43,SH_LGR_ACSRHE,5,"Extent to which countries have laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education (%)",89.3,172.4,32.4
+44,SE_SGE_BIODIV,4,Score on greening education in biodiversity (%),88.8,171.4,33.1
+45,SG_GEN_EQPWNN,5,Countries with systems to track and make public allocations for gender equality and women's empowerment (0 = does not meet the requirement; 1 = approached the requirement; 2  =  Fully meets requirement),88.1,170.0,33.8
+46,EN_REF_WASCOL,11,"Municipal Solid Waste collection coverage, by cities (%)",87.7,169.2,34.5
+47,VC_VAW_NONMARR,5,Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months (%),87.5,168.8,35.2
+48,EN_H2O_WBAMBQ,6,Proportion of bodies of water with good ambient water quality (%),87.2,168.2,35.9
+49,FC_ACC_SSID,9,Proportion of small-scale industries with a loan or line of credit (%),86.7,167.4,36.6
+50,IC_FRM_BRIB,16,Bribery incidence (% of firms experiencing at least one bribe payment request),86.7,167.4,37.3
+51,SI_DST_FISP,10,"Redistributive impact of fiscal policy, Gini index (%)",86.4,166.8,38.0
+52,SG_INF_ACCSS,16,"Countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",85.5,165.0,38.6
+53,EN_TWT_GENV,12,"Total waste generation, by activity (Tonnes)",85.4,164.8,39.3
+54,EN_LND_CNSPOP,11,Ratio of land consumption rate to population growth rate,85.3,164.6,40.0
+55,SL_DOM_TSPD,5,"Proportion of time spent on unpaid domestic chores and care work, by sex, age and location (%)",85.0,164.0,40.7
+56,SH_BLD_ECOLI,3,"Percentage of bloodstream infection due to Escherichia coli resistant to 3rd-generation cephalosporin (e.g., ESBL- E. coli) among patients seeking care and whose blood sample is taken and tested (%)",84.0,162.2,41.3
+57,VC_DSR_CDAN,11,Number of damaged critical infrastructure attributed to disasters (number),83.8,161.8,42.0
+58,VC_VAW_MARR,5,"Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",83.6,161.4,42.7
+59,SE_TOT_CPLR,4,"Completion rate, by sex, location, wealth quintile and education level (%)",83.4,161.0,43.3
+60,SH_PRV_SMOK,3,"Age-standardized prevalence of current tobacco use among persons aged 15 years and older, by sex (%)",82.9,160.0,44.0
+61,GB_XPD_CULNAT_PB,11,"Total expenditure per capita spent on cultural and natural heritage, public (PPP, constant 2017 United States dollars)",82.4,159.0,44.6
+62,ER_H2O_IWRMD,6,Degree of integrated water resources management implementation (%),81.1,156.6,45.3
+63,SH_DTH_NCOM,3,"Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease (probability)",81.0,156.4,45.9
+64,SH_STA_POISN,3,"Mortality rate attributed to unintentional poisonings, by sex (deaths per 100,000 population)",81.0,156.4,46.6
+65,SH_STA_SCIDE,3,"Suicide mortality rate, by sex (deaths per 100,000 population)",81.0,156.4,47.2
+66,EN_ATM_GHGT_WLU,13,Total greenhouse gas emissions with LULUCF (Mt CO₂ equivalent),80.9,156.2,47.9
+67,SL_EMP_FTLINJUR,8,"Fatal occupational injuries among employees, by sex and migrant status (per 100,000 employees)",80.8,156.0,48.5
+68,SG_HAZ_CMRBASEL,12,"Parties meeting their commitments and obligations in transmitting information as required by Basel Convention on hazardous waste, and other chemicals (%)",80.3,155.0,49.1
+69,SH_STA_TRAF,3,"Death rate due to road traffic injuries, by sex (per 100,000 population)",80.2,154.8,49.8
+70,ER_BDY_ABT2NP,15,Countries that established national targets in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011-2020 in their National Biodiversity Strategy and Action Plans (1 = YES; 0 = NO),80.1,154.6,50.4
+71,AG_LND_FRST,15,Forest area as a proportion of total land area (%),80.0,154.4,51.0
+72,SD_CPA_UPRDP,11,Countries that have national urban policies or regional development plans that respond to population dynamics; ensure balanced territorial development; and increase local fiscal space (1 = YES; 0 = NO),80.0,154.4,51.7
+73,EG_TBA_H2CO,6,Proportion of transboundary basins (river and lake basins and aquifers) with an operational arrangement for water cooperation (%),79.8,154.0,52.3
+74,SL_EMP_EARN,8,Average hourly earnings of employees by sex and occupation (local currency),79.6,153.6,52.9
+75,EN_LND_INDQTHSNG,11,Proportion of urban population living in inadequate housing (%),79.3,153.0,53.6
+76,ST_GDP_ZS,8,Tourism direct GDP as a proportion of total GDP (%),79.1,152.6,54.2
+77,PD_AGR_SSFP,2,"Productivity of small-scale food producers (agricultural output per labour day, PPP) (constant 2017 international $)",78.9,152.2,54.8
+78,SI_HEI_TOTL,10,Growth rates of household expenditure or income per capita (%),78.8,152.0,55.4
+79,SD_MDP_MUHC,1,Proportion of population living in multidimensional poverty (%),78.5,151.6,56.1
+80,SI_AGR_SSFP,2,"Average income of small-scale food producers, PPP (constant 2017 international $)",78.4,151.4,56.7
+81,SP_DYN_ADKL,3,"Adolescent birth rate (per 1,000 women aged 15-19 and 10-14 years)",78.2,151.0,57.3
+82,EN_EWT_RCYPCAP,12,"Electronic waste recycled, per capita (Kg)",77.9,150.33,57.9
+83,AG_FOOD_WST,12,Food waste (Tonnes),76.8,148.2,58.5
+84,ER_H2O_PRDU,6,"Countries with procedures in law or policy for participation by service users/communities in planning program in rural drinking-water supply, by level of definition in procedures (10 = Clearly defined; 5 = Not clearly defined ; 0 = NA)",76.7,148.0,59.1
+85,EN_SCP_FRMN,12,"Number of companies publishing sustainability reports with disclosure by dimension, by level of requirement (Number)",76.5,147.6,59.7
+86,SP_PSR_OSATIS_HLTH,16,Proportion of population who say that overall they are satisfied with the quality of healthcare services (%),76.5,147.6,60.4
+87,SP_TRN_PUBL,11,Proportion of population that has convenient access to public transport (%),74.6,144.0,60.9
+88,SG_LGL_GENEQEMP,5,"Legal frameworks that promote, enforce and monitor gender equality (percentage of achievement, 0 - 100) -- Area 3: employment and economic benefits",74.2,143.2,61.5
+89,SE_ADT_ACTS,4,"Proportion of youth and adults with information and communications technology (ICT) skills, by sex and type of skill (%)",74.0,142.8,62.1
+90,EN_WWT_WWDS,6,Proportion of safely treated domestic wastewater flows (%),73.2,141.2,62.7
+91,GB_POP_SCIERD,9,"Researchers (in full-time equivalent) per million inhabitants (per 1,000,000 population)",73.0,140.8,63.3
+92,SE_ADT_LITR,4,Youth/adult literacy rate (%),72.8,140.5,63.9
+93,FB_BNK_ACCSS,8,"Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider, by sex (% of adults aged 15 years and older)",71.9,138.8,64.4
+94,NV_IND_TECH,9,Proportion of medium and high-tech manufacturing value added in total value added (%),71.6,138.2,65.0
+95,GB_XPD_RSDV,9,Research and development expenditure as a proportion of GDP (%),71.2,137.4,65.6
+96,VC_DSR_GDPLS,1,Direct economic loss attributed to disasters (current United States dollars),70.8,136.6,66.1
+97,SI_COV_BENFTS,1,"[ILO] Proportion of population covered by at least one social protection benefit, by sex (%)",69.3,133.67,66.7
+98,EN_MAR_CHLANM,14,"Chlorophyll-a anomaly, remote sensing (%)",69.1,133.4,67.2
+99,SH_STA_BRTC,3,Proportion of births attended by skilled health personnel (%),69.0,133.2,67.8
+100,VC_VOV_GDSD,10,"Proportion of population reporting having felt discriminated against, by grounds of discrimination, sex and disability (%)",68.9,133.0,68.3
+101,SL_ISV_IFEM,8,"Proportion of informal employment, by sector and sex - 13th ICLS (%)",68.0,131.2,68.8
+102,SP_LGL_LNDAGSEC,5,"Proportion of total agricultural population with ownership or secure rights over agricultural land, by sex (%)",67.7,130.6,69.4
+103,ST_EEV_STDACCT,12,Implementation of standard accounting tools to monitor the economic and environmental aspects of tourism (number of tables),67.6,130.4,69.9
+104,ST_EMP_TRSMN,8,Employed persons in the tourism industries (number),67.5,130.2,70.5
+105,GC_GOB_TAXD,17,Proportion of domestic budget funded by domestic taxes (%),67.3,129.8,71.0
+106,GR_G14_GDP,17,Total government revenue (budgetary central government) as a proportion of GDP (%),67.3,129.8,71.5
+107,VC_DSR_AFFCT,1,Number of people affected by disaster (number),66.6,128.6,72.0
+108,DT_TDS_DECT,17,"Debt service as a proportion of exports of goods, services and primary income (%)",64.9,125.2,72.6
+109,SE_ADT_EDUCTRN,4,"Participation rate in formal and non-formal education and training, by sex (%)",64.8,125.0,73.1
+110,SG_DSR_LGRGSR,1,Score of adoption and implementation of national DRR strategies in line with the Sendai Framework,63.4,122.33,73.6
+111,ER_REG_UNFCIM,14,"Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing (level of implementation: 1 lowest to 5 highest)",62.7,121.0,74.1
+112,SG_DSR_SILS,1,Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies (%),62.7,121.0,74.6
+113,SI_POV_NAHC,1,Proportion of population living below the national poverty line (%),62.4,120.5,75.1
+114,SE_TRA_GRDL,4,"Proportion of teachers with the minimum required qualifications, by education level and sex (%)",62.4,120.4,75.6
+115,SM_DTH_MIGR,10,Total deaths and disappearances recorded during migration (number),61.6,118.8,76.1
+116,EN_LKRV_PWAC,6,Lakes and rivers permanent water area change (%),61.0,117.8,76.5
+117,EN_MAT_DOMCMPC,8,"Domestic material consumption per capita, by type of raw material (tonnes)",60.2,116.2,77.0
+118,ER_IAS_LEGIS,15,"Legislation, Regulation, Act related to the prevention of introduction and management of Invasive Alien Species (1 = YES, 0 = NO)",60.2,116.2,77.5
+119,SE_TOT_PRFL,4,Proportion of children and young people achieving a minimum proficiency level in reading and mathematics (%),59.3,114.5,78.0
+120,VC_HTF_DETVSX,16,"Detected victims of human trafficking for sexual exploitation, by age and sex (number)",58.1,112.2,78.4
+121,GF_XPD_GBPC,16,Primary government expenditures as a proportion of original approved budget (%),58.0,112.0,78.9
+122,SL_TLF_NEET,8,"Proportion of youth not in education, employment or training, by sex and age - 13th ICLS (%)",58.0,112.0,79.3
+123,VC_IHR_PSRC,16,"Number of victims of intentional homicide per 100,000 population, by sex (victims per 100,000 population)",57.4,110.8,79.8
+124,SI_POV_50MI,10,Proportion of people living below 50 percent of median income (%),57.3,110.5,80.3
+125,SI_POV_DAY1,1,Proportion of population below international poverty line (%),57.3,110.5,80.7
+126,IC_GEN_MGTL,5,Proportion of women in managerial positions - 13th ICLS (%),57.1,110.2,81.2
+127,VC_PRS_UNSNT,16,Unsentenced detainees as a proportion of overall prison population (%),57.1,110.2,81.6
+128,SH_STA_MALR,3,"Malaria incidence per 1,000 population at risk (per 1,000 population)",55.6,107.4,82.1
+129,EN_ATM_CO2,9,Carbon dioxide emissions from fuel combustion (millions of tonnes),54.9,106.0,82.5
+130,SL_TLF_MANF,9,Manufacturing employment as a proportion of total employment - 13th ICLS (%),53.5,103.2,82.9
+131,SL_TLF_UEM,8,"Unemployment rate, by sex and age - 13th ICLS (%)",53.5,103.2,83.3
+132,SL_EMP_GTOTL,10,Labour share of GDP (%),51.8,100.0,83.7
+133,SE_GPI_PTNPRE,4,"Adjusted gender parity index for participation rate in organized learning (one year before the official primary entry age), (ratio)",50.6,97.6,84.1
+134,SG_LGL_LNDFEMOD,5,Degree to which the legal framework (including customary law) guarantees women’s equal rights to land ownership and/or control (1=No evidence to 6=Highest levels of guarantees),49.7,96.0,84.5
+135,SE_ACS_CMPTR,4,"Proportion of schools with access to computers for pedagogical purposes, by education level (%)",49.4,95.4,84.9
+136,SH_MED_DEN,3,"Health worker density, by type of occupation (per 10,000 population)",48.8,94.2,85.3
+137,SE_PRE_PARTN,4,"Participation rate in organized learning (one year before the official primary entry age), by sex (%)",48.7,94.0,85.7
+138,IS_RDP_PFVOL,9,"Passenger volume (passenger kilometres), by mode of transport",48.3,93.2,86.1
+139,SI_RMT_COST,10,Average remittance costs of sending $200 to a receiving country as a proportion of the amount remitted (%),47.3,91.2,86.5
+140,TM_TAX_WMFN,17,"Worldwide weighted tariff-average, most-favoured-nation status, by type of product (%)",46.1,89.0,86.8
+141,SL_CPA_YEMP,8,"Existence of a developed and operationalized national strategy for youth employment, as a distinct strategy or as part of a national employment strategy",45.4,87.6,87.2
+142,ER_H2O_STRESS,6,Level of water stress: freshwater withdrawal as a proportion of available freshwater resources (%),45.0,86.8,87.5
+143,SG_REG_CENSUSN,17,Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO),44.6,86.0,87.9
+144,DC_FTA_TOTAL,17,Total official development assistance (gross disbursement) for technical cooperation (millions of 2024 United States dollars),44.4,85.6,88.3
+145,ER_H2O_WUEYST,6,Water Use Efficiency (United States dollars per cubic meter),43.7,84.4,88.6
+146,FI_FSI_FSKRTC,10,Regulatory Tier 1 capital to risk-weighted assets (%),43.7,84.4,88.9
+147,SG_CPA_OFDI,17,"Number of countries with an outward investment promotion scheme which can benefit developing countries, including LDCs (1 = YES, 0 = NO)",43.6,84.2,89.3
+148,DC_ENVTECH_IMP,17,Amount of tracked imported Environmentally Sound Technologies (current United States dollars),43.5,84.0,89.6
+149,SD_XPD_ESED,1,"Proportion of total government spending on essential services, education [UIS methodology] (%)",42.2,81.4,90.0
+150,EG_IFF_RANDN,7,"International financial flows to developing countries in support of clean energy research and development and renewable energy production, including in hybrid systems (millions of constant 2023 United States dollars)",41.6,80.2,90.3
+151,SH_H2O_SAFE,6,"Proportion of population using safely managed drinking water services, by urban/rural (%)",41.6,80.2,90.6
+152,SH_STA_ANEM,2,Proportion of women aged 15-49 years with anaemia (%),40.6,78.4,91.0
+153,SH_ACS_UNHC_25,3,"Universal health coverage (UHC) service coverage index, 2025 methodology",40.3,77.8,91.3
+154,SH_STA_MORT,3,Maternal mortality ratio,40.3,77.8,91.6
+155,EN_ATM_PM25,11,"Annual mean levels of fine particulate matter (population-weighted), by location (micrograms per cubic meter)",40.0,77.2,91.9
+156,SG_STT_CAPTY,17,Dollar value of all resources made available to strengthen statistical capacity in developing countries (current United States dollars),40.0,77.2,92.2
+157,EG_EGY_PRIM,7,Energy intensity level of primary energy (megajoules per constant 2021 purchasing power parity GDP),35.1,67.8,92.5
+158,EG_FEC_RNEW,7,Renewable energy share in the total final energy consumption (%),35.1,67.8,92.8
+159,FB_ATM_TOTL,8,"Number of automated teller machines (ATMs) per 100,000 adults",34.3,66.2,93.1
+160,BX_TRF_PWKR,17,Volume of remittances (in United States dollars) as a proportion of total GDP (%),33.3,64.2,93.3
+161,SN_STA_OVWGT,2,Proportion of children moderately or severely overweight (%),33.3,64.2,93.6
+162,BN_CAB_XOKA_GD_ZS,17,Current account balance as a proportion of GDP (%),32.2,62.2,93.8
+163,VC_VAW_MTUHRAN,16,"Countries with at least one verified case of killings of human rights defenders, journalists, and trade unionists (1 = YES, 0 = NO)",31.9,61.6,94.1
+164,IT_MOB_2GNTWK,9,Proportion of population covered by at least a 2G mobile network (%),29.1,56.2,94.3
+165,IT_NET_BBND,17,"Fixed broadband subscriptions per 100 inhabitants, by speed (per 100 inhabitants)",28.9,55.8,94.6
+166,ER_FFS_CMPT_GDP,12,Fossil-fuel subsidies (consumption and production) as a proportion of total GDP (%),28.8,55.6,94.8
+167,SH_SAN_DEFECT,6,"Proportion of population practicing open defecation, by urban/rural (%)",25.5,49.2,95.0
+168,IT_MOB_OWN,5,"Proportion of individuals who own a mobile telephone, by sex (%)",25.1,48.4,95.2
+169,IT_USE_ii99,17,Proportion of individuals using the Internet (%),24.9,48.0,95.4
+170,AG_FPA_CFPI,2,"Indicator of Food Price Anomalies (IFPA), by Consumer Food Price Index",24.6,47.4,95.6
+171,SH_HIV_INCD,3,"Number of new HIV infections per 1,000 uninfected population, by sex and age (per 1,000 uninfected population)",24.1,46.6,95.8
+172,GF_FRN_FDI,17,Foreign direct investment (FDI) inflows (millions of United States dollars),24.0,46.4,96.0
+173,SP_ACS_BSRVH2O,1,"Proportion of population using basic drinking water services, by location (%)",23.7,45.8,96.1
+174,AG_LND_SUST_PRXCSS,2,"[PROXY] Progress toward productive and sustainable agriculture, current status score",22.9,44.2,96.3
+175,SL_LBR_NTLCPL,8,Level of national compliance with labour rights (freedom of association and collective bargaining) based on International Labour Organization (ILO) textual sources and national legislation,22.9,44.2,96.5
+176,AG_PRD_AGVAS,2,Agriculture value added share of GDP (%),22.5,43.4,96.7
+177,SH_IHR_CAPS,3,"International Health Regulations (IHR) capacity, by type of IHR capacity (%)",22.4,43.2,96.9
+178,TM_TAX_DMFN,17,"Average tariff applied by developed countries, most-favored nation status, by type of product (%)",22.1,42.6,97.0
+179,IQ_SPI_PIL5,17,Data Infrastructure performance index (Statistical Performance Indicators Pillar 5) (Index),21.7,41.8,97.2
+180,SH_ALC_CONSPT,3,Alcohol consumption per capita (aged 15 years and older) within a calendar year (litres of pure alcohol),21.7,41.8,97.4
+181,EG_EGY_RNEW,7,Installed renewable electricity-generating capacity (watts per capita),21.2,41.0,97.5
+182,TX_EXP_GBMRCH,17,Developing countries’ and least developed countries’ share of global merchandise exports (%),21.2,41.0,97.7
+183,SH_ACS_DTP3,3,Proportion of the target population who received 3 doses of diphtheria-tetanus-pertussis (DTP3) vaccine (%),20.8,40.2,97.9
+184,EG_EGY_CLEAN,7,Proportion of population with primary reliance on clean fuels and technology (%),20.4,39.4,98.0
+185,SH_DYN_IMRT,3,"Infant mortality rate (deaths per 1,000 live births)",20.4,39.4,98.2
+186,SH_DYN_NMRT,3,"Neonatal mortality rate (deaths per 1,000 live births)",20.4,39.4,98.4
+187,SH_TBS_INCD,3,"Tuberculosis incidence (per 100,000 population)",20.4,39.4,98.5
+188,SH_TRP_INTVN,3,Number of people requiring interventions against neglected tropical diseases (number),20.4,39.4,98.7
+189,TM_TRF_ZERO,10,Proportion of tariff lines applied to imports with zero-tariff (%),20.4,39.4,98.9
+190,AG_LND_FRSTCERT,15,Forest area certified under an independently verified certification scheme (thousands of hectares),20.0,38.6,99.0
+191,EG_ACS_ELEC,7,"Proportion of population with access to electricity, by urban/rural (%)",20.0,38.6,99.2
+192,NY_GDP_PCAP,8,Annual growth rate of real GDP per capita (%),20.0,38.6,99.3
+193,SH_HAP_HBSAG_26,3,"Prevalence of hepatitis B surface antigen (HBsAg), 2026 methodology (%)",20.0,38.6,99.5
+194,SH_STA_STNT,2,Proportion of children moderately or severely stunted (%),17.1,33.0,99.6
+195,SN_ITK_DEFC,2,Prevalence of undernourishment (%),14.0,27.0,99.7
+196,SL_EMP_PCAP,8,Annual growth rate of real GDP per employed person (%),8.9,17.2,99.8
+197,AG_PRD_FIESMS,2,Prevalence of moderate or severe food insecurity in the population (%),8.3,16.0,99.9
+198,ER_GRF_ANIMKPT_TRB,2,Number of transboundary breeds (including extinct ones),7.3,14.0,99.9
+199,ER_NOEX_TRBBREDN,2,Number of transboundary breeds (not extinct) (number),7.3,14.0,100.0
+200,ER_PTD_TERR,15,Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%),1.6,3.0,100.0
+201,SG_DMK_PARLSP_LC,16,"Number of speakers in parliament, by age and sex , Lower Chamber or Unicameral",0.2,0.4,100.0
+202,ER_CBD_PTYPGRFA,15,Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO),0.0,0.0,100.0
+203,ER_RSK_LST,15,Red List Index,0.0,0.0,100.0
+204,NV_IND_MANF,9,Manufacturing value added (constant 2020 United States dollars) as a proportion of GDP (%),0.0,0.0,100.0
+205,SG_GEN_PARL,5,Proportion of seats held by women in national parliaments (% of total number of seats),0.0,0.0,100.0
+206,SG_INT_MBRDEV,10,"Proportion of members of developing countries in international organizations, by organization (%)",0.0,0.0,100.0
+207,SG_NHR_IMPL,16,Proportion of countries with independent National Human Rights Institutions in compliance with the Paris Principles (%),0.0,0.0,100.0
+208,SG_STT_FPOS,17,Countries with national statistical legislation exists that complies with the Fundamental Principles of Official Statistics (1 = YES; 0 = NO),0.0,0.0,100.0
+209,SG_STT_NSDSFDDNR,17,Countries with national statistical plans with funding from donors (1 = YES; 0 = NO),0.0,0.0,100.0
+210,SM_POP_REFG_OR,10,"Number of refugees per 100,000 population, by country of origin (per 100,000 population)",0.0,0.0,100.0

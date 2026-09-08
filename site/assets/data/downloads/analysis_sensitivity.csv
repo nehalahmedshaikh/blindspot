@@ -1,7 +1,6 @@
-specification,mean_missingness_pct,low_minus_high_income_pp
-"All official statuses, 5-year window",47.6,14.3
-"All official statuses, 3-year window",56.4,12.6
-"All official statuses, 7-year window",41.9,13.6
-"Country and country-adjusted statuses only, 5-year window",79.2,13.5
-"Population-weighted countries, all official statuses, 5-year window",43.6,19.5
-"All selected series, treating conditional series as applicable",50.0,14.0
+specification,mean_missingness_pct,low_minus_high_income_pp,ci_low,ci_high
+"Primary: all official statuses, 5 years",60.1,7.1,4.2,10.0
+Short window: 3 years,67.0,4.6,2.2,6.9
+Long window: 7 years,56.2,7.2,4.1,10.1
+Country-reported statuses only,80.7,7.8,5.9,9.4
+Countries weighted by population,57.0,9.0,6.6,12.0

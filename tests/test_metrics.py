@@ -45,6 +45,14 @@ class MetricTests(unittest.TestCase):
         self.assertIsNone(pairs[("AAA", "SEA")]["measurement_priority_v1"])
         self.assertTrue(0 <= pairs[("BBB", "TEST")]["measurement_priority_v1"] <= 100)
 
+    def test_default_window_is_fixed_through_2025(self):
+        observations = [self.observation("1", "TEST", year) for year in range(2021, 2026)]
+        result = calculate_metrics(
+            observations, self.specs, self.countries, self.context, self.catalog
+        )
+        self.assertEqual(result["completed_year"], 2025)
+        self.assertEqual(result["recent_window"], [2021, 2025])
+
     def test_disaggregation_and_aggregate_are_distinct(self):
         rows = [
             self.observation("1", "TEST", 2024, dimensions={"Sex": "FEMALE"}),

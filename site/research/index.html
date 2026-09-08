@@ -13,11 +13,93 @@
   <header id="site-header" class="masthead"></header>
   <aside id="status-banner" class="status-banner" hidden></aside>
   <main id="main">
-    <section class="page-hero"><div class="eyebrow">Research</div><h1>What patterns do the gaps reveal?</h1><p id="research-scope">Loading the analysis…</p></section>
-    <section class="panel research-results"><div class="section-heading"><div><h2>Main results</h2></div></div><div id="finding-strip" class="finding-list"></div></section>
-    <section class="panel comparison-panel"><div class="section-heading"><div><h2>Group comparisons</h2></div></div><div class="comparison-view"><label>Compare by<select id="comparison-dimension"><option value="income">Income group</option><option value="region">Region</option><option value="goal">Goal</option><option value="family">SDG family</option></select></label><p id="comparison-note"></p><div id="comparison-bars" class="bar-chart"></div></div></section>
-    <section class="panel supporting-panel"><div class="section-heading"><div><h2>Supporting results</h2></div></div><div id="supporting-results" class="result-list"></div></section>
-    <section class="panel robustness-panel"><div class="section-heading"><div><h2>Robustness checks</h2></div></div><div id="robustness-results" class="check-list"></div><p class="method-link"><a href="methods/#research-method">Definitions and analysis method ↗</a></p></section>
+    <section class="page-hero">
+      <div class="eyebrow">Research</div>
+      <h1>What patterns do the gaps reveal?</h1>
+      <p id="research-scope">Loading the analysis…</p>
+    </section>
+
+    <section class="panel research-viz">
+      <div class="section-heading"><div><h2>Who reports less?</h2></div></div>
+      <div class="chart-controls">
+        <label>Compare by
+          <select id="comparison-dimension">
+            <option value="income">Income group</option>
+            <option value="region">Region</option>
+            <option value="goal">Goal</option>
+            <option value="family">SDG family</option>
+          </select>
+        </label>
+        <p id="comparison-note"></p>
+      </div>
+      <div id="comparison-chart" class="chart-frame"></div>
+      <details class="chart-data"><summary>View values</summary><div id="comparison-table" class="table-wrap"></div></details>
+    </section>
+
+    <section class="panel research-viz">
+      <div class="section-heading"><div><h2>Where do gaps cluster?</h2></div></div>
+      <div class="viz-stack">
+        <article>
+          <h3>Recent missingness by income group and goal</h3>
+          <p>Darker cells indicate a larger share of expected observations absent.</p>
+          <div id="goal-income-heatmap" class="matrix-wrap"></div>
+        </article>
+        <article>
+          <h3>Low–high-income difference within each goal</h3>
+          <p>Positive values indicate more recent missingness among low-income countries.</p>
+          <div id="goal-effects-chart" class="chart-frame"></div>
+        </article>
+        <article>
+          <h3>Where variation occurs</h3>
+          <p>The observed spread separated into country, indicator, and remaining country–indicator variation.</p>
+          <div id="variance-chart" class="decomposition-chart"></div>
+        </article>
+        <article>
+          <h3>Indicators contributing the most missingness</h3>
+          <p>Ranked across the same universal country–indicator panel.</p>
+          <div id="concentration-chart" class="chart-frame"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel research-viz">
+      <div class="section-heading"><div><h2>What kind of evidence is visible?</h2></div></div>
+      <div class="viz-stack">
+        <article>
+          <h3>Reporting status of expected observations</h3>
+          <div id="status-legend" class="chart-legend"></div>
+          <div id="status-chart" class="stack-chart"></div>
+        </article>
+        <article>
+          <h3>Recent breakdown visibility by goal</h3>
+          <p>The share of country–indicator pairs showing more than one sex, age, or location category.</p>
+          <div id="breakdown-matrix" class="matrix-wrap"></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel research-viz">
+      <div class="section-heading"><div><h2>What remains after adjustment?</h2></div></div>
+      <p class="chart-intro">Differences in recent missingness after accounting for representative-indicator baselines and the other country characteristics shown. Statistical performance is estimated in the secondary model.</p>
+      <div id="model-chart" class="chart-frame"></div>
+      <details class="chart-data"><summary>View model values</summary><div id="model-table" class="table-wrap"></div></details>
+    </section>
+
+    <section class="panel research-viz">
+      <div class="section-heading"><div><h2>Do the patterns hold?</h2></div></div>
+      <div class="viz-stack">
+        <article>
+          <h3>Change the assumptions</h3>
+          <div id="sensitivity-chart" class="chart-frame"></div>
+        </article>
+        <article>
+          <h3>Remove indicators one at a time</h3>
+          <p>Each mark is the low–high-income gap after excluding one representative series.</p>
+          <div id="leave-one-chart" class="chart-frame"></div>
+        </article>
+      </div>
+      <p class="method-link"><a href="methods/#research-method">Definitions and analysis method ↗</a></p>
+    </section>
   </main>
   <footer id="site-footer"></footer>
   <script src="shell.js" defer></script><script src="research.js" defer></script>

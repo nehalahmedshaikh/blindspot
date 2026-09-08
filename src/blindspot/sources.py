@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import gzip
 import hashlib
+import http.client
 import io
 import json
 import sys
@@ -16,7 +17,14 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from .config import CACHE_DIR, Country, SeriesSpec, ensure_directories
+from .config import (
+    CACHE_DIR,
+    LATEST_COMPLETED_YEAR,
+    OBSERVATION_START_YEAR,
+    Country,
+    SeriesSpec,
+    ensure_directories,
+)
 
 UN_BASE = "https://unstats.un.org/SDGAPI/v1/sdg"
 WB_BASE = "https://api.worldbank.org/v2"
@@ -39,7 +47,7 @@ def fetch_json(url: str, retries: int = 3, timeout: int = 60) -> Any:
         try:
             with urllib.request.urlopen(request, timeout=timeout) as response:
                 return json.loads(response.read().decode("utf-8-sig"))
-        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+        except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, http.client.IncompleteRead, ConnectionError) as exc:
             error = exc
             if attempt + 1 < retries:
                 time.sleep(2**attempt)
@@ -118,8 +126,16 @@ def _fetch_one_series(
     return spec.code, rows
 
 
+def observations_sha256(observations: Iterable[dict[str, Any]]) -> str:
+    payload = "".join(
+        json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n"
+        for item in observations
+    )
+    return hashlib.sha256(payload.encode()).hexdigest()
+
+
 def fetch_un_observations(
-    specs: Iterable[SeriesSpec], countries: Iterable[Country], start_year: int = 2015
+    specs: Iterable[SeriesSpec], countries: Iterable[Country], start_year: int = OBSERVATION_START_YEAR
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     country_codes = {country.m49 for country in countries}
     snapshot_at = utc_now()
@@ -127,10 +143,10 @@ def fetch_un_observations(
     observations: list[dict[str, Any]] = []
     source_counts: dict[str, int] = {}
     failed: dict[str, str] = {}
-    years = list(range(start_year, datetime.now(UTC).year + 1))
+    years = list(range(start_year, LATEST_COMPLETED_YEAR + 1))
 
     spec_list = list(specs)
-    with ThreadPoolExecutor(max_workers=4, thread_name_prefix="un-sdg") as executor:
+    with ThreadPoolExecutor(max_workers=8, thread_name_prefix="un-sdg") as executor:
         futures = {
             executor.submit(_fetch_one_series, spec, country_codes, years, snapshot_date): spec
             for spec in spec_list
@@ -156,6 +172,12 @@ def fetch_un_observations(
         raise SourceError("UN refresh produced no valid observations")
     if failed:
         raise SourceError("UN refresh was partial; refusing to replace cache: " + json.dumps(failed))
+    universal = {spec.code for spec in spec_list if spec.applicability == "universal"}
+    empty_universal = sorted(code for code in universal if source_counts.get(code, 0) == 0)
+    if empty_universal:
+        raise SourceError(
+            f"Universal series returned no member-state observations: {empty_universal}"
+        )
 
     observations.sort(
         key=lambda row: (
@@ -165,14 +187,7 @@ def fetch_un_observations(
             json.dumps(row["dimensions"], sort_keys=True),
         )
     )
-    ensure_directories()
-    target = CACHE_DIR / "observations.jsonl.gz"
-    temp = target.with_suffix(".tmp")
-    with gzip.open(temp, "wt", encoding="utf-8") as handle:
-        for item in observations:
-            handle.write(json.dumps(item, ensure_ascii=False, sort_keys=True) + "\n")
-    temp.replace(target)
-    digest = hashlib.sha256(target.read_bytes()).hexdigest()
+    digest = observations_sha256(observations)
     return observations, {
         "source": "UNSD SDG API",
         "retrieved_at": snapshot_at,
@@ -184,14 +199,42 @@ def fetch_un_observations(
     }
 
 
+def _validate_representative_mapping(
+    specs: Iterable[SeriesSpec], catalog: dict[str, dict[str, Any]]
+) -> None:
+    spec_list = list(specs)
+    selected = {spec.code for spec in spec_list}
+    missing_series = selected - catalog.keys()
+    if missing_series:
+        raise SourceError(
+            f"Configured series absent from current UN release: {sorted(missing_series)}"
+        )
+    configured = [indicator for spec in spec_list for indicator in spec.indicators]
+    official = {
+        indicator for item in catalog.values() for indicator in item.get("indicator", [])
+    }
+    duplicates = sorted({indicator for indicator in configured if configured.count(indicator) > 1})
+    if duplicates:
+        raise SourceError(f"Official indicators have multiple representatives: {duplicates}")
+    if set(configured) != official:
+        raise SourceError(
+            "Representative mapping does not match the current UN catalogue: "
+            f"missing={sorted(official - set(configured))}, "
+            f"retired={sorted(set(configured) - official)}"
+        )
+    for spec in spec_list:
+        if not set(spec.indicators) <= set(catalog[spec.code].get("indicator", [])):
+            raise SourceError(
+                f"Representative mapping disagrees with UN metadata: {spec.code}"
+            )
+
+
 def fetch_series_catalog(specs: Iterable[SeriesSpec]) -> tuple[dict[str, dict[str, Any]], dict[str, Any]]:
     url = query_url(f"{UN_BASE}/Series/List", {"allreleases": "false"})
     payload = fetch_json(url)
-    selected = {spec.code for spec in specs}
-    catalog = {item["code"]: item for item in payload if item.get("code") in selected}
-    missing = selected - catalog.keys()
-    if missing:
-        raise SourceError(f"Configured series absent from current UN release: {sorted(missing)}")
+    spec_list = list(specs)
+    catalog = {item["code"]: item for item in payload}
+    _validate_representative_mapping(spec_list, catalog)
     raw = json.dumps(catalog, ensure_ascii=False, sort_keys=True).encode()
     return catalog, {
         "source": "UNSD SDG series catalog",
@@ -250,6 +293,15 @@ def fetch_world_bank_context(
         if current_year is None or year > current_year:
             context[code]["statistical_performance"] = round(score, 3)
             context[code]["statistical_performance_year"] = year
+    missing_context = sorted(members - context.keys())
+    missing_population = sorted(
+        code for code in members if context.get(code, {}).get("population") is None
+    )
+    if missing_context or missing_population:
+        raise SourceError(
+            "World Bank context is incomplete: "
+            f"missing_countries={missing_context}, missing_population={missing_population}"
+        )
     raw = json.dumps(context, sort_keys=True).encode()
     return context, {
         "source": "World Bank population and statistical performance",

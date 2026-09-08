@@ -3,10 +3,9 @@ from __future__ import annotations
 import math
 import statistics
 from collections import Counter, defaultdict
-from datetime import UTC, datetime
 from typing import Any
 
-from .config import Country, SeriesSpec
+from .config import LATEST_COMPLETED_YEAR, Country, SeriesSpec
 
 TOTAL_DIMENSION_VALUES = {
     "ALL",
@@ -81,7 +80,7 @@ def calculate_metrics(
     catalog: dict[str, dict[str, Any]],
     completed_year: int | None = None,
 ) -> dict[str, Any]:
-    completed_year = completed_year or datetime.now(UTC).year - 1
+    completed_year = completed_year or LATEST_COMPLETED_YEAR
     recent_start = completed_year - 4
     country_by_m49 = {country.m49: country for country in countries}
     spec_by_code = {spec.code: spec for spec in specs}
@@ -119,7 +118,13 @@ def calculate_metrics(
             if completeness < 1:
                 scarcity_counts[spec.code] += 1
             nature_counts = Counter(row.get("nature", "NA") for row in pair_rows)
-            dimensions = _dimension_coverage(pair_rows)
+            dimensions = _dimension_coverage(
+                [
+                    row for row in pair_rows
+                    if row.get("reference_year") is not None
+                    and recent_start <= int(row["reference_year"]) <= completed_year
+                ]
+            )
             intermediate.append(
                 {
                     "country_m49": country.m49,
@@ -127,6 +132,8 @@ def calculate_metrics(
                     "country_name": country.name,
                     "series_code": spec.code,
                     "goal": spec.goal,
+                    "goals": spec.goals or [spec.goal],
+                    "indicators": spec.indicators,
                     "applicability": spec.applicability,
                     "expected_cadence_years": spec.cadence,
                     "cadence_confidence": "curated",
@@ -176,7 +183,8 @@ def calculate_metrics(
         ctx = context.get(country.alpha3, {})
         by_goal: dict[int, list[dict[str, Any]]] = defaultdict(list)
         for item in items:
-            by_goal[item["goal"]].append(item)
+            for goal in item["goals"]:
+                by_goal[goal].append(item)
         country_metrics.append(
             {
                 "m49": country.m49,
@@ -209,12 +217,18 @@ def calculate_metrics(
             {
                 "code": spec.code,
                 "goal": spec.goal,
+                "goals": spec.goals or [spec.goal],
                 "description": metadata.get("description", spec.code),
-                "indicator": metadata.get("indicator", []),
+                "indicator": spec.indicators,
                 "rationale": spec.rationale,
                 "cadence": spec.cadence,
                 "applicability": spec.applicability,
-                "coverage": round(100 * (1 - scarcity_counts[spec.code] / len(countries)), 2),
+                "coverage": (
+                    round(100 * (1 - scarcity_counts[spec.code] / len(countries)), 2)
+                    if spec.applicability == "universal" else None
+                ),
+                "visible_countries": sum(item["latest_year"] is not None for item in relevant),
+                "selection": spec.selection,
                 "aggregate_coverage": round(
                     100 * sum(item["has_aggregate_slice"] for item in relevant) / len(relevant), 1
                 ),

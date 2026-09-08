@@ -1,53 +1,4262 @@
 [
-  {"goal":1,"code":"SI_POV_DAY1","cadence":3,"applicability":"universal","rationale":"Direct measure of extreme monetary poverty"},
-  {"goal":1,"code":"SI_COV_BENFTS","cadence":2,"applicability":"universal","rationale":"Reach of social protection"},
-  {"goal":1,"code":"SP_ACS_BSRVH2O","cadence":1,"applicability":"universal","rationale":"Basic-service deprivation"},
-  {"goal":2,"code":"SN_ITK_DEFC","cadence":1,"applicability":"universal","rationale":"Population undernourishment"},
-  {"goal":2,"code":"AG_PRD_FIESMS","cadence":1,"applicability":"universal","rationale":"Experienced food insecurity"},
-  {"goal":2,"code":"SH_STA_STNT","cadence":3,"applicability":"universal","rationale":"Child chronic malnutrition"},
-  {"goal":3,"code":"SH_STA_MORT","cadence":1,"applicability":"universal","rationale":"Maternal health outcome"},
-  {"goal":3,"code":"SH_DYN_NMRT","cadence":1,"applicability":"universal","rationale":"Newborn survival"},
-  {"goal":3,"code":"SH_TBS_INCD","cadence":1,"applicability":"universal","rationale":"Communicable-disease burden"},
-  {"goal":4,"code":"SE_TOT_PRFL","cadence":3,"applicability":"universal","rationale":"Minimum learning proficiency"},
-  {"goal":4,"code":"SE_TOT_CPLR","cadence":1,"applicability":"universal","rationale":"Education completion"},
-  {"goal":4,"code":"SE_ADT_LITR","cadence":3,"applicability":"universal","rationale":"Adult and youth literacy"},
-  {"goal":5,"code":"SG_GEN_PARL","cadence":1,"applicability":"universal","rationale":"Women represented in national parliaments"},
-  {"goal":5,"code":"SL_DOM_TSPD","cadence":5,"applicability":"universal","rationale":"Unequal unpaid care burden"},
-  {"goal":5,"code":"IC_GEN_MGTL","cadence":1,"applicability":"universal","rationale":"Women in management"},
-  {"goal":6,"code":"SH_H2O_SAFE","cadence":1,"applicability":"universal","rationale":"Safely managed water"},
-  {"goal":6,"code":"SH_SAN_DEFECT","cadence":1,"applicability":"universal","rationale":"Sanitation deprivation"},
-  {"goal":6,"code":"ER_H2O_STRESS","cadence":1,"applicability":"universal","rationale":"Freshwater pressure"},
-  {"goal":7,"code":"EG_ACS_ELEC","cadence":1,"applicability":"universal","rationale":"Electricity access"},
-  {"goal":7,"code":"EG_EGY_CLEAN","cadence":1,"applicability":"universal","rationale":"Clean household energy"},
-  {"goal":7,"code":"EG_FEC_RNEW","cadence":1,"applicability":"universal","rationale":"Renewable energy transition"},
-  {"goal":8,"code":"NY_GDP_PCAP","cadence":1,"applicability":"universal","rationale":"Inclusive growth context"},
-  {"goal":8,"code":"SL_TLF_UEM","cadence":1,"applicability":"universal","rationale":"Employment access"},
-  {"goal":8,"code":"SL_TLF_NEET","cadence":1,"applicability":"universal","rationale":"Youth exclusion"},
-  {"goal":9,"code":"SP_ROD_R2KM","cadence":5,"applicability":"conditional","rationale":"Rural physical connectivity"},
-  {"goal":9,"code":"NV_IND_MANF","cadence":1,"applicability":"universal","rationale":"Industrial structure"},
-  {"goal":9,"code":"GB_XPD_RSDV","cadence":1,"applicability":"universal","rationale":"Research investment"},
-  {"goal":10,"code":"SI_HEI_TOTL","cadence":3,"applicability":"universal","rationale":"Bottom-40 income growth"},
-  {"goal":10,"code":"SI_POV_50MI","cadence":3,"applicability":"universal","rationale":"Relative poverty"},
-  {"goal":10,"code":"VC_VOV_GDSD","cadence":5,"applicability":"universal","rationale":"Experienced discrimination"},
-  {"goal":11,"code":"EN_LND_INDQTHSNG","cadence":5,"applicability":"universal","rationale":"Inadequate urban housing"},
-  {"goal":11,"code":"SP_TRN_PUBL","cadence":3,"applicability":"universal","rationale":"Public transport access"},
-  {"goal":11,"code":"EN_ATM_PM25","cadence":1,"applicability":"universal","rationale":"Urban air pollution"},
-  {"goal":12,"code":"EN_MAT_DOMCMPC","cadence":1,"applicability":"universal","rationale":"Domestic material consumption"},
-  {"goal":12,"code":"SG_HAZ_CMRBASEL","cadence":1,"applicability":"universal","rationale":"Hazardous-waste reporting commitments"},
-  {"goal":12,"code":"EN_EWT_RCYPCAP","cadence":2,"applicability":"universal","rationale":"Electronic-waste circularity"},
-  {"goal":13,"code":"SG_DSR_LGRGSR","cadence":2,"applicability":"universal","rationale":"National disaster-risk reduction strategies"},
-  {"goal":13,"code":"SG_DSR_SILS","cadence":2,"applicability":"universal","rationale":"Local disaster-risk reduction strategies"},
-  {"goal":13,"code":"VC_DSR_AFFCT","cadence":1,"applicability":"universal","rationale":"Human impact of disasters"},
-  {"goal":14,"code":"ER_OAW_MNACD","cadence":2,"applicability":"conditional","rationale":"Ocean acidification monitoring"},
-  {"goal":14,"code":"EN_SCP_FSHGDP","cadence":2,"applicability":"conditional","rationale":"Economic contribution of sustainable fisheries"},
-  {"goal":14,"code":"ER_MRN_MPA","cadence":1,"applicability":"conditional","rationale":"Marine biodiversity protection"},
-  {"goal":15,"code":"AG_LND_FRST","cadence":1,"applicability":"universal","rationale":"Forest extent"},
-  {"goal":15,"code":"AG_LND_DGRD","cadence":3,"applicability":"universal","rationale":"Land degradation"},
-  {"goal":15,"code":"ER_RSK_LST","cadence":1,"applicability":"universal","rationale":"Species extinction risk"},
-  {"goal":16,"code":"VC_IHR_PSRC","cadence":1,"applicability":"universal","rationale":"Intentional homicide"},
-  {"goal":16,"code":"VC_DTH_TOCVN","cadence":1,"applicability":"conditional","rationale":"Conflict-related deaths"},
-  {"goal":16,"code":"SG_NHR_IMPL","cadence":1,"applicability":"universal","rationale":"Independent national human-rights institutions"},
-  {"goal":17,"code":"GR_G14_GDP","cadence":1,"applicability":"universal","rationale":"Domestic resource mobilization"},
-  {"goal":17,"code":"IT_USE_ii99","cadence":1,"applicability":"universal","rationale":"Access to the internet"},
-  {"goal":17,"code":"BN_CAB_XOKA_GD_ZS","cadence":1,"applicability":"universal","rationale":"Macroeconomic stability"}
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.1.1"
+    ],
+    "code": "SI_POV_DAY1",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Direct measure of extreme monetary poverty",
+    "selection": {
+      "member_countries": 169,
+      "observation_rows_2015_2025": 4689,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.2.1"
+    ],
+    "code": "SI_POV_NAHC",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Proportion of population living below the national poverty line (%)",
+    "selection": {
+      "member_countries": 158,
+      "observation_rows_2015_2025": 543,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.2.2"
+    ],
+    "code": "SD_MDP_MUHC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of population living in multidimensional poverty (%)",
+    "selection": {
+      "member_countries": 87,
+      "observation_rows_2015_2025": 2279,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.3.1"
+    ],
+    "code": "SI_COV_BENFTS",
+    "cadence": 2,
+    "applicability": "universal",
+    "rationale": "Reach of social protection",
+    "selection": {
+      "member_countries": 189,
+      "observation_rows_2015_2025": 660,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.4.1"
+    ],
+    "code": "SP_ACS_BSRVH2O",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Basic-service deprivation",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 5266,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.4.2"
+    ],
+    "code": "SP_LGL_LNDSTR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of people with secure tenure rights to land out of total adult population, by sex (%)",
+    "selection": {
+      "member_countries": 86,
+      "observation_rows_2015_2025": 458,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1,
+      11,
+      13
+    ],
+    "indicators": [
+      "1.5.1",
+      "11.5.1",
+      "13.1.1"
+    ],
+    "code": "VC_DSR_AFFCT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Human impact of disasters",
+    "selection": {
+      "member_countries": 165,
+      "observation_rows_2015_2025": 2931,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1,
+      11
+    ],
+    "indicators": [
+      "1.5.2",
+      "11.5.2"
+    ],
+    "code": "VC_DSR_GDPLS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Direct economic loss attributed to disasters (current United States dollars)",
+    "selection": {
+      "member_countries": 162,
+      "observation_rows_2015_2025": 1722,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1,
+      11,
+      13
+    ],
+    "indicators": [
+      "1.5.3",
+      "11.b.1",
+      "13.1.2"
+    ],
+    "code": "SG_DSR_LGRGSR",
+    "cadence": 2,
+    "applicability": "universal",
+    "rationale": "National disaster-risk reduction strategies",
+    "selection": {
+      "member_countries": 140,
+      "observation_rows_2015_2025": 2073,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1,
+      11,
+      13
+    ],
+    "indicators": [
+      "1.5.4",
+      "11.b.2",
+      "13.1.3"
+    ],
+    "code": "SG_DSR_SILS",
+    "cadence": 2,
+    "applicability": "universal",
+    "rationale": "Local disaster-risk reduction strategies",
+    "selection": {
+      "member_countries": 128,
+      "observation_rows_2015_2025": 2118,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.a.1"
+    ],
+    "code": "DC_ODA_POVLG",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Official development assistance grants for poverty reduction, by recipient countries (percentage of GNI)",
+    "selection": {
+      "member_countries": 146,
+      "observation_rows_2015_2025": 1342,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.a.2"
+    ],
+    "code": "SD_XPD_ESED",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of total government spending on essential services, education [UIS methodology] (%)",
+    "selection": {
+      "member_countries": 185,
+      "observation_rows_2015_2025": 1479,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 1,
+    "goals": [
+      1
+    ],
+    "indicators": [
+      "1.b.1"
+    ],
+    "code": "SG_XPD_PR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of government spending which benefits the poorest 20 percent (%)",
+    "selection": {
+      "member_countries": 130,
+      "observation_rows_2015_2025": 119,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.1.1"
+    ],
+    "code": "SN_ITK_DEFC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Population undernourishment",
+    "selection": {
+      "member_countries": 166,
+      "observation_rows_2015_2025": 1826,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.1.2"
+    ],
+    "code": "AG_PRD_FIESMS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Experienced food insecurity",
+    "selection": {
+      "member_countries": 177,
+      "observation_rows_2015_2025": 5819,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.2.1"
+    ],
+    "code": "SH_STA_STNT",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Child chronic malnutrition",
+    "selection": {
+      "member_countries": 160,
+      "observation_rows_2015_2025": 4800,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.2.2"
+    ],
+    "code": "SN_STA_OVWGT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of children moderately or severely overweight (%)",
+    "selection": {
+      "member_countries": 161,
+      "observation_rows_2015_2025": 4830,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.2.3"
+    ],
+    "code": "SH_STA_ANEM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of women aged 15-49 years with anaemia (%)",
+    "selection": {
+      "member_countries": 191,
+      "observation_rows_2015_2025": 1719,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.2.4"
+    ],
+    "code": "SH_MDD_CHLD",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Prevalence of minimum dietary diversity among children aged 6-23 months (%)",
+    "selection": {
+      "member_countries": 112,
+      "observation_rows_2015_2025": 107,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.3.1"
+    ],
+    "code": "PD_AGR_SSFP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Productivity of small-scale food producers (agricultural output per labour day, PPP) (constant 2017 international $)",
+    "selection": {
+      "member_countries": 51,
+      "observation_rows_2015_2025": 1410,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.3.2"
+    ],
+    "code": "SI_AGR_SSFP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Average income of small-scale food producers, PPP (constant 2017 international $)",
+    "selection": {
+      "member_countries": 52,
+      "observation_rows_2015_2025": 1460,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.4.1"
+    ],
+    "code": "AG_LND_SUST_PRXCSS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "[PROXY] Progress toward productive and sustainable agriculture, current status score",
+    "selection": {
+      "member_countries": 186,
+      "observation_rows_2015_2025": 1860,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.5.1"
+    ],
+    "code": "ER_GRF_ANIMKPT_TRB",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of transboundary breeds (including extinct ones)",
+    "selection": {
+      "member_countries": 179,
+      "observation_rows_2015_2025": 1969,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.5.2"
+    ],
+    "code": "ER_NOEX_TRBBREDN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of transboundary breeds (not extinct) (number)",
+    "selection": {
+      "member_countries": 179,
+      "observation_rows_2015_2025": 1969,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.a.1"
+    ],
+    "code": "AG_PRD_AGVAS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Agriculture value added share of GDP (%)",
+    "selection": {
+      "member_countries": 187,
+      "observation_rows_2015_2025": 1870,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.a.2"
+    ],
+    "code": "DC_TOF_AGRL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Total official flows (disbursements) for agriculture, by recipient countries (millions of constant 2024 United States dollars)",
+    "selection": {
+      "member_countries": 146,
+      "observation_rows_2015_2025": 1352,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.b.1"
+    ],
+    "code": "AG_PRD_XSUBDY",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Agricultural export subsidies (millions of current United States dollars)",
+    "selection": {
+      "member_countries": 33,
+      "observation_rows_2015_2025": 109,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 2,
+    "goals": [
+      2
+    ],
+    "indicators": [
+      "2.c.1"
+    ],
+    "code": "AG_FPA_CFPI",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Indicator of Food Price Anomalies (IFPA), by Consumer Food Price Index",
+    "selection": {
+      "member_countries": 182,
+      "observation_rows_2015_2025": 1820,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.1.1"
+    ],
+    "code": "SH_STA_MORT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Maternal health outcome",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 1728,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.1.2"
+    ],
+    "code": "SH_STA_BRTC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of births attended by skilled health personnel (%)",
+    "selection": {
+      "member_countries": 185,
+      "observation_rows_2015_2025": 905,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.2.1"
+    ],
+    "code": "SH_DYN_IMRT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Infant mortality rate (deaths per 1,000 live births)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 5760,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.2.2"
+    ],
+    "code": "SH_DYN_NMRT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Newborn survival",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 1920,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.3.1"
+    ],
+    "code": "SH_HIV_INCD",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of new HIV infections per 1,000 uninfected population, by sex and age (per 1,000 uninfected population)",
+    "selection": {
+      "member_countries": 183,
+      "observation_rows_2015_2025": 23790,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.3.2"
+    ],
+    "code": "SH_TBS_INCD",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Communicable-disease burden",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 1920,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.3.3"
+    ],
+    "code": "SH_STA_MALR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Malaria incidence per 1,000 population at risk (per 1,000 population)",
+    "selection": {
+      "member_countries": 107,
+      "observation_rows_2015_2025": 1070,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.3.4"
+    ],
+    "code": "SH_HAP_HBSAG_26",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Prevalence of hepatitis B surface antigen (HBsAg), 2026 methodology (%)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1930,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.3.5"
+    ],
+    "code": "SH_TRP_INTVN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of people requiring interventions against neglected tropical diseases (number)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 1920,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.4.1"
+    ],
+    "code": "SH_DTH_NCOM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Mortality rate attributed to cardiovascular disease, cancer, diabetes or chronic respiratory disease (probability)",
+    "selection": {
+      "member_countries": 183,
+      "observation_rows_2015_2025": 2196,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.4.2"
+    ],
+    "code": "SH_STA_SCIDE",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Suicide mortality rate, by sex (deaths per 100,000 population)",
+    "selection": {
+      "member_countries": 183,
+      "observation_rows_2015_2025": 2196,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.5.1"
+    ],
+    "code": "SH_SUD_ALCOL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Alcohol use disorders, 12-month prevalence (%)",
+    "selection": {
+      "member_countries": 188,
+      "observation_rows_2015_2025": 564,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.5.2"
+    ],
+    "code": "SH_ALC_CONSPT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Alcohol consumption per capita (aged 15 years and older) within a calendar year (litres of pure alcohol)",
+    "selection": {
+      "member_countries": 189,
+      "observation_rows_2015_2025": 1890,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.6.1"
+    ],
+    "code": "SH_STA_TRAF",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Death rate due to road traffic injuries, by sex (per 100,000 population)",
+    "selection": {
+      "member_countries": 191,
+      "observation_rows_2015_2025": 191,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.7.1"
+    ],
+    "code": "SH_FPL_MTMM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of women of reproductive age (aged 15-49 years) who have their need for family planning satisfied with modern methods (% of women aged 15-49 years)",
+    "selection": {
+      "member_countries": 140,
+      "observation_rows_2015_2025": 181,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.7.2"
+    ],
+    "code": "SP_DYN_ADKL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Adolescent birth rate (per 1,000 women aged 15-19 and 10-14 years)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 1897,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.8.1"
+    ],
+    "code": "SH_ACS_UNHC_25",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Universal health coverage (UHC) service coverage index, 2025 methodology",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 1728,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.8.2"
+    ],
+    "code": "SH_OOP_XPD_EARNNET40",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of the population with positive out-of-pocket household expenditure on health exceeding 40% of household discretionary budget, by location, quintile, type of household and characteristics of the head of household (%)",
+    "selection": {
+      "member_countries": 156,
+      "observation_rows_2015_2025": 4306,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.9.1"
+    ],
+    "code": "SH_AAP_ASMORT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Age-standardized mortality rate attributed to ambient air pollution (deaths per 100,000 population)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 192,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.9.2"
+    ],
+    "code": "SH_STA_WASHARI",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Mortality rate attributed to unsafe water, unsafe sanitation and lack of hygiene from diarrhoea, intestinal nematode infections, malnutrition and acute respiratory infections (deaths per 100,000 population)",
+    "selection": {
+      "member_countries": 183,
+      "observation_rows_2015_2025": 183,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.9.3"
+    ],
+    "code": "SH_STA_POISN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Mortality rate attributed to unintentional poisonings, by sex (deaths per 100,000 population)",
+    "selection": {
+      "member_countries": 183,
+      "observation_rows_2015_2025": 2196,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.a.1"
+    ],
+    "code": "SH_PRV_SMOK",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Age-standardized prevalence of current tobacco use among persons aged 15 years and older, by sex (%)",
+    "selection": {
+      "member_countries": 165,
+      "observation_rows_2015_2025": 1485,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.b.1"
+    ],
+    "code": "SH_ACS_DTP3",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of the target population who received 3 doses of diphtheria-tetanus-pertussis (DTP3) vaccine (%)",
+    "selection": {
+      "member_countries": 191,
+      "observation_rows_2015_2025": 1910,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.b.2"
+    ],
+    "code": "DC_TOF_HLTHL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Total official development assistance to medical research and basic health sectors, gross disbursement, by recipient countries (millions of constant 2024 United States dollars)",
+    "selection": {
+      "member_countries": 145,
+      "observation_rows_2015_2025": 1352,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.b.3"
+    ],
+    "code": "SH_HLF_EMED",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of health facilities that have a core set of relevant essential medicines available and affordable on a sustainable basis (%)",
+    "selection": {
+      "member_countries": 27,
+      "observation_rows_2015_2025": 20,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.c.1"
+    ],
+    "code": "SH_MED_DEN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Health worker density, by type of occupation (per 10,000 population)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 4919,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.d.1"
+    ],
+    "code": "SH_IHR_CAPS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "International Health Regulations (IHR) capacity, by type of IHR capacity (%)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 23673,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 3,
+    "goals": [
+      3
+    ],
+    "indicators": [
+      "3.d.2"
+    ],
+    "code": "SH_BLD_ECOLI",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Percentage of bloodstream infection due to Escherichia coli resistant to 3rd-generation cephalosporin (e.g., ESBL- E. coli) among patients seeking care and whose blood sample is taken and tested (%)",
+    "selection": {
+      "member_countries": 95,
+      "observation_rows_2015_2025": 409,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.1.1"
+    ],
+    "code": "SE_TOT_PRFL",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Minimum learning proficiency",
+    "selection": {
+      "member_countries": 142,
+      "observation_rows_2015_2025": 2269,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.1.2"
+    ],
+    "code": "SE_TOT_CPLR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Education completion",
+    "selection": {
+      "member_countries": 164,
+      "observation_rows_2015_2025": 45279,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.2.1"
+    ],
+    "code": "SE_DEV_ONTRK",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Proportion of children aged 36−59 months who are developmentally on track in at least three of the following domains: literacy-numeracy, physical development, social-emotional development, and learning (% of children aged 36-59 months)",
+    "selection": {
+      "member_countries": 59,
+      "observation_rows_2015_2025": 142,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.2.2"
+    ],
+    "code": "SE_PRE_PARTN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Participation rate in organized learning (one year before the official primary entry age), by sex (%)",
+    "selection": {
+      "member_countries": 181,
+      "observation_rows_2015_2025": 3603,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.3.1"
+    ],
+    "code": "SE_ADT_EDUCTRN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Participation rate in formal and non-formal education and training, by sex (%)",
+    "selection": {
+      "member_countries": 164,
+      "observation_rows_2015_2025": 9125,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.4.1"
+    ],
+    "code": "SE_ADT_ACTS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of youth and adults with information and communications technology (ICT) skills, by sex and type of skill (%)",
+    "selection": {
+      "member_countries": 113,
+      "observation_rows_2015_2025": 98639,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.5.1"
+    ],
+    "code": "SE_GPI_PTNPRE",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Adjusted gender parity index for participation rate in organized learning (one year before the official primary entry age), (ratio)",
+    "selection": {
+      "member_countries": 179,
+      "observation_rows_2015_2025": 1188,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.6.1"
+    ],
+    "code": "SE_ADT_LITR",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Adult and youth literacy",
+    "selection": {
+      "member_countries": 153,
+      "observation_rows_2015_2025": 4019,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4,
+      12,
+      13
+    ],
+    "indicators": [
+      "4.7.1",
+      "12.8.1",
+      "13.3.1"
+    ],
+    "code": "SE_SGE_BIODIV",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Score on greening education in biodiversity (%)",
+    "selection": {
+      "member_countries": 108,
+      "observation_rows_2015_2025": 324,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.a.1"
+    ],
+    "code": "SE_ACS_CMPTR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of schools with access to computers for pedagogical purposes, by education level (%)",
+    "selection": {
+      "member_countries": 173,
+      "observation_rows_2015_2025": 3633,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.b.1"
+    ],
+    "code": "DC_TOF_SCHIPSL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Total official flows for scholarships, by recipient countries (millions of constant 2024 United States dollars)",
+    "selection": {
+      "member_countries": 144,
+      "observation_rows_2015_2025": 1356,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 4,
+    "goals": [
+      4
+    ],
+    "indicators": [
+      "4.c.1"
+    ],
+    "code": "SE_TRA_GRDL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of teachers with the minimum required qualifications, by education level and sex (%)",
+    "selection": {
+      "member_countries": 151,
+      "observation_rows_2015_2025": 9249,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.1.1"
+    ],
+    "code": "SG_LGL_GENEQEMP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Legal frameworks that promote, enforce and monitor gender equality (percentage of achievement, 0 - 100) -- Area 3: employment and economic benefits",
+    "selection": {
+      "member_countries": 130,
+      "observation_rows_2015_2025": 395,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.2.1"
+    ],
+    "code": "VC_VAW_MARR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of ever-partnered women and girls subjected to physical and/or sexual violence by a current or former intimate partner in the previous 12 months, by age (%)",
+    "selection": {
+      "member_countries": 158,
+      "observation_rows_2015_2025": 316,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.2.2"
+    ],
+    "code": "VC_VAW_NONMARR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of women and girls aged 15 years and older subjected to sexual violence by persons other than an intimate partner in the previous 12 months (%)",
+    "selection": {
+      "member_countries": 121,
+      "observation_rows_2015_2025": 242,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.3.1"
+    ],
+    "code": "SP_DYN_MRBF18",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of women aged 20-24 years who were married or in a union before age 18 (%)",
+    "selection": {
+      "member_countries": 142,
+      "observation_rows_2015_2025": 122,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.3.2"
+    ],
+    "code": "SH_STA_FGMS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of girls and women aged 15-49 years who have undergone female genital mutilation, by age (%)",
+    "selection": {
+      "member_countries": 31,
+      "observation_rows_2015_2025": 25,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.4.1"
+    ],
+    "code": "SL_DOM_TSPD",
+    "cadence": 5,
+    "applicability": "universal",
+    "rationale": "Unequal unpaid care burden",
+    "selection": {
+      "member_countries": 94,
+      "observation_rows_2015_2025": 1896,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.5.1"
+    ],
+    "code": "SG_GEN_PARL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Women represented in national parliaments",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 2113,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.5.2"
+    ],
+    "code": "IC_GEN_MGTL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Women in management",
+    "selection": {
+      "member_countries": 179,
+      "observation_rows_2015_2025": 1020,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.6.1"
+    ],
+    "code": "SH_FPL_INFM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of women who make their own informed decisions regarding sexual relations, contraceptive use and reproductive health care (% of women aged 15-49 years)",
+    "selection": {
+      "member_countries": 80,
+      "observation_rows_2015_2025": 81,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.6.2"
+    ],
+    "code": "SH_LGR_ACSRHE",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Extent to which countries have laws and regulations that guarantee full and equal access to women and men aged 15 years and older to sexual and reproductive health care, information and education (%)",
+    "selection": {
+      "member_countries": 152,
+      "observation_rows_2015_2025": 152,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.a.1"
+    ],
+    "code": "SP_LGL_LNDAGSEC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of total agricultural population with ownership or secure rights over agricultural land, by sex (%)",
+    "selection": {
+      "member_countries": 78,
+      "observation_rows_2015_2025": 2340,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.a.2"
+    ],
+    "code": "SG_LGL_LNDFEMOD",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Degree to which the legal framework (including customary law) guarantees women’s equal rights to land ownership and/or control (1=No evidence to 6=Highest levels of guarantees)",
+    "selection": {
+      "member_countries": 97,
+      "observation_rows_2015_2025": 679,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.b.1"
+    ],
+    "code": "IT_MOB_OWN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of individuals who own a mobile telephone, by sex (%)",
+    "selection": {
+      "member_countries": 188,
+      "observation_rows_2015_2025": 1962,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 5,
+    "goals": [
+      5
+    ],
+    "indicators": [
+      "5.c.1"
+    ],
+    "code": "SG_GEN_EQPWNN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries with systems to track and make public allocations for gender equality and women's empowerment (0 = does not meet the requirement; 1 = approached the requirement; 2  =  Fully meets requirement)",
+    "selection": {
+      "member_countries": 122,
+      "observation_rows_2015_2025": 180,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.1.1"
+    ],
+    "code": "SH_H2O_SAFE",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Safely managed water",
+    "selection": {
+      "member_countries": 143,
+      "observation_rows_2015_2025": 3161,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.2.1"
+    ],
+    "code": "SH_SAN_DEFECT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Sanitation deprivation",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 5110,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.3.1"
+    ],
+    "code": "EN_WWT_WWDS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of safely treated domestic wastewater flows (%)",
+    "selection": {
+      "member_countries": 141,
+      "observation_rows_2015_2025": 375,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.3.2"
+    ],
+    "code": "EN_H2O_WBAMBQ",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of bodies of water with good ambient water quality (%)",
+    "selection": {
+      "member_countries": 127,
+      "observation_rows_2015_2025": 294,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.4.1"
+    ],
+    "code": "ER_H2O_WUEYST",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Water Use Efficiency (United States dollars per cubic meter)",
+    "selection": {
+      "member_countries": 181,
+      "observation_rows_2015_2025": 6237,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.4.2"
+    ],
+    "code": "ER_H2O_STRESS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Freshwater pressure",
+    "selection": {
+      "member_countries": 177,
+      "observation_rows_2015_2025": 6309,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.5.1"
+    ],
+    "code": "ER_H2O_IWRMD",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Degree of integrated water resources management implementation (%)",
+    "selection": {
+      "member_countries": 190,
+      "observation_rows_2015_2025": 540,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.5.2"
+    ],
+    "code": "EG_TBA_H2CO",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of transboundary basins (river and lake basins and aquifers) with an operational arrangement for water cooperation (%)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 579,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.6.1"
+    ],
+    "code": "EN_LKRV_PWAC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Lakes and rivers permanent water area change (%)",
+    "selection": {
+      "member_countries": 188,
+      "observation_rows_2015_2025": 1504,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.a.1"
+    ],
+    "code": "DC_TOF_WASHL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Total official development assistance (gross disbursement) for water supply and sanitation, by recipient countries (millions of constant 2024 United States dollars)",
+    "selection": {
+      "member_countries": 146,
+      "observation_rows_2015_2025": 1339,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 6,
+    "goals": [
+      6
+    ],
+    "indicators": [
+      "6.b.1"
+    ],
+    "code": "ER_H2O_PRDU",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries with procedures in law or policy for participation by service users/communities in planning program in rural drinking-water supply, by level of definition in procedures (10 = Clearly defined; 5 = Not clearly defined ; 0 = NA)",
+    "selection": {
+      "member_countries": 148,
+      "observation_rows_2015_2025": 419,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 7,
+    "goals": [
+      7
+    ],
+    "indicators": [
+      "7.1.1"
+    ],
+    "code": "EG_ACS_ELEC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Electricity access",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 5790,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 7,
+    "goals": [
+      7
+    ],
+    "indicators": [
+      "7.1.2"
+    ],
+    "code": "EG_EGY_CLEAN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Clean household energy",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 5760,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 7,
+    "goals": [
+      7
+    ],
+    "indicators": [
+      "7.2.1"
+    ],
+    "code": "EG_FEC_RNEW",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Renewable energy transition",
+    "selection": {
+      "member_countries": 191,
+      "observation_rows_2015_2025": 1772,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 7,
+    "goals": [
+      7
+    ],
+    "indicators": [
+      "7.3.1"
+    ],
+    "code": "EG_EGY_PRIM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Energy intensity level of primary energy (megajoules per constant 2021 purchasing power parity GDP)",
+    "selection": {
+      "member_countries": 191,
+      "observation_rows_2015_2025": 1772,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 7,
+    "goals": [
+      7
+    ],
+    "indicators": [
+      "7.a.1"
+    ],
+    "code": "EG_IFF_RANDN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "International financial flows to developing countries in support of clean energy research and development and renewable energy production, including in hybrid systems (millions of constant 2023 United States dollars)",
+    "selection": {
+      "member_countries": 141,
+      "observation_rows_2015_2025": 11280,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 7,
+    "goals": [
+      7,
+      12
+    ],
+    "indicators": [
+      "7.b.1",
+      "12.a.1"
+    ],
+    "code": "EG_EGY_RNEW",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Installed renewable electricity-generating capacity (watts per capita)",
+    "selection": {
+      "member_countries": 190,
+      "observation_rows_2015_2025": 26600,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.1.1"
+    ],
+    "code": "NY_GDP_PCAP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Inclusive growth context",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1930,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.2.1"
+    ],
+    "code": "SL_EMP_PCAP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Annual growth rate of real GDP per employed person (%)",
+    "selection": {
+      "member_countries": 178,
+      "observation_rows_2015_2025": 1947,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.3.1"
+    ],
+    "code": "SL_ISV_IFEM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of informal employment, by sector and sex - 13th ICLS (%)",
+    "selection": {
+      "member_countries": 142,
+      "observation_rows_2015_2025": 6578,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8,
+      12
+    ],
+    "indicators": [
+      "8.4.1",
+      "12.2.1"
+    ],
+    "code": "EN_MAT_FTPRPC",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Material footprint per capita, by type of raw material (tonnes)",
+    "selection": {
+      "member_countries": 0,
+      "observation_rows_2015_2025": 0,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8,
+      12
+    ],
+    "indicators": [
+      "8.4.2",
+      "12.2.2"
+    ],
+    "code": "EN_MAT_DOMCMPC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Domestic material consumption",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 21056,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.5.1"
+    ],
+    "code": "SL_EMP_EARN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Average hourly earnings of employees by sex and occupation (local currency)",
+    "selection": {
+      "member_countries": 129,
+      "observation_rows_2015_2025": 16791,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.5.2"
+    ],
+    "code": "SL_TLF_UEM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Employment access",
+    "selection": {
+      "member_countries": 188,
+      "observation_rows_2015_2025": 10305,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.6.1"
+    ],
+    "code": "SL_TLF_NEET",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Youth exclusion",
+    "selection": {
+      "member_countries": 171,
+      "observation_rows_2015_2025": 3021,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.7.1"
+    ],
+    "code": "SL_TLF_CHLDEA",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of children engaged in economic activity, by sex and age  (%)",
+    "selection": {
+      "member_countries": 111,
+      "observation_rows_2015_2025": 304,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.8.1"
+    ],
+    "code": "SL_EMP_FTLINJUR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Fatal occupational injuries among employees, by sex and migrant status (per 100,000 employees)",
+    "selection": {
+      "member_countries": 91,
+      "observation_rows_2015_2025": 1634,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.8.2"
+    ],
+    "code": "SL_LBR_NTLCPL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Level of national compliance with labour rights (freedom of association and collective bargaining) based on International Labour Organization (ILO) textual sources and national legislation",
+    "selection": {
+      "member_countries": 186,
+      "observation_rows_2015_2025": 1860,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.9.1"
+    ],
+    "code": "ST_GDP_ZS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Tourism direct GDP as a proportion of total GDP (%)",
+    "selection": {
+      "member_countries": 115,
+      "observation_rows_2015_2025": 727,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.9.2"
+    ],
+    "code": "ST_EMP_TRSMN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Employed persons in the tourism industries (number)",
+    "selection": {
+      "member_countries": 138,
+      "observation_rows_2015_2025": 751,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.10.1"
+    ],
+    "code": "FB_ATM_TOTL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of automated teller machines (ATMs) per 100,000 adults",
+    "selection": {
+      "member_countries": 184,
+      "observation_rows_2015_2025": 1668,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.10.2"
+    ],
+    "code": "FB_BNK_ACCSS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of adults (15 years and older) with an account at a financial institution or mobile-money-service provider, by sex (% of adults aged 15 years and older)",
+    "selection": {
+      "member_countries": 157,
+      "observation_rows_2015_2025": 3982,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.a.1"
+    ],
+    "code": "DC_TOF_TRDCML",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Total official flows (commitments) for Aid for Trade, by recipient countries (millions of constant 2024 United States dollars)",
+    "selection": {
+      "member_countries": 144,
+      "observation_rows_2015_2025": 1356,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 8,
+    "goals": [
+      8
+    ],
+    "indicators": [
+      "8.b.1"
+    ],
+    "code": "SL_CPA_YEMP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Existence of a developed and operationalized national strategy for youth employment, as a distinct strategy or as part of a national employment strategy",
+    "selection": {
+      "member_countries": 185,
+      "observation_rows_2015_2025": 734,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.1.1"
+    ],
+    "code": "SP_ROD_R2KM",
+    "cadence": 5,
+    "applicability": "conditional",
+    "rationale": "Rural physical connectivity",
+    "selection": {
+      "member_countries": 25,
+      "observation_rows_2015_2025": 21,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.1.2"
+    ],
+    "code": "IS_RDP_PFVOL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Passenger volume (passenger kilometres), by mode of transport",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1120,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.2.1"
+    ],
+    "code": "NV_IND_MANF",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Industrial structure",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 2123,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.2.2"
+    ],
+    "code": "SL_TLF_MANF",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Manufacturing employment as a proportion of total employment - 13th ICLS (%)",
+    "selection": {
+      "member_countries": 182,
+      "observation_rows_2015_2025": 1132,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.3.1"
+    ],
+    "code": "NV_IND_SSIS_NC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of small-scale industries in total industry value added based on national classification (%)",
+    "selection": {
+      "member_countries": 75,
+      "observation_rows_2015_2025": 376,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.3.2"
+    ],
+    "code": "FC_ACC_SSID",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of small-scale industries with a loan or line of credit (%)",
+    "selection": {
+      "member_countries": 170,
+      "observation_rows_2015_2025": 222,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.4.1"
+    ],
+    "code": "EN_ATM_CO2",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Carbon dioxide emissions from fuel combustion (millions of tonnes)",
+    "selection": {
+      "member_countries": 145,
+      "observation_rows_2015_2025": 2610,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.5.1"
+    ],
+    "code": "GB_XPD_RSDV",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Research investment",
+    "selection": {
+      "member_countries": 145,
+      "observation_rows_2015_2025": 828,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.5.2"
+    ],
+    "code": "GB_POP_SCIERD",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Researchers (in full-time equivalent) per million inhabitants (per 1,000,000 population)",
+    "selection": {
+      "member_countries": 136,
+      "observation_rows_2015_2025": 742,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.a.1"
+    ],
+    "code": "DC_TOF_INFRAL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Total official flows for infrastructure, by recipient countries (millions of constant 2024 United States dollars)",
+    "selection": {
+      "member_countries": 147,
+      "observation_rows_2015_2025": 1352,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.b.1"
+    ],
+    "code": "NV_IND_TECH",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of medium and high-tech manufacturing value added in total value added (%)",
+    "selection": {
+      "member_countries": 135,
+      "observation_rows_2015_2025": 921,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 9,
+    "goals": [
+      9
+    ],
+    "indicators": [
+      "9.c.1"
+    ],
+    "code": "IT_MOB_2GNTWK",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of population covered by at least a 2G mobile network (%)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1795,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.1.1"
+    ],
+    "code": "SI_HEI_TOTL",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Bottom-40 income growth",
+    "selection": {
+      "member_countries": 120,
+      "observation_rows_2015_2025": 222,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.2.1"
+    ],
+    "code": "SI_POV_50MI",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Relative poverty",
+    "selection": {
+      "member_countries": 169,
+      "observation_rows_2015_2025": 719,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10,
+      16
+    ],
+    "indicators": [
+      "10.3.1",
+      "16.b.1"
+    ],
+    "code": "VC_VOV_GDSD",
+    "cadence": 5,
+    "applicability": "universal",
+    "rationale": "Experienced discrimination",
+    "selection": {
+      "member_countries": 119,
+      "observation_rows_2015_2025": 15916,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.4.1"
+    ],
+    "code": "SL_EMP_GTOTL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Labour share of GDP (%)",
+    "selection": {
+      "member_countries": 93,
+      "observation_rows_2015_2025": 1023,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.4.2"
+    ],
+    "code": "SI_DST_FISP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Redistributive impact of fiscal policy, Gini index (%)",
+    "selection": {
+      "member_countries": 107,
+      "observation_rows_2015_2025": 1164,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.5.1"
+    ],
+    "code": "FI_FSI_FSKRTC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Regulatory Tier 1 capital to risk-weighted assets (%)",
+    "selection": {
+      "member_countries": 145,
+      "observation_rows_2015_2025": 1366,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10,
+      16
+    ],
+    "indicators": [
+      "10.6.1",
+      "16.8.1"
+    ],
+    "code": "SG_INT_MBRDEV",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of members of developing countries in international organizations, by organization (%)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 25946,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.7.1"
+    ],
+    "code": "SL_EMP_RCOST_MO",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Migrant recruitment costs (number of months of earnings)",
+    "selection": {
+      "member_countries": 7,
+      "observation_rows_2015_2025": 24,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.7.2"
+    ],
+    "code": "SG_CPA_MIGRS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries with migration policies to facilitate orderly, safe, regular and responsible migration and mobility of people, by policy domain (1 = Requires further progress; 2 = Partially meets; 3 = Meets; 4 = Fully meets)",
+    "selection": {
+      "member_countries": 137,
+      "observation_rows_2015_2025": 1393,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.7.3"
+    ],
+    "code": "SM_DTH_MIGR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Total deaths and disappearances recorded during migration (number)",
+    "selection": {
+      "member_countries": 142,
+      "observation_rows_2015_2025": 749,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.7.4"
+    ],
+    "code": "SM_POP_REFG_OR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of refugees per 100,000 population, by country of origin (per 100,000 population)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 2123,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.a.1"
+    ],
+    "code": "TM_TRF_ZERO",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of tariff lines applied to imports with zero-tariff (%)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 12073,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.b.1"
+    ],
+    "code": "DC_TRF_TOTL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Total assistance for development, by recipient countries (millions of current United States dollars)",
+    "selection": {
+      "member_countries": 147,
+      "observation_rows_2015_2025": 1356,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 10,
+    "goals": [
+      10
+    ],
+    "indicators": [
+      "10.c.1"
+    ],
+    "code": "SI_RMT_COST",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Average remittance costs of sending $200 to a receiving country as a proportion of the amount remitted (%)",
+    "selection": {
+      "member_countries": 104,
+      "observation_rows_2015_2025": 1009,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.1.1"
+    ],
+    "code": "EN_LND_INDQTHSNG",
+    "cadence": 5,
+    "applicability": "universal",
+    "rationale": "Inadequate urban housing",
+    "selection": {
+      "member_countries": 47,
+      "observation_rows_2015_2025": 1235,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.2.1"
+    ],
+    "code": "SP_TRN_PUBL",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Public transport access",
+    "selection": {
+      "member_countries": 189,
+      "observation_rows_2015_2025": 2813,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.3.1"
+    ],
+    "code": "EN_LND_CNSPOP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Ratio of land consumption rate to population growth rate",
+    "selection": {
+      "member_countries": 180,
+      "observation_rows_2015_2025": 3195,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.3.2"
+    ],
+    "code": "SG_URB_CSPART",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of cities with a direct participation structure of civil society in urban planning and management that operate regularly and democratically",
+    "selection": {
+      "member_countries": 69,
+      "observation_rows_2015_2025": 449,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.4.1"
+    ],
+    "code": "GB_XPD_CULNAT_PB",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Total expenditure per capita spent on cultural and natural heritage, public (PPP, constant 2017 United States dollars)",
+    "selection": {
+      "member_countries": 77,
+      "observation_rows_2015_2025": 755,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.5.3"
+    ],
+    "code": "VC_DSR_CDAN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of damaged critical infrastructure attributed to disasters (number)",
+    "selection": {
+      "member_countries": 131,
+      "observation_rows_2015_2025": 497,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.6.1"
+    ],
+    "code": "EN_REF_WASCOL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Municipal Solid Waste collection coverage, by cities (%)",
+    "selection": {
+      "member_countries": 148,
+      "observation_rows_2015_2025": 4841,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.6.2"
+    ],
+    "code": "EN_ATM_PM25",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Urban air pollution",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 8451,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.7.1"
+    ],
+    "code": "EN_ACS_URB_OPENSP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Average share of urban population with convenient access to open public spaces (%)",
+    "selection": {
+      "member_countries": 188,
+      "observation_rows_2015_2025": 1901,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.7.2"
+    ],
+    "code": "VC_VOH_SXPH",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of persons victim of non-sexual or sexual harassment, in the previous 12 months (%)",
+    "selection": {
+      "member_countries": 14,
+      "observation_rows_2015_2025": 74,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.a.1"
+    ],
+    "code": "SD_CPA_UPRDP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries that have national urban policies or regional development plans that respond to population dynamics; ensure balanced territorial development; and increase local fiscal space (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 386,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 11,
+    "goals": [
+      11
+    ],
+    "indicators": [
+      "11.c.1"
+    ],
+    "code": "DC_TOF_URBINFRA",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Total official development assistance and other official flows in support of urban infrastructure or urban infrastructure projects (millions of constant 2023 United States dollars)",
+    "selection": {
+      "member_countries": 66,
+      "observation_rows_2015_2025": 82,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.1.1"
+    ],
+    "code": "SG_SCP_POLINS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries with policy instrument for sustainable consumption and production (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 74,
+      "observation_rows_2015_2025": 138,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.3.1"
+    ],
+    "code": "AG_FOOD_WST",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Food waste (Tonnes)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1797,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.4.1"
+    ],
+    "code": "SG_HAZ_CMRBASEL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Hazardous-waste reporting commitments",
+    "selection": {
+      "member_countries": 190,
+      "observation_rows_2015_2025": 558,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.4.2"
+    ],
+    "code": "EN_TWT_GENV",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Total waste generation, by activity (Tonnes)",
+    "selection": {
+      "member_countries": 130,
+      "observation_rows_2015_2025": 2516,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.5.1"
+    ],
+    "code": "EN_EWT_RCYPCAP",
+    "cadence": 2,
+    "applicability": "universal",
+    "rationale": "Electronic-waste circularity",
+    "selection": {
+      "member_countries": 60,
+      "observation_rows_2015_2025": 380,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.6.1"
+    ],
+    "code": "EN_SCP_FRMN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of companies publishing sustainability reports with disclosure by dimension, by level of requirement (Number)",
+    "selection": {
+      "member_countries": 79,
+      "observation_rows_2015_2025": 4832,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.7.1"
+    ],
+    "code": "SG_SCP_PROCN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of countries implementing sustainable public procurement policies and action plans",
+    "selection": {
+      "member_countries": 69,
+      "observation_rows_2015_2025": 136,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.b.1"
+    ],
+    "code": "ST_EEV_STDACCT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Implementation of standard accounting tools to monitor the economic and environmental aspects of tourism (number of tables)",
+    "selection": {
+      "member_countries": 156,
+      "observation_rows_2015_2025": 1227,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 12,
+    "goals": [
+      12
+    ],
+    "indicators": [
+      "12.c.1"
+    ],
+    "code": "ER_FFS_CMPT_GDP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Fossil-fuel subsidies (consumption and production) as a proportion of total GDP (%)",
+    "selection": {
+      "member_countries": 188,
+      "observation_rows_2015_2025": 1752,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 13,
+    "goals": [
+      13
+    ],
+    "indicators": [
+      "13.2.1"
+    ],
+    "code": "EN_ADAP_COM",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Number of countries with adaptation communications (Number)",
+    "selection": {
+      "member_countries": 0,
+      "observation_rows_2015_2025": 0,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 13,
+    "goals": [
+      13
+    ],
+    "indicators": [
+      "13.2.2"
+    ],
+    "code": "EN_ATM_GHGT_WLU",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Total greenhouse gas emissions with LULUCF (Mt CO₂ equivalent)",
+    "selection": {
+      "member_countries": 97,
+      "observation_rows_2015_2025": 280,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 13,
+    "goals": [
+      13
+    ],
+    "indicators": [
+      "13.a.1"
+    ],
+    "code": "DC_FIN_CLIMB",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Climate-specific financial support provided via bilateral, regional and other channels, by type of support (Billions of current United States dollars)",
+    "selection": {
+      "member_countries": 0,
+      "observation_rows_2015_2025": 0,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 13,
+    "goals": [
+      13
+    ],
+    "indicators": [
+      "13.b.1"
+    ],
+    "code": "EN_ADAP_COM_DV",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Number of least developed countries and small island developing States with adaptation communications (Number)",
+    "selection": {
+      "member_countries": 0,
+      "observation_rows_2015_2025": 0,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.1.1"
+    ],
+    "code": "EN_MAR_CHLANM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Chlorophyll-a anomaly, remote sensing (%)",
+    "selection": {
+      "member_countries": 150,
+      "observation_rows_2015_2025": 2235,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.2.1"
+    ],
+    "code": "EN_SCP_ECSYBA",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Number of countries using ecosystem-based approaches to managing marine areas (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 66,
+      "observation_rows_2015_2025": 211,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.3.1"
+    ],
+    "code": "ER_OAW_MNACD",
+    "cadence": 2,
+    "applicability": "conditional",
+    "rationale": "Ocean acidification monitoring",
+    "selection": {
+      "member_countries": 44,
+      "observation_rows_2015_2025": 1641,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.4.1"
+    ],
+    "code": "ER_H2O_FWTL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Proportion of fish stocks within biologically sustainable levels (not overexploited) (%)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1544,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.5.1"
+    ],
+    "code": "ER_MRN_MPA",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Marine biodiversity protection",
+    "selection": {
+      "member_countries": 142,
+      "observation_rows_2015_2025": 1562,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.6.1"
+    ],
+    "code": "ER_REG_UNFCIM",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Progress by countries in the degree of implementation of international instruments aiming to combat illegal, unreported and unregulated fishing (level of implementation: 1 lowest to 5 highest)",
+    "selection": {
+      "member_countries": 180,
+      "observation_rows_2015_2025": 720,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.7.1"
+    ],
+    "code": "EN_SCP_FSHGDP",
+    "cadence": 2,
+    "applicability": "conditional",
+    "rationale": "Economic contribution of sustainable fisheries",
+    "selection": {
+      "member_countries": 123,
+      "observation_rows_2015_2025": 615,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.a.1"
+    ],
+    "code": "ER_RDE_OSEX",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "National ocean science expenditure as a share of total research and development funding (%)",
+    "selection": {
+      "member_countries": 40,
+      "observation_rows_2015_2025": 114,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.b.1"
+    ],
+    "code": "ER_REG_SSFRAR",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Degree of application of a legal/regulatory/policy/institutional framework which recognizes and protects access rights for small-scale fisheries (level of implementation: 1 lowest to 5 highest)",
+    "selection": {
+      "member_countries": 179,
+      "observation_rows_2015_2025": 716,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 14,
+    "goals": [
+      14
+    ],
+    "indicators": [
+      "14.c.1"
+    ],
+    "code": "ER_UNCLOS_IMPLE",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Score for the implementation of UNCLOS and its two implementing agreements (%)",
+    "selection": {
+      "member_countries": 55,
+      "observation_rows_2015_2025": 62,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.1.1"
+    ],
+    "code": "AG_LND_FRST",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Forest extent",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 579,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.1.2"
+    ],
+    "code": "ER_PTD_TERR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Average proportion of Terrestrial Key Biodiversity Areas (KBAs) covered by protected areas (%)",
+    "selection": {
+      "member_countries": 190,
+      "observation_rows_2015_2025": 2090,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.2.1"
+    ],
+    "code": "AG_LND_FRSTCERT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Forest area certified under an independently verified certification scheme (thousands of hectares)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1930,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.3.1"
+    ],
+    "code": "AG_LND_DGRD",
+    "cadence": 3,
+    "applicability": "universal",
+    "rationale": "Land degradation",
+    "selection": {
+      "member_countries": 146,
+      "observation_rows_2015_2025": 292,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.4.1"
+    ],
+    "code": "ER_PTD_MTN",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Average proportion of Mountain Key Biodiversity Areas (KBAs) covered by protected areas (%)",
+    "selection": {
+      "member_countries": 161,
+      "observation_rows_2015_2025": 1771,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.4.2"
+    ],
+    "code": "ER_MTN_GRNCOV",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Mountain green cover area (square kilometres)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 31818,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.5.1"
+    ],
+    "code": "ER_RSK_LST",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Species extinction risk",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 2123,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.6.1"
+    ],
+    "code": "ER_CBD_PTYPGRFA",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries that are contracting Parties to the International Treaty on Plant Genetic Resources for Food and Agriculture (PGRFA) (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 2123,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.7.1",
+      "15.c.1"
+    ],
+    "code": "ER_WLD_TRPOACH",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of traded wildlife that was poached or illicitly trafficked",
+    "selection": {
+      "member_countries": 84,
+      "observation_rows_2015_2025": 1776,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.8.1"
+    ],
+    "code": "ER_IAS_LEGIS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Legislation, Regulation, Act related to the prevention of introduction and management of Invasive Alien Species (1 = YES, 0 = NO)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 768,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.9.1"
+    ],
+    "code": "ER_BDY_ABT2NP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries that established national targets in accordance with Aichi Biodiversity Target 2 of the Strategic Plan for Biodiversity 2011-2020 in their National Biodiversity Strategy and Action Plans (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 384,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 15,
+    "goals": [
+      15
+    ],
+    "indicators": [
+      "15.a.1",
+      "15.b.1"
+    ],
+    "code": "DC_ODA_BDVL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Total official development assistance for biodiversity, by recipient countries (millions of constant 2024 United States dollars)",
+    "selection": {
+      "member_countries": 145,
+      "observation_rows_2015_2025": 2682,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.1.1"
+    ],
+    "code": "VC_IHR_PSRC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Intentional homicide",
+    "selection": {
+      "member_countries": 168,
+      "observation_rows_2015_2025": 3177,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.1.2"
+    ],
+    "code": "VC_DTH_TOCVN",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Conflict-related deaths",
+    "selection": {
+      "member_countries": 19,
+      "observation_rows_2015_2025": 1459,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.1.3"
+    ],
+    "code": "VC_VOV_ROBB",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of population subjected to robbery in the previous 12 months, by sex (%)",
+    "selection": {
+      "member_countries": 83,
+      "observation_rows_2015_2025": 453,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.1.4"
+    ],
+    "code": "VC_SNS_WALN_DRK",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of population that feel safe walking alone around the area they live after dark (%)",
+    "selection": {
+      "member_countries": 88,
+      "observation_rows_2015_2025": 602,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.2.1"
+    ],
+    "code": "VC_VAW_PHYPYV",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of children aged 1-14 years who experienced physical punishment and/or psychological aggression by caregivers in last month (% of children aged 1-14 years)",
+    "selection": {
+      "member_countries": 103,
+      "observation_rows_2015_2025": 91,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.2.2"
+    ],
+    "code": "VC_HTF_DETVSX",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Detected victims of human trafficking for sexual exploitation, by age and sex (number)",
+    "selection": {
+      "member_countries": 178,
+      "observation_rows_2015_2025": 6736,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.2.3"
+    ],
+    "code": "VC_VAW_SXVLN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of population aged 18-29 years who experienced sexual violence by age 18, by sex (% of population aged 18-29)",
+    "selection": {
+      "member_countries": 73,
+      "observation_rows_2015_2025": 77,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.3.1"
+    ],
+    "code": "VC_PRR_ROBB",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Police reporting rate for robbery in the previous 12 months, by sex (%)",
+    "selection": {
+      "member_countries": 75,
+      "observation_rows_2015_2025": 274,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.3.2"
+    ],
+    "code": "VC_PRS_UNSNT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Unsentenced detainees as a proportion of overall prison population (%)",
+    "selection": {
+      "member_countries": 168,
+      "observation_rows_2015_2025": 2583,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.3.3"
+    ],
+    "code": "SP_DISP_RESOL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of the population who have experienced a dispute in the past two years who accessed a formal or informal dispute resolution mechanism (%)",
+    "selection": {
+      "member_countries": 10,
+      "observation_rows_2015_2025": 65,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.4.1"
+    ],
+    "code": "DI_ILL_IN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Total value of inward illicit financial flows",
+    "selection": {
+      "member_countries": 7,
+      "observation_rows_2015_2025": 38,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.4.2"
+    ],
+    "code": "VC_ARM_SZTRACE",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of seized, found or surrendered arms whose illicit origin or context has been traced or established by a competent authority in line with international instruments",
+    "selection": {
+      "member_countries": 43,
+      "observation_rows_2015_2025": 103,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.5.1"
+    ],
+    "code": "IU_COR_BRIB",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Prevalence rate of bribery, by sex (%)",
+    "selection": {
+      "member_countries": 135,
+      "observation_rows_2015_2025": 285,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.5.2"
+    ],
+    "code": "IC_FRM_BRIB",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Bribery incidence (% of firms experiencing at least one bribe payment request)",
+    "selection": {
+      "member_countries": 170,
+      "observation_rows_2015_2025": 222,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.6.1"
+    ],
+    "code": "GF_XPD_GBPC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Primary government expenditures as a proportion of original approved budget (%)",
+    "selection": {
+      "member_countries": 164,
+      "observation_rows_2015_2025": 1276,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.6.2"
+    ],
+    "code": "SP_PSR_OSATIS_HLTH",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of population who say that overall they are satisfied with the quality of healthcare services (%)",
+    "selection": {
+      "member_countries": 144,
+      "observation_rows_2015_2025": 1566,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.7.1"
+    ],
+    "code": "SG_DMK_PARLSP_LC",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of speakers in parliament, by age and sex , Lower Chamber or Unicameral",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 970,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.7.2"
+    ],
+    "code": "IU_DMK_INCL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of population who believe decision-making is inclusive (%)",
+    "selection": {
+      "member_countries": 81,
+      "observation_rows_2015_2025": 399,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.9.1"
+    ],
+    "code": "SG_REG_BRTH",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of children under 5 years of age whose births have been registered with a civil authority (% of children under 5 years of age)",
+    "selection": {
+      "member_countries": 180,
+      "observation_rows_2015_2025": 647,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.10.1"
+    ],
+    "code": "VC_VAW_MTUHRAN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries with at least one verified case of killings of human rights defenders, journalists, and trade unionists (1 = YES, 0 = NO)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 910,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.10.2"
+    ],
+    "code": "SG_INF_ACCSS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries that adopt and implement constitutional, statutory and/or policy guarantees for public access to information",
+    "selection": {
+      "member_countries": 140,
+      "observation_rows_2015_2025": 140,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 16,
+    "goals": [
+      16
+    ],
+    "indicators": [
+      "16.a.1"
+    ],
+    "code": "SG_NHR_IMPL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Independent national human-rights institutions",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 2123,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.1.1"
+    ],
+    "code": "GR_G14_GDP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Domestic resource mobilization",
+    "selection": {
+      "member_countries": 176,
+      "observation_rows_2015_2025": 1197,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.1.2"
+    ],
+    "code": "GC_GOB_TAXD",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of domestic budget funded by domestic taxes (%)",
+    "selection": {
+      "member_countries": 176,
+      "observation_rows_2015_2025": 1191,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.2.1"
+    ],
+    "code": "DC_ODA_TOTL",
+    "cadence": 1,
+    "applicability": "conditional",
+    "rationale": "Net official development assistance (ODA) from OECD-DAC countries, by donor countries (millions of constant 2024 United States dollars)",
+    "selection": {
+      "member_countries": 50,
+      "observation_rows_2015_2025": 518,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.3.1"
+    ],
+    "code": "GF_FRN_FDI",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Foreign direct investment (FDI) inflows (millions of United States dollars)",
+    "selection": {
+      "member_countries": 188,
+      "observation_rows_2015_2025": 1842,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.3.2"
+    ],
+    "code": "BX_TRF_PWKR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Volume of remittances (in United States dollars) as a proportion of total GDP (%)",
+    "selection": {
+      "member_countries": 181,
+      "observation_rows_2015_2025": 1649,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.4.1"
+    ],
+    "code": "DT_TDS_DECT",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Debt service as a proportion of exports of goods, services and primary income (%)",
+    "selection": {
+      "member_countries": 118,
+      "observation_rows_2015_2025": 1025,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.5.1"
+    ],
+    "code": "SG_CPA_OFDI",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of countries with an outward investment promotion scheme which can benefit developing countries, including LDCs (1 = YES, 0 = NO)",
+    "selection": {
+      "member_countries": 184,
+      "observation_rows_2015_2025": 2720,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.6.1"
+    ],
+    "code": "IT_NET_BBND",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Fixed broadband subscriptions per 100 inhabitants, by speed (per 100 inhabitants)",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 5948,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.7.1"
+    ],
+    "code": "DC_ENVTECH_IMP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Amount of tracked imported Environmentally Sound Technologies (current United States dollars)",
+    "selection": {
+      "member_countries": 179,
+      "observation_rows_2015_2025": 1521,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.8.1"
+    ],
+    "code": "IT_USE_ii99",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Access to the internet",
+    "selection": {
+      "member_countries": 192,
+      "observation_rows_2015_2025": 3324,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.9.1"
+    ],
+    "code": "DC_FTA_TOTAL",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Total official development assistance (gross disbursement) for technical cooperation (millions of 2024 United States dollars)",
+    "selection": {
+      "member_countries": 147,
+      "observation_rows_2015_2025": 1356,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.10.1"
+    ],
+    "code": "TM_TAX_WMFN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Worldwide weighted tariff-average, most-favoured-nation status, by type of product (%)",
+    "selection": {
+      "member_countries": 155,
+      "observation_rows_2015_2025": 8733,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.11.1"
+    ],
+    "code": "TX_EXP_GBMRCH",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Developing countries’ and least developed countries’ share of global merchandise exports (%)",
+    "selection": {
+      "member_countries": 190,
+      "observation_rows_2015_2025": 1900,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.12.1"
+    ],
+    "code": "TM_TAX_DMFN",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Average tariff applied by developed countries, most-favored nation status, by type of product (%)",
+    "selection": {
+      "member_countries": 188,
+      "observation_rows_2015_2025": 11430,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.13.1"
+    ],
+    "code": "BN_CAB_XOKA_GD_ZS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Macroeconomic stability",
+    "selection": {
+      "member_countries": 184,
+      "observation_rows_2015_2025": 1703,
+      "basis": "existing curated representative"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.14.1"
+    ],
+    "code": "SG_CPA_SDEVP",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Mechanisms in place to enhance policy coherence for sustainable development (%)",
+    "selection": {
+      "member_countries": 55,
+      "observation_rows_2015_2025": 85,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.15.1"
+    ],
+    "code": "SG_PLN_RECNDI",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Proportion of project objectives in new development interventions drawn from country-led result frameworks - data by recipient (%)",
+    "selection": {
+      "member_countries": 95,
+      "observation_rows_2015_2025": 185,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.16.1"
+    ],
+    "code": "SG_PLN_MSTKSDG_R",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Number of countries reporting progress in multi-stakeholder development effectiveness monitoring frameworks that support the achievement of the sustainable development goals, Recipient (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 83,
+      "observation_rows_2015_2025": 163,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.17.1"
+    ],
+    "code": "GF_COM_PPPI",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Amount of United States dollars committed to public-private partnerships for infrastructure, million USD nominal",
+    "selection": {
+      "member_countries": 127,
+      "observation_rows_2015_2025": 757,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.18.1"
+    ],
+    "code": "IQ_SPI_PIL5",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Data Infrastructure performance index (Statistical Performance Indicators Pillar 5) (Index)",
+    "selection": {
+      "member_countries": 189,
+      "observation_rows_2015_2025": 1694,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.18.2"
+    ],
+    "code": "SG_STT_FPOS",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries with national statistical legislation exists that complies with the Fundamental Principles of Official Statistics (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1351,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.18.3"
+    ],
+    "code": "SG_STT_NSDSFDDNR",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Countries with national statistical plans with funding from donors (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1351,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.19.1"
+    ],
+    "code": "SG_STT_CAPTY",
+    "cadence": 1,
+    "applicability": "universal",
+    "rationale": "Dollar value of all resources made available to strengthen statistical capacity in developing countries (current United States dollars)",
+    "selection": {
+      "member_countries": 193,
+      "observation_rows_2015_2025": 1737,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  },
+  {
+    "goal": 17,
+    "goals": [
+      17
+    ],
+    "indicators": [
+      "17.19.2"
+    ],
+    "code": "SG_REG_CENSUSN",
+    "cadence": 5,
+    "applicability": "universal",
+    "rationale": "Countries that have conducted at least one population and housing census in the last 10 years (1 = YES; 0 = NO)",
+    "selection": {
+      "member_countries": 163,
+      "observation_rows_2015_2025": 163,
+      "basis": "widest member-state coverage; observation count and code tie-break"
+    }
+  }
 ]

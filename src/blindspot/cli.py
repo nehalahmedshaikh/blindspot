@@ -27,7 +27,7 @@ def main(argv: list[str] | None = None) -> int:
     try:
         if args.command == "fetch":
             fresh = refresh()
-            print("Source refresh complete." if fresh else "Refresh failed; retained and marked the prior snapshot stale.")
+            print("Source refresh complete." if fresh else "Refresh failed; retained the previous validated snapshot unchanged.")
         elif args.command == "build":
             result = build(args.completed_year)
             print(f"Built {len(result['country_series']):,} country-series assessments.")
@@ -48,7 +48,8 @@ def main(argv: list[str] | None = None) -> int:
             result = export()
             print(f"Exported partitioned site data for {len(result['countries'])} countries.")
         elif args.command == "all":
-            refresh()
+            if not refresh():
+                raise SourceError("Source refresh failed; retained the previous validated snapshot")
             build()
             model()
             analyze()

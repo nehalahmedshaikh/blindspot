@@ -16,7 +16,7 @@ make all
 make serve
 ```
 
-Open <http://localhost:8000>. A full source refresh currently takes roughly 10–15 minutes; subsequent local builds take seconds.
+Open <http://localhost:8000>.
 
 ## Commands
 
@@ -29,6 +29,19 @@ Open <http://localhost:8000>. A full source refresh currently takes roughly 10�
 | `make validate` | Enforce configuration and score invariants |
 | `make export` | Generate site contracts and downloads |
 | `make all` | Run the complete pipeline |
+
+## Architecture
+
+```text
+UN SDG API ─┐
+            ├─ fetch → normalized snapshot → metrics → model + analysis → static site data
+World Bank ─┘                 │
+                              └─ baseline + append-only revision deltas
+```
+
+Refreshes are transactional: every configured series and source must validate before replacing the current snapshot. If a refresh fails, the last validated snapshot remains available unchanged.
+
+The site has no runtime backend. It reads generated JSON and CSV files, so every displayed result can be reproduced from a clean checkout using Python’s standard library.
 
 ## Data and licensing
 

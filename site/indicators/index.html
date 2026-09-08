@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Search Blindspot's selected global development indicator series.">
+  <meta name="description" content="Search Blindspot's official SDG indicators and representative series.">
   <title>Indicators — Blindspot</title>
   <base href="../">
   <link rel="stylesheet" href="styles.css">
@@ -13,15 +13,15 @@
   <header id="site-header" class="masthead"></header>
   <aside id="status-banner" class="status-banner" hidden></aside>
   <main id="main">
-    <section class="page-hero"><div class="eyebrow">Indicators</div><h1>What is being measured?</h1><p><strong>Coverage</strong> is the share of countries meeting an indicator's expected cadence during the latest five completed years.</p><p><strong>Universal</strong> series apply to every country; <strong>conditional</strong> series apply only where the measured subject exists. Breakdown coverage shows where sex, age, or location detail is visible.</p></section>
+    <section class="page-hero"><div class="eyebrow">Indicators</div><h1>What is being measured?</h1><p>Each official indicator is represented once in the atlas. Universal representatives are compared across every country; contextual representatives remain searchable without being treated as gaps.</p></section>
     <section class="panel catalogue-panel">
       <div class="catalogue-controls">
         <label>Search<input id="series-search" type="search" placeholder="Water, poverty, literacy…"></label>
         <label>Goal<select id="series-goal"><option value="all">All goals</option></select></label>
-        <label>Applicability<select id="series-scope"><option value="all">All series</option><option value="universal">Universal</option><option value="conditional">Conditional</option></select></label>
+        <label>Applicability<select id="series-scope"><option value="all">All series</option><option value="universal">Universal</option><option value="conditional">Contextual</option></select></label>
       </div>
       <p id="series-count" class="result-count" aria-live="polite"></p>
-      <div id="series-grid" class="series-grid"></div>
+      <div id="series-grid" class="indicator-list"></div>
       <nav class="pagination" aria-label="Indicator pages"><button id="series-prev" type="button">← Previous</button><span id="series-page"></span><button id="series-next" type="button">Next →</button></nav>
     </section>
   </main>

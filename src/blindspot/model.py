@@ -4,7 +4,7 @@ import math
 from collections import defaultdict
 from typing import Any
 
-from .config import Country, SeriesSpec
+from .config import OBSERVATION_START_YEAR, Country, SeriesSpec
 
 
 def _sigmoid(value: float) -> float:
@@ -99,7 +99,7 @@ def train_continuity_model(
     max_log_population = max((math.log1p(value) for value in populations), default=1.0)
     series_rate: dict[str, float] = {}
     for spec in specs:
-        cells = len(countries) * max(1, completed_year - 2015 + 1)
+        cells = len(countries) * max(1, completed_year - OBSERVATION_START_YEAR + 1)
         present = sum(len(observed[(country.m49, spec.code)]) for country in countries)
         series_rate[spec.code] = min(1.0, present / cells)
 
@@ -121,10 +121,10 @@ def train_continuity_model(
             for prediction_year in range(2020, completed_year + 1):
                 if prediction_year + spec.cadence - 1 > completed_year:
                     continue
-                history = [year for year in years if 2015 <= year < prediction_year]
+                history = [year for year in years if OBSERVATION_START_YEAR <= year < prediction_year]
                 latest = max(history) if history else None
-                gap = prediction_year - latest if latest is not None else prediction_year - 2015
-                history_span = max(1, prediction_year - 2015)
+                gap = prediction_year - latest if latest is not None else prediction_year - OBSERVATION_START_YEAR
+                history_span = max(1, prediction_year - OBSERVATION_START_YEAR)
                 row = [
                     min(1.0, gap / max(1, spec.cadence * 4)),
                     len(history) / history_span,

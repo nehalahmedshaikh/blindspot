@@ -1,6 +1,12 @@
 import unittest
 
-from blindspot.sources import _normalize_observation, query_url
+from blindspot.config import SeriesSpec
+from blindspot.sources import (
+    SourceError,
+    _normalize_observation,
+    _validate_representative_mapping,
+    query_url,
+)
 
 
 class SourceTests(unittest.TestCase):
@@ -13,6 +19,24 @@ class SourceTests(unittest.TestCase):
         self.assertIn("page=1", url)
         self.assertIn("timePeriod=2015", url)
         self.assertIn("timePeriod=2016", url)
+
+    def test_representative_mapping_must_match_official_catalogue(self):
+        catalog = {
+            "A": {"indicator": ["1.1.1"]},
+            "B": {"indicator": ["1.2.1"]},
+        }
+        valid = [
+            SeriesSpec(1, "A", 1, "universal", "A", indicators=["1.1.1"]),
+            SeriesSpec(1, "B", 1, "universal", "B", indicators=["1.2.1"]),
+        ]
+        _validate_representative_mapping(valid, catalog)
+        with self.assertRaises(SourceError):
+            _validate_representative_mapping(valid[:1], catalog)
+        duplicated = valid + [
+            SeriesSpec(1, "B", 1, "universal", "B again", indicators=["1.1.1"])
+        ]
+        with self.assertRaises(SourceError):
+            _validate_representative_mapping(duplicated, catalog)
 
     def test_normalization_preserves_status_and_dimensions(self):
         row = _normalize_observation(

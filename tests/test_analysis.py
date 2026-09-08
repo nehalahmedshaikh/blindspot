@@ -47,11 +47,12 @@ class AnalysisTests(unittest.TestCase):
                     "missingness": offset + family_offset,
                 })
         result = fit_pair_model(rows)
-        self.assertEqual(result["unit"], "country–indicator pair")
+        self.assertEqual(result["unit"], "country–representative-series pair")
         self.assertEqual(result["clustered_by"], "country")
         self.assertEqual(result["clusters"], 4)
         self.assertEqual(result["n"], 8)
-        self.assertTrue(any(item["term"].startswith("SDG family:") for item in result["coefficients"]))
+        self.assertTrue(result["indicator_fixed_effects"])
+        self.assertFalse(any(item["term"].startswith("SDG family:") for item in result["coefficients"]))
 
     def test_leave_one_series_out_reports_every_estimate(self):
         rows = []

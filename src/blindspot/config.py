@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -10,6 +10,8 @@ CONFIG_DIR = PROJECT_ROOT / "config"
 DATA_DIR = PROJECT_ROOT / "data"
 CACHE_DIR = DATA_DIR / "current"
 SITE_DATA_DIR = PROJECT_ROOT / "site" / "assets" / "data"
+OBSERVATION_START_YEAR = 2015
+LATEST_COMPLETED_YEAR = 2025
 
 
 @dataclass(frozen=True)
@@ -19,6 +21,9 @@ class SeriesSpec:
     cadence: int
     applicability: str
     rationale: str
+    goals: list[int] = field(default_factory=list)
+    indicators: list[str] = field(default_factory=list)
+    selection: dict[str, Any] = field(default_factory=dict)
 
 
 @dataclass(frozen=True)

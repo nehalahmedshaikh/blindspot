@@ -10,7 +10,18 @@ from pathlib import Path
 from typing import Any
 
 from .analysis import run_analysis
-from .config import CACHE_DIR, DATA_DIR, PROJECT_ROOT, SITE_DATA_DIR, ensure_directories, load_countries, load_goals, load_series
+from .config import (
+    CACHE_DIR,
+    DATA_DIR,
+    LATEST_COMPLETED_YEAR,
+    OBSERVATION_START_YEAR,
+    PROJECT_ROOT,
+    SITE_DATA_DIR,
+    ensure_directories,
+    load_countries,
+    load_goals,
+    load_series,
+)
 from .metrics import calculate_metrics
 from .model import train_continuity_model
 from .sources import (
@@ -19,6 +30,7 @@ from .sources import (
     fetch_un_observations,
     fetch_world_bank_context,
     load_cached_observations,
+    observations_sha256,
     read_cache_json,
     utc_now,
     write_cache_json,
@@ -56,8 +68,15 @@ def record_revision_history(previous: list[dict[str, Any]], current: list[dict[s
         _write_gzip_jsonl(baseline, sorted(current_map.values(), key=lambda item: item["key"]))
         return {"baseline_cells": len(current_map), "added": 0, "removed": 0, "changed": 0}
     previous_map = {_observation_key(row): _revision_projection(row) for row in previous}
+    previous_series = {row["series_code"] for row in previous}
+    current_series = {row["series_code"] for row in current}
+    shared_series = previous_series & current_series
+    comparable_keys = {
+        key for key in current_map.keys() | previous_map.keys()
+        if key.split("|", 2)[1] in shared_series
+    }
     delta: list[dict[str, Any]] = []
-    for key in sorted(current_map.keys() | previous_map.keys()):
+    for key in sorted(comparable_keys):
         before = previous_map.get(key)
         after = current_map.get(key)
         if before == after:
@@ -68,7 +87,12 @@ def record_revision_history(previous: list[dict[str, Any]], current: list[dict[s
         stamp = datetime.now(UTC).strftime("%Y-%m-%dT%H%M%SZ")
         _write_gzip_jsonl(history_dir / "deltas" / f"{stamp}.jsonl.gz", delta)
     counts = {kind: sum(item["change"] == kind for item in delta) for kind in ("added", "removed", "changed")}
-    return {"baseline_cells": 0, **counts}
+    return {
+        "baseline_cells": 0,
+        **counts,
+        "series_added_to_scope": len(current_series - previous_series),
+        "series_removed_from_scope": len(previous_series - current_series),
+    }
 
 
 def refresh() -> bool:
@@ -84,29 +108,53 @@ def refresh() -> bool:
         catalog, catalog_manifest = fetch_series_catalog(specs)
         context, context_manifest = fetch_world_bank_context(countries)
         observations, observations_manifest = fetch_un_observations(specs, countries)
-    except SourceError as exc:
+    except SourceError:
         if not previous:
             raise
-        old_manifest = read_cache_json("manifest.json")
-        old_manifest["status"] = "stale"
-        old_manifest["last_attempt_at"] = utc_now()
-        old_manifest["last_error"] = str(exc)
-        write_cache_json("manifest.json", old_manifest)
         return False
+
     history = record_revision_history(previous, observations)
-    write_cache_json("catalog.json", catalog)
-    write_cache_json("context.json", context)
-    write_cache_json(
-        "manifest.json",
-        {
-            "schema_version": "1.0.0",
-            "status": "fresh",
-            "retrieved_at": utc_now(),
-            "sources": [catalog_manifest, context_manifest, observations_manifest],
-            "history": history,
-            "last_error": None,
-        },
+    source_manifests = [catalog_manifest, context_manifest, observations_manifest]
+    snapshot_id = hashlib.sha256(
+        json.dumps(
+            [(item["source"], item["sha256"]) for item in source_manifests],
+            separators=(",", ":"),
+        ).encode()
+    ).hexdigest()[:16]
+    staging = CACHE_DIR.parent / ".current-next"
+    backup = CACHE_DIR.parent / ".current-previous"
+    if staging.exists():
+        shutil.rmtree(staging)
+    staging.mkdir(parents=True)
+    _write_gzip_jsonl(staging / "observations.jsonl.gz", observations)
+    observations_manifest["artifact_sha256"] = hashlib.sha256(
+        (staging / "observations.jsonl.gz").read_bytes()
+    ).hexdigest()
+    for name, payload in (("catalog.json", catalog), ("context.json", context)):
+        (staging / name).write_text(
+            json.dumps(payload, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+            encoding="utf-8",
+        )
+    manifest = {
+        "schema_version": "1.0.0",
+        "status": "fresh",
+        "retrieved_at": utc_now(),
+        "snapshot_id": snapshot_id,
+        "sources": source_manifests,
+        "history": history,
+        "last_error": None,
+    }
+    (staging / "manifest.json").write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False, sort_keys=True) + "\n",
+        encoding="utf-8",
     )
+    if backup.exists():
+        shutil.rmtree(backup)
+    if CACHE_DIR.exists():
+        CACHE_DIR.replace(backup)
+    staging.replace(CACHE_DIR)
+    if backup.exists():
+        shutil.rmtree(backup)
     return True
 
 
@@ -119,6 +167,8 @@ def build(completed_year: int | None = None) -> dict[str, Any]:
         read_cache_json("catalog.json"),
         completed_year,
     )
+    manifest = read_cache_json("manifest.json")
+    metrics["snapshot_id"] = manifest.get("snapshot_id")
     write_cache_json("metrics.json", metrics)
     return metrics
 
@@ -135,6 +185,7 @@ def model() -> dict[str, Any]:
         read_cache_json("context.json"),
         metrics["completed_year"],
     )
+    result["snapshot_id"] = metrics.get("snapshot_id")
     write_cache_json("model.json", result)
     return result
 
@@ -169,6 +220,10 @@ def _write_csv(path: Path, rows: list[dict[str, Any]], fields: list[str]) -> Non
 
 def export() -> dict[str, Any]:
     ensure_directories()
+    output_dir = SITE_DATA_DIR.parent / ".data-next"
+    if output_dir.exists():
+        shutil.rmtree(output_dir)
+    output_dir.mkdir(parents=True)
     goals = load_goals()
     try:
         metrics = read_cache_json("metrics.json")
@@ -185,6 +240,7 @@ def export() -> dict[str, Any]:
         if (
             snapshot.get("retrieved_at") != manifest["retrieved_at"]
             or snapshot.get("completed_year") != metrics["completed_year"]
+            or snapshot.get("snapshot_id") != manifest.get("snapshot_id")
         ):
             analysis_result = analyze()
     except SourceError:
@@ -196,6 +252,7 @@ def export() -> dict[str, Any]:
             "recent_window": metrics["recent_window"],
             "retrieved_at": manifest["retrieved_at"],
             "status": manifest["status"],
+            "snapshot_id": manifest.get("snapshot_id"),
             "model_selected": model_result["selected"],
         },
         "countries": metrics["countries"],
@@ -208,6 +265,8 @@ def export() -> dict[str, Any]:
                     "country_name",
                     "series_code",
                     "goal",
+                    "goals",
+                    "indicators",
                     "applicability",
                     "latest_year",
                     "recent_completeness",
@@ -227,7 +286,7 @@ def export() -> dict[str, Any]:
         dashboard, ensure_ascii=False, separators=(",", ":"), sort_keys=True
     ) + "\n"
     (CACHE_DIR / "dashboard.json").write_text(compact_dashboard, encoding="utf-8")
-    legacy_dashboard = SITE_DATA_DIR / "dashboard.json"
+    legacy_dashboard = output_dir / "dashboard.json"
     if legacy_dashboard.exists():
         legacy_dashboard.unlink()
 
@@ -237,8 +296,8 @@ def export() -> dict[str, Any]:
     for item in dashboard["country_series"]:
         country_rows[item["country_alpha3"]].append(item)
 
-    country_data_dir = SITE_DATA_DIR / "countries"
-    goal_data_dir = SITE_DATA_DIR / "goals"
+    country_data_dir = output_dir / "countries"
+    goal_data_dir = output_dir / "goals"
     for generated_dir in (country_data_dir, goal_data_dir):
         if generated_dir.exists():
             shutil.rmtree(generated_dir)
@@ -253,7 +312,7 @@ def export() -> dict[str, Any]:
         data_file = f"countries/{alpha3}.json"
         summary = {key: value for key, value in country.items() if key != "goals"}
         site_countries.append({**summary, "data_file": data_file})
-        (SITE_DATA_DIR / data_file).write_text(
+        (output_dir / data_file).write_text(
             json.dumps(country_rows[alpha3], ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n",
             encoding="utf-8",
         )
@@ -264,22 +323,63 @@ def export() -> dict[str, Any]:
         goal_id = str(goal["id"])
         data_file = f"goals/{int(goal_id):02d}.json"
         site_goals.append({**goal, "data_file": data_file})
-        (SITE_DATA_DIR / data_file).write_text(
+        (output_dir / data_file).write_text(
             json.dumps(goal_summaries[goal_id], separators=(",", ":"), sort_keys=True) + "\n",
             encoding="utf-8",
         )
 
+    catalog = read_cache_json("catalog.json")
+    metrics_by_code = {item["code"]: item for item in metrics["series"]}
+    representative_by_indicator = {
+        indicator: spec
+        for spec in load_series()
+        for indicator in spec.indicators
+    }
+    indicator_catalog = []
+    indicator_ids = sorted(
+        representative_by_indicator,
+        key=lambda value: [
+            (0, int(token)) if token.isdigit() else (1, token)
+            for token in value.replace(".", " ").split()
+        ],
+    )
+    for indicator_id in indicator_ids:
+        spec = representative_by_indicator[indicator_id]
+        variants = [
+            {
+                "code": item["code"],
+                "description": item.get("description", item["code"]),
+            }
+            for item in catalog.values()
+            if indicator_id in item.get("indicator", [])
+        ]
+        variants.sort(key=lambda item: item["code"])
+        indicator_catalog.append(
+            {
+                "id": indicator_id,
+                "goals": spec.goals or [spec.goal],
+                "representative": metrics_by_code[spec.code],
+                "variants": variants,
+            }
+        )
+
     download_catalog = [
-        {"label": "Gap rankings", "format": "CSV", "href": "assets/data/downloads/gap_rankings.csv", "description": "Every ranked country–indicator pair."},
+        {"label": "Gap rankings", "format": "CSV", "href": "assets/data/downloads/gap_rankings.csv", "description": "Every ranked country–representative-series pair."},
+        {"label": "Indicator selection", "format": "CSV", "href": "assets/data/downloads/indicator_selection.csv", "description": "Representative mappings, cadence, scope, and selection audit."},
         {"label": "Country scores", "format": "CSV", "href": "assets/data/downloads/country_scores.csv", "description": "Country-level atlas summaries."},
-        {"label": "Group analysis", "format": "CSV", "href": "assets/data/downloads/analysis_groups.csv", "description": "Income, region, goal, and SDG-family comparisons."},
-        {"label": "Adjusted model", "format": "CSV", "href": "assets/data/downloads/analysis_model.csv", "description": "Country–indicator estimates with country-clustered intervals."},
-        {"label": "Statistical-performance model", "format": "CSV", "href": "assets/data/downloads/analysis_context_model.csv", "description": "Secondary estimates adding World Bank statistical performance."},
-        {"label": "Sensitivity analysis", "format": "CSV", "href": "assets/data/downloads/analysis_sensitivity.csv", "description": "Alternative windows and reporting-status rules."},
-        {"label": "Full research results", "format": "JSON", "href": "assets/data/analysis.json", "description": "Complete analysis contract, including robustness checks."},
+        {"label": "Group comparisons", "format": "CSV", "href": "assets/data/downloads/analysis_groups.csv", "description": "Income, region, goal, and SDG-family comparisons."},
+        {"label": "Country distribution", "format": "CSV", "href": "assets/data/downloads/analysis_country_distribution.csv", "description": "Country values behind the comparison chart."},
+        {"label": "Income by goal", "format": "CSV", "href": "assets/data/downloads/analysis_income_goal.csv", "description": "Values behind the income–goal matrix."},
+        {"label": "Reporting status", "format": "CSV", "href": "assets/data/downloads/analysis_reporting_status.csv", "description": "Country-reported, estimated, modelled, other, and missing shares."},
+        {"label": "Breakdown visibility", "format": "CSV", "href": "assets/data/downloads/analysis_disaggregation.csv", "description": "Recent sex, age, and location visibility by goal."},
+        {"label": "Adjusted model", "format": "CSV", "href": "assets/data/downloads/analysis_model.csv", "description": "Adjusted estimates with representative-series fixed effects."},
+        {"label": "Robustness", "format": "CSV", "href": "assets/data/downloads/analysis_sensitivity.csv", "description": "Alternative windows, statuses, and weighting."},
+        {"label": "Indicator influence", "format": "CSV", "href": "assets/data/downloads/analysis_leave_one_indicator.csv", "description": "Income gap after removing each representative series."},
+        {"label": "Concentration", "format": "CSV", "href": "assets/data/downloads/analysis_concentration.csv", "description": "Ranked contributions to total missingness."},
+        {"label": "Full research results", "format": "JSON", "href": "assets/data/analysis.json", "description": "Complete chart and model contract."},
         {"label": "Method contract", "format": "JSON", "href": "assets/data/methodology.json", "description": "Definitions, formulas, and glossary."},
         {"label": "Provenance manifest", "format": "JSON", "href": "assets/data/manifest.json", "description": "Source URLs, retrieval times, hashes, and row counts."},
-        {"label": "Checksums", "format": "JSON", "href": "assets/data/checksums.json", "description": "SHA-256 hashes for published data files."},
+        {"label": "Checksums", "format": "JSON", "href": "assets/data/checksums.json", "description": "SHA-256 hashes for every published data file."},
     ]
     site_meta = {
         "meta": {
@@ -291,10 +391,12 @@ def export() -> dict[str, Any]:
             ],
             "retrieved_at": manifest["retrieved_at"],
             "status": manifest["status"],
+            "snapshot_id": manifest.get("snapshot_id"),
         },
         "counts": {
             "countries": len(metrics["countries"]),
             "series": len(metrics["series"]),
+            "indicators": len(indicator_catalog),
             "goals": len(goals),
             "country_series_assessments": len(metrics["country_series"]),
             "universal_series": analysis_result["design"]["universal_series"],
@@ -317,6 +419,7 @@ def export() -> dict[str, Any]:
         "meta.json": site_meta,
         "countries.json": site_countries,
         "series.json": metrics["series"],
+        "indicators.json": indicator_catalog,
         "goals.json": site_goals,
         "rankings.json": {
             "fields": [
@@ -343,17 +446,20 @@ def export() -> dict[str, Any]:
         },
         "data-catalog.json": data_catalog,
     }
-    old_index = SITE_DATA_DIR / "index.json"
+    old_index = output_dir / "index.json"
     if old_index.exists():
         old_index.unlink()
     for name, payload in payloads.items():
-        (SITE_DATA_DIR / name).write_text(
+        (output_dir / name).write_text(
             json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n",
             encoding="utf-8",
         )
     for name in ("manifest.json", "model.json", "analysis.json"):
-        shutil.copy2(CACHE_DIR / name, SITE_DATA_DIR / name)
-    downloads = SITE_DATA_DIR / "downloads"
+        shutil.copy2(CACHE_DIR / name, output_dir / name)
+    downloads = output_dir / "downloads"
+    if downloads.exists():
+        shutil.rmtree(downloads)
+    downloads.mkdir(parents=True)
     _write_csv(
         downloads / "gap_rankings.csv",
         [
@@ -447,14 +553,96 @@ def export() -> dict[str, Any]:
     _write_csv(
         downloads / "analysis_sensitivity.csv",
         analysis_result["sensitivity"],
-        ["specification", "mean_missingness_pct", "low_minus_high_income_pp"],
+        ["specification", "mean_missingness_pct", "low_minus_high_income_pp", "ci_low", "ci_high"],
+    )
+    _write_csv(
+        downloads / "indicator_selection.csv",
+        [
+            {
+                "indicator_ids": ";".join(item["indicator"]),
+                "goals": ";".join(map(str, item["goals"])),
+                "representative_series": item["code"],
+                "description": item["description"],
+                "cadence_years": item["cadence"],
+                "applicability": item["applicability"],
+                "member_countries_at_selection": item["selection"]["member_countries"],
+                "observation_rows_2015_2025": item["selection"]["observation_rows_2015_2025"],
+                "selection_basis": item["selection"]["basis"],
+            }
+            for item in metrics["series"]
+        ],
+        [
+            "indicator_ids",
+            "goals",
+            "representative_series",
+            "description",
+            "cadence_years",
+            "applicability",
+            "member_countries_at_selection",
+            "observation_rows_2015_2025",
+            "selection_basis",
+        ],
+    )
+    _write_csv(
+        downloads / "analysis_country_distribution.csv",
+        analysis_result["country_distribution"],
+        ["country", "country_alpha3", "income_group", "region", "population", "missingness_pct"],
+    )
+    _write_csv(
+        downloads / "analysis_income_goal.csv",
+        analysis_result["income_goal_matrix"],
+        ["goal", "income_group", "countries", "mean_missingness_pct", "ci_low", "ci_high", "mean_staleness"],
+    )
+    _write_csv(
+        downloads / "analysis_goal_income_effects.csv",
+        analysis_result["goal_income_effects"],
+        ["goal", "estimate_pp", "ci_low", "ci_high"],
+    )
+    _write_csv(
+        downloads / "analysis_reporting_status.csv",
+        [
+            {"group": item["group"], "total_expected_slots": item["total_expected_slots"], **item["shares"]}
+            for item in analysis_result["reporting_status"]
+        ],
+        [
+            "group",
+            "total_expected_slots",
+            "country_reported",
+            "estimated",
+            "modelled_or_global",
+            "other_official",
+            "missing",
+        ],
+    )
+    _write_csv(
+        downloads / "analysis_disaggregation.csv",
+        analysis_result["disaggregation_by_goal"],
+        ["goal", "dimension", "coverage_pct"],
+    )
+    _write_csv(
+        downloads / "analysis_concentration.csv",
+        analysis_result["concentration"]["curve"],
+        [
+            "rank",
+            "series_code",
+            "goal",
+            "description",
+            "mean_missingness_pct",
+            "missing_expected_observations",
+            "cumulative_share_pct",
+        ],
+    )
+    _write_csv(
+        downloads / "analysis_leave_one_indicator.csv",
+        analysis_result["leave_one_indicator_out"]["estimates"],
+        ["excluded_series", "description", "low_minus_high_income_pp"],
     )
     methodology = {
         "recent_window": metrics["recent_window"],
         "coverage": "The share of countries meeting the expected reporting cadence during the latest five completed years.",
         "applicability": {
             "universal": "Applies to every country.",
-            "conditional": "Applies only where the measured subject exists.",
+            "conditional": "Contextual series remain searchable but are not treated as comparable gaps.",
         },
         "measurement_priority": {
             "scale": "0 to 100; higher means a larger reporting gap under the chosen weights.",
@@ -468,10 +656,10 @@ def export() -> dict[str, Any]:
             "scope": "Only universal series receive a measurement-priority score.",
         },
         "research": [
-            {"label": "What is compared", "text": "Each country–indicator pair contributes its share of expected recent observations that are absent."},
-            {"label": "Adjusted comparisons", "text": "The model includes income group, region, population, and SDG family."},
-            {"label": "Intervals", "text": "Model uncertainty is clustered by country; chart intervals come from resampling countries."},
-            {"label": "Available context", "text": "The main model uses income group, region, population, and SDG family. A secondary model adds World Bank statistical performance; collection cost and conflict exposure are unavailable."},
+            {"label": "What is compared", "text": "Each country–representative-series pair contributes its share of expected recent observations that are absent."},
+            {"label": "Adjusted comparisons", "text": "The model compares income group, region, and population after absorbing representative-series baselines."},
+            {"label": "Intervals", "text": "Model uncertainty is clustered by country; descriptive chart intervals come from resampling countries."},
+            {"label": "Available context", "text": "The main model uses income group, region, population, and representative-series baselines. A secondary model adds World Bank statistical performance."},
             {"label": "How to read the results", "text": "Associations describe this source and selection of series; they do not establish causes or measure all data a country collects."},
         ],
         "glossary": [
@@ -486,6 +674,7 @@ def export() -> dict[str, Any]:
             {"term": "Global scarcity", "definition": "How rarely an indicator series is reported across countries."},
             {"term": "Indicator series", "definition": "One statistic tracked over time, such as maternal mortality or access to electricity."},
             {"term": "Measurement priority", "definition": "A 0–100 ranking that combines staleness, missingness, global scarcity, and population."},
+            {"term": "Representative series", "definition": "The one official series used to represent an SDG indicator without giving split variants extra analytical weight."},
             {"term": "Missingness", "definition": "The share of expected recent observations absent from the selected UN source."},
             {"term": "Percentage point", "definition": "The direct difference between two percentages; 50% minus 40% is 10 percentage points."},
             {"term": "Sensitivity analysis", "definition": "Recalculating a result under reasonable alternative choices to see whether it persists."},
@@ -495,16 +684,24 @@ def export() -> dict[str, Any]:
             {"term": "Universal series", "definition": "An indicator series intended to apply to every country."},
         ],
     }
-    (SITE_DATA_DIR / "methodology.json").write_text(
+    (output_dir / "methodology.json").write_text(
         json.dumps(methodology, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
     checksums = {}
-    for path in sorted(SITE_DATA_DIR.rglob("*")):
+    for path in sorted(output_dir.rglob("*")):
         if path.is_file() and path.name != "checksums.json":
-            checksums[str(path.relative_to(SITE_DATA_DIR))] = hashlib.sha256(path.read_bytes()).hexdigest()
-    (SITE_DATA_DIR / "checksums.json").write_text(
+            checksums[str(path.relative_to(output_dir))] = hashlib.sha256(path.read_bytes()).hexdigest()
+    (output_dir / "checksums.json").write_text(
         json.dumps(checksums, indent=2, sort_keys=True) + "\n", encoding="utf-8"
     )
+    backup_dir = SITE_DATA_DIR.parent / ".data-previous"
+    if backup_dir.exists():
+        shutil.rmtree(backup_dir)
+    if SITE_DATA_DIR.exists():
+        SITE_DATA_DIR.replace(backup_dir)
+    output_dir.replace(SITE_DATA_DIR)
+    if backup_dir.exists():
+        shutil.rmtree(backup_dir)
     return {"countries": site_countries, "series": metrics["series"]}
 
 
@@ -514,7 +711,7 @@ def validate() -> list[str]:
     goals = load_goals()
     countries = load_countries()
     goal_ids = {goal["id"] for goal in goals}
-    configured_goal_ids = {spec.goal for spec in specs}
+    configured_goal_ids = {goal for spec in specs for goal in (spec.goals or [spec.goal])}
     if not specs:
         errors.append("At least one series must be configured")
     if configured_goal_ids != goal_ids:
@@ -532,18 +729,72 @@ def validate() -> list[str]:
     manifest = read_cache_json("manifest.json")
     analysis_result = read_cache_json("analysis.json")
     observations = load_cached_observations()
+    catalog = read_cache_json("catalog.json")
+    configured_indicators = [indicator for spec in specs for indicator in spec.indicators]
+    official_indicators = {
+        indicator for item in catalog.values() for indicator in item.get("indicator", [])
+    }
+    if len(configured_indicators) != len(set(configured_indicators)):
+        errors.append("Official indicators do not map to exactly one representative")
+    if set(configured_indicators) != official_indicators:
+        errors.append("Representative mapping does not cover the current official indicator catalogue")
+    for spec in specs:
+        metadata = catalog.get(spec.code, {})
+        if not set(spec.indicators) <= set(metadata.get("indicator", [])):
+            errors.append(f"Representative mapping disagrees with UN metadata: {spec.code}")
+    if manifest.get("status") != "fresh":
+        errors.append("Source manifest is not fresh")
+    if any(source.get("status") != "fresh" for source in manifest.get("sources", [])):
+        errors.append("One or more source manifests are not fresh")
+    sources_by_name = {source.get("source"): source for source in manifest.get("sources", [])}
+    expected_source_hashes = {
+        "UNSD SDG series catalog": hashlib.sha256(
+            json.dumps(catalog, ensure_ascii=False, sort_keys=True).encode()
+        ).hexdigest(),
+        "World Bank population and statistical performance": hashlib.sha256(
+            json.dumps(read_cache_json("context.json"), sort_keys=True).encode()
+        ).hexdigest(),
+        "UNSD SDG API": observations_sha256(observations),
+    }
+    for source_name, expected_hash in expected_source_hashes.items():
+        if sources_by_name.get(source_name, {}).get("sha256") != expected_hash:
+            errors.append(f"Cached source content does not match its manifest: {source_name}")
+    observation_source = sources_by_name.get("UNSD SDG API", {})
+    artifact_hash = hashlib.sha256((CACHE_DIR / "observations.jsonl.gz").read_bytes()).hexdigest()
+    if observation_source.get("artifact_sha256") != artifact_hash:
+        errors.append("Observation artifact does not match its manifest")
+    expected_snapshot_id = hashlib.sha256(
+        json.dumps(
+            [(source.get("source"), source.get("sha256")) for source in manifest.get("sources", [])],
+            separators=(",", ":"),
+        ).encode()
+    ).hexdigest()[:16]
+    snapshot_id = manifest.get("snapshot_id")
+    if snapshot_id != expected_snapshot_id:
+        errors.append("Source snapshot identifier is not reproducible from its manifests")
+    if not snapshot_id:
+        errors.append("Source manifest has no snapshot identifier")
+    if metrics.get("snapshot_id") != snapshot_id:
+        errors.append("Metrics and source snapshots do not match")
+    model_result = read_cache_json("model.json")
+    if model_result.get("snapshot_id") != snapshot_id:
+        errors.append("Model and source snapshots do not match")
     if len(metrics.get("countries", [])) != len(countries):
         errors.append("Metrics country count does not match configuration")
     if len(metrics.get("series", [])) != len(specs):
         errors.append("Metrics series count does not match configuration")
     years = {int(item["reference_year"]) for item in observations if item.get("reference_year") is not None}
-    if not years or max(years) <= 2015:
-        errors.append("Observation snapshot does not span beyond the 2015 start year")
+    if not years or min(years) != OBSERVATION_START_YEAR or max(years) != LATEST_COMPLETED_YEAR:
+        errors.append("Observation snapshot does not match the configured year bounds")
     un_source = next(
         (source for source in manifest.get("sources", []) if source.get("source") == "UNSD SDG API"),
         {},
     )
-    empty_series = [code for code, count in un_source.get("series_rows", {}).items() if count == 0]
+    series_rows = un_source.get("series_rows", {})
+    empty_series = [
+        spec.code for spec in specs
+        if spec.applicability == "universal" and series_rows.get(spec.code, 0) == 0
+    ]
     if empty_series:
         errors.append(f"Configured series with no member-state rows: {sorted(empty_series)}")
     design = analysis_result.get("design", {})
@@ -565,11 +816,18 @@ def validate() -> list[str]:
     if not 0 < context_model.get("clusters", 0) <= len(countries):
         errors.append("Statistical-performance context model has invalid country coverage")
     sensitivity_labels = {item.get("specification", "") for item in analysis_result.get("sensitivity", [])}
-    if not any("Population-weighted" in label for label in sensitivity_labels):
-        errors.append("Population-weighted sensitivity is missing")
-    if not any("conditional series" in label for label in sensitivity_labels):
-        errors.append("Conditional-series sensitivity is missing")
+    required_sensitivities = {
+        "Primary: all official statuses, 5 years",
+        "Short window: 3 years",
+        "Long window: 7 years",
+        "Country-reported statuses only",
+        "Countries weighted by population",
+    }
+    if sensitivity_labels != required_sensitivities:
+        errors.append("Research sensitivity set is incomplete or unexpected")
     if analysis_result.get("snapshot", {}).get("retrieved_at") != manifest.get("retrieved_at"):
+        errors.append("Analysis and source timestamps do not match")
+    if analysis_result.get("snapshot", {}).get("snapshot_id") != snapshot_id:
         errors.append("Analysis and source snapshots do not match")
     for item in metrics.get("country_series", []):
         for key in ("recent_completeness", "staleness", "global_scarcity"):
@@ -585,7 +843,7 @@ def validate() -> list[str]:
         f"{len(countries):,} unique countries",
         f"{len(metrics['country_series']):,} country-series assessments",
         f"Observation years {min(years)}–{max(years)}",
-        "Every configured series has member-state observations",
+        "Every universal series has member-state observations",
         "All normalized scores within declared bounds",
         f"Research panel: {len(countries):,} countries × {universal_count} universal series",
         "Research snapshot, clustered model, sensitivities, and source provenance agree",

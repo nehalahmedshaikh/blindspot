@@ -1,6 +1,6 @@
 {
   "applicability": {
-    "conditional": "Applies only where the measured subject exists.",
+    "conditional": "Contextual series remain searchable but are not treated as comparable gaps.",
     "universal": "Applies to every country."
   },
   "coverage": "The share of countries meeting the expected reporting cadence during the latest five completed years.",
@@ -48,6 +48,10 @@
     {
       "definition": "A 0\u2013100 ranking that combines staleness, missingness, global scarcity, and population.",
       "term": "Measurement priority"
+    },
+    {
+      "definition": "The one official series used to represent an SDG indicator without giving split variants extra analytical weight.",
+      "term": "Representative series"
     },
     {
       "definition": "The share of expected recent observations absent from the selected UN source.",
@@ -116,19 +120,19 @@
   "research": [
     {
       "label": "What is compared",
-      "text": "Each country\u2013indicator pair contributes its share of expected recent observations that are absent."
+      "text": "Each country\u2013representative-series pair contributes its share of expected recent observations that are absent."
     },
     {
       "label": "Adjusted comparisons",
-      "text": "The model includes income group, region, population, and SDG family."
+      "text": "The model compares income group, region, and population after absorbing representative-series baselines."
     },
     {
       "label": "Intervals",
-      "text": "Model uncertainty is clustered by country; chart intervals come from resampling countries."
+      "text": "Model uncertainty is clustered by country; descriptive chart intervals come from resampling countries."
     },
     {
       "label": "Available context",
-      "text": "The main model uses income group, region, population, and SDG family. A secondary model adds World Bank statistical performance; collection cost and conflict exposure are unavailable."
+      "text": "The main model uses income group, region, population, and representative-series baselines. A secondary model adds World Bank statistical performance."
     },
     {
       "label": "How to read the results",

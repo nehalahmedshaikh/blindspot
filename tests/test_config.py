@@ -11,7 +11,13 @@ class ConfigurationTests(unittest.TestCase):
         goals = load_goals()
         self.assertTrue(specs)
         self.assertEqual(len({item.code for item in specs}), len(specs))
-        self.assertEqual({item.goal for item in specs}, {item["id"] for item in goals})
+        self.assertEqual(
+            {goal for item in specs for goal in (item.goals or [item.goal])},
+            {item["id"] for item in goals},
+        )
+        indicators = [indicator for item in specs for indicator in item.indicators]
+        self.assertEqual(len(indicators), len(set(indicators)))
+        self.assertTrue(all(item.selection for item in specs))
 
     def test_country_registry_has_193_unique_members(self):
         countries = load_countries()

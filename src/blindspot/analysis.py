@@ -192,42 +192,60 @@ def fit_country_model(rows: list[dict[str, Any]]) -> dict[str, Any]:
 def fit_pair_model(
     rows: list[dict[str, Any]], include_statistical_performance: bool = False
 ) -> dict[str, Any]:
-    """Fit the preregistered country-series model with country-clustered errors."""
+    """Fit country covariates after absorbing representative-series fixed effects."""
     if include_statistical_performance:
         rows = [row for row in rows if row.get("statistical_performance") is not None]
     incomes = sorted({row["income_group"] for row in rows})
     regions = sorted({row["region"] for row in rows})
-    families = sorted({row["family"] for row in rows})
     income_reference = "High income" if "High income" in incomes else incomes[0]
     region_reference = "Europe & Central Asia" if "Europe & Central Asia" in regions else regions[0]
-    family_reference = "People" if "People" in families else families[0]
     income_levels = [value for value in incomes if value != income_reference]
     region_levels = [value for value in regions if value != region_reference]
-    family_levels = [value for value in families if value != family_reference]
     log_population = [math.log(row["population"]) for row in rows]
     population_mean = statistics.mean(log_population)
     population_sd = statistics.pstdev(log_population) or 1.0
-    names = ["Intercept", "Log population (1 SD)"]
+    names = ["Log population (1 SD)"]
     names += [f"Income: {value} vs {income_reference}" for value in income_levels]
     names += [f"Region: {value} vs {region_reference}" for value in region_levels]
-    names += [f"SDG family: {value} vs {family_reference}" for value in family_levels]
     if include_statistical_performance:
         names.append("Statistical performance (10 points)")
-    design, outcome, clusters = [], [], []
+
+    raw_design = []
+    outcome = []
+    clusters = []
+    series = []
     for row in rows:
-        design.append(
-            [1.0, (math.log(row["population"]) - population_mean) / population_sd]
+        raw_design.append(
+            [(math.log(row["population"]) - population_mean) / population_sd]
             + [float(row["income_group"] == value) for value in income_levels]
             + [float(row["region"] == value) for value in region_levels]
-            + [float(row["family"] == value) for value in family_levels]
             + ([row["statistical_performance"] / 10] if include_statistical_performance else [])
         )
         outcome.append(row["missingness"])
         clusters.append(row["country_alpha3"])
+        series.append(row.get("series_code", row.get("family", "series")))
+
+    by_series: dict[str, list[int]] = defaultdict(list)
+    for index, code in enumerate(series):
+        by_series[code].append(index)
+    design = [[0.0] * len(names) for _ in rows]
+    centered_outcome = [0.0] * len(rows)
+    for indices in by_series.values():
+        means = [
+            statistics.mean(raw_design[index][column] for index in indices)
+            for column in range(len(names))
+        ]
+        outcome_mean = statistics.mean(outcome[index] for index in indices)
+        for index in indices:
+            design[index] = [
+                value - mean for value, mean in zip(raw_design[index], means)
+            ]
+            centered_outcome[index] = outcome[index] - outcome_mean
+
     columns = len(names)
     xtx = [[0.0] * columns for _ in range(columns)]
     xty = [0.0] * columns
-    for x, y in zip(design, outcome):
+    for x, y in zip(design, centered_outcome):
         for i in range(columns):
             xty[i] += x[i] * y
             for j in range(columns):
@@ -236,7 +254,7 @@ def fit_pair_model(
     coefficients = _matvec(inverse, xty)
     residuals = [
         y - sum(value * beta for value, beta in zip(x, coefficients))
-        for x, y in zip(design, outcome)
+        for x, y in zip(design, centered_outcome)
     ]
     cluster_scores: dict[str, list[float]] = defaultdict(lambda: [0.0] * columns)
     for cluster, x, residual in zip(clusters, design, residuals):
@@ -252,19 +270,19 @@ def fit_pair_model(
     correction = (cluster_count / (cluster_count - 1)) * ((row_count - 1) / (row_count - columns))
     covariance = _sandwich(inverse, [[value * correction for value in row] for row in meat])
     standard_errors = [math.sqrt(max(0.0, covariance[i][i])) for i in range(columns)]
-    total_ss = sum((value - statistics.mean(outcome)) ** 2 for value in outcome)
+    total_ss = sum(value**2 for value in centered_outcome)
     residual_ss = sum(value**2 for value in residuals)
     return {
-        "unit": "country–indicator pair",
+        "unit": "country–representative-series pair",
         "outcome": "recent missingness",
         "n": row_count,
         "clusters": cluster_count,
         "clustered_by": "country",
+        "indicator_fixed_effects": True,
         "includes_statistical_performance": include_statistical_performance,
-        "r_squared": round(1 - residual_ss / total_ss, 4) if total_ss else 0.0,
+        "r_squared_within": round(1 - residual_ss / total_ss, 4) if total_ss else 0.0,
         "income_reference": income_reference,
         "region_reference": region_reference,
-        "family_reference": family_reference,
         "coefficients": [
             {
                 "term": name,
@@ -491,8 +509,186 @@ def missingness_concentration(
         "top_quintile_share_of_missingness_pct": (
             round(100 * top_total / total, 1) if total else 0.0
         ),
-        "top_series": ranked[:5],
+        "top_series": ranked[:10],
+        "series": ranked,
     }
+
+
+def _income_gap_interval(
+    rows: list[dict[str, Any]],
+    repetitions: int,
+    label: str,
+    population_weighted: bool = False,
+) -> tuple[float, float]:
+    country_rows = _country_means(rows)
+    grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    for row in country_rows:
+        grouped[row["income_group"]].append(row)
+    high, low = grouped.get("High income", []), grouped.get("Low income", [])
+    if not high or not low:
+        return math.nan, math.nan
+    rng = random.Random(_stable_seed(label))
+    estimates = []
+    for _ in range(repetitions):
+        high_draw = [rng.choice(high) for _ in high]
+        low_draw = [rng.choice(low) for _ in low]
+        if population_weighted:
+            high_mean = _weighted_mean(
+                [item["missingness"] for item in high_draw],
+                [item["population"] for item in high_draw],
+            )
+            low_mean = _weighted_mean(
+                [item["missingness"] for item in low_draw],
+                [item["population"] for item in low_draw],
+            )
+        else:
+            high_mean = _mean(item["missingness"] for item in high_draw)
+            low_mean = _mean(item["missingness"] for item in low_draw)
+        estimates.append(100 * (low_mean - high_mean))
+    return _quantile(estimates, 0.025), _quantile(estimates, 0.975)
+
+
+def _country_distributions(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "country": row["country_name"],
+            "country_alpha3": row["country_alpha3"],
+            "income_group": row["income_group"],
+            "region": row["region"],
+            "population": row["population"],
+            "missingness_pct": round(100 * row["missingness"], 1),
+        }
+        for row in _country_means(rows)
+    ]
+
+
+def _income_goal_matrix(
+    rows: list[dict[str, Any]], repetitions: int
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    cells = []
+    effects = []
+    goals = sorted({row["goal"] for row in rows})
+    incomes = ["High income", "Upper middle income", "Lower middle income", "Low income"]
+    for goal in goals:
+        goal_rows = [row for row in rows if row["goal"] == goal]
+        summary = {item["group"]: item for item in _group_summary(goal_rows, "income_group", repetitions)}
+        for income in incomes:
+            if income in summary:
+                cells.append({"goal": goal, "income_group": income, **summary[income]})
+        low, high = _income_gap_interval(goal_rows, repetitions, f"goal-income:{goal}")
+        if "Low income" in summary and "High income" in summary:
+            effects.append(
+                {
+                    "goal": goal,
+                    "estimate_pp": round(
+                        summary["Low income"]["mean_missingness_pct"]
+                        - summary["High income"]["mean_missingness_pct"],
+                        1,
+                    ),
+                    "ci_low": round(low, 1),
+                    "ci_high": round(high, 1),
+                }
+            )
+    return cells, effects
+
+
+def _status_composition(
+    observations: list[dict[str, Any]],
+    specs: list[SeriesSpec],
+    countries: list[Country],
+    completed_year: int,
+) -> list[dict[str, Any]]:
+    recent_start = completed_year - 4
+    universal = {spec.code: spec for spec in specs if spec.applicability == "universal"}
+    member_codes = {country.m49 for country in countries}
+    by_cell: dict[tuple[str, str, int], set[str]] = defaultdict(set)
+    for row in observations:
+        year = row.get("reference_year")
+        if (
+            row.get("series_code") in universal
+            and row.get("country_m49") in member_codes
+            and year is not None
+            and recent_start <= int(year) <= completed_year
+        ):
+            by_cell[(row["country_m49"], row["series_code"], int(year))].add(row.get("nature", "NA"))
+    precedence = (
+        ("country_reported", {"C", "CA"}),
+        ("estimated", {"E"}),
+        ("modelled_or_global", {"M", "G"}),
+        ("other_official", {"N", "NA"}),
+    )
+    totals: dict[str, Counter[str]] = defaultdict(Counter)
+    years_by_pair: dict[tuple[str, str], list[int]] = defaultdict(list)
+    for country_code, series_code, year in by_cell:
+        years_by_pair[(country_code, series_code)].append(year)
+    for spec in universal.values():
+        family = FAMILY_BY_GOAL[spec.goal]
+        expected = max(1, math.ceil(5 / spec.cadence))
+        for country in countries:
+            years = sorted(set(years_by_pair[(country.m49, spec.code)]), reverse=True)[:expected]
+            for year in years:
+                natures = by_cell[(country.m49, spec.code, year)]
+                category = next(
+                    (label for label, values in precedence if natures & values),
+                    "other_official",
+                )
+                totals[family][category] += 1
+                totals["All indicators"][category] += 1
+            missing = expected - len(years)
+            totals[family]["missing"] += missing
+            totals["All indicators"]["missing"] += missing
+    output = []
+    categories = ["country_reported", "estimated", "modelled_or_global", "other_official", "missing"]
+    for group, counts in sorted(totals.items()):
+        total = sum(counts.values())
+        output.append(
+            {
+                "group": group,
+                "total_expected_slots": total,
+                "shares": {
+                    category: round(100 * counts[category] / total, 1) if total else 0.0
+                    for category in categories
+                },
+            }
+        )
+    return output
+
+
+def _disaggregation_summary(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    grouped: dict[int, list[dict[str, Any]]] = defaultdict(list)
+    for row in rows:
+        grouped[row["goal"]].append(row)
+    output = []
+    for goal, items in sorted(grouped.items()):
+        for dimension in ("sex", "age", "location"):
+            output.append(
+                {
+                    "goal": goal,
+                    "dimension": dimension,
+                    "coverage_pct": round(
+                        100 * _mean(float(item["disaggregation"][dimension]) for item in items),
+                        1,
+                    ),
+                }
+            )
+    return output
+
+
+def _concentration_curve(concentration: dict[str, Any]) -> list[dict[str, Any]]:
+    ranked = concentration.get("series", concentration.get("top_series", []))
+    total = sum(item["missing_expected_observations"] for item in ranked)
+    cumulative = 0.0
+    output = []
+    for rank, item in enumerate(ranked, 1):
+        cumulative += item["missing_expected_observations"]
+        output.append(
+            {
+                **item,
+                "rank": rank,
+                "cumulative_share_pct": round(100 * cumulative / total, 1) if total else 0.0,
+            }
+        )
+    return output
 
 
 def run_analysis(
@@ -501,7 +697,6 @@ def run_analysis(
     manifest: dict[str, Any], bootstrap_repetitions: int = 1000,
 ) -> dict[str, Any]:
     rows = _analysis_rows(metrics)
-    all_series_rows = _analysis_rows(metrics, include_conditional=True)
     country_rows = _country_means(rows)
     population = {row["country_alpha3"]: float(row["population"]) for row in country_rows}
     missingness = {row["country_alpha3"]: row["missingness"] for row in country_rows}
@@ -513,73 +708,65 @@ def run_analysis(
     )
     reported_rows = _analysis_rows(reported_metrics)
     universal_series = len({row["series_code"] for row in rows})
-    status_counts = Counter(row.get("nature", "NA") for row in observations)
     country_model = fit_country_model(country_rows)
     pair_model = fit_pair_model(rows)
     context_model = fit_pair_model(rows, include_statistical_performance=True)
     variance = variance_decomposition(rows)
     concentration = missingness_concentration(rows, catalog)
     leave_one_out = leave_one_series_out(rows, catalog)
-    sensitivity = [
-        _sensitivity_entry("All official statuses, 5-year window", rows),
-        _sensitivity_entry(
-            "All official statuses, 3-year window",
-            _window_rows(rows, metrics["completed_year"], 3),
-        ),
-        _sensitivity_entry(
-            "All official statuses, 7-year window",
-            _window_rows(rows, metrics["completed_year"], 7),
-        ),
-        _sensitivity_entry(
-            "Country and country-adjusted statuses only, 5-year window",
-            reported_rows,
-        ),
-        _sensitivity_entry(
-            "Population-weighted countries, all official statuses, 5-year window",
-            rows,
-            population_weighted=True,
-        ),
-        _sensitivity_entry(
-            "All selected series, treating conditional series as applicable",
-            all_series_rows,
-        ),
+
+    sensitivity_inputs = [
+        ("Primary: all official statuses, 5 years", rows, False),
+        ("Short window: 3 years", _window_rows(rows, metrics["completed_year"], 3), False),
+        ("Long window: 7 years", _window_rows(rows, metrics["completed_year"], 7), False),
+        ("Country-reported statuses only", reported_rows, False),
+        ("Countries weighted by population", rows, True),
     ]
-    income_effect = next(
-        item
-        for item in pair_model["coefficients"]
-        if item["term"].startswith("Income: Low income")
-    )
-    population_effect = next(
-        item
-        for item in pair_model["coefficients"]
-        if item["term"] == "Log population (1 SD)"
-    )
-    statistical_performance_effect = next(
-        item
-        for item in context_model["coefficients"]
-        if item["term"] == "Statistical performance (10 points)"
-    )
+    sensitivity = []
+    for label, sensitivity_rows, weighted in sensitivity_inputs:
+        entry = _sensitivity_entry(label, sensitivity_rows, population_weighted=weighted)
+        low, high = _income_gap_interval(
+            sensitivity_rows,
+            bootstrap_repetitions,
+            f"sensitivity:{label}",
+            population_weighted=weighted,
+        )
+        entry.update({"ci_low": round(low, 1), "ci_high": round(high, 1)})
+        sensitivity.append(entry)
+
+    income_goal, goal_income_effects = _income_goal_matrix(rows, bootstrap_repetitions)
+    status_counts = Counter(row.get("nature", "NA") for row in observations)
     analysis = {
-        "snapshot": {"retrieved_at": manifest["retrieved_at"], "completed_year": metrics["completed_year"], "recent_window": metrics["recent_window"]},
+        "snapshot": {
+            "retrieved_at": manifest["retrieved_at"],
+            "completed_year": metrics["completed_year"],
+            "recent_window": metrics["recent_window"],
+            "snapshot_id": manifest.get("snapshot_id"),
+        },
         "design": {
             "primary_outcome": "recent missingness",
-            "unit": "country, averaged equally across the same universally applicable series",
-            "countries": len(country_rows), "universal_series": universal_series,
-            "country_series_pairs": len(rows), "bootstrap_repetitions": bootstrap_repetitions,
+            "unit": "country, averaged equally across universal representative series",
+            "countries": len(country_rows),
+            "official_indicators": len({indicator for spec in specs for indicator in spec.indicators}),
+            "representative_series": len(specs),
+            "universal_series": universal_series,
+            "country_series_pairs": len(rows),
+            "bootstrap_repetitions": bootstrap_repetitions,
             "interpretation": "descriptive associations, not causal effects",
-            "included_context": ["income group", "region", "population", "SDG family"],
-            "unavailable_context": ["collection cost", "conflict exposure"],
         },
         "audit": {
             "manifest_status": manifest["status"],
             "rectangular_panel": len(rows) == len(country_rows) * universal_series,
             "countries_with_complete_context": sum(
-                row["population"] is not None and row["region"] != "Unknown" and row["income_group"] != "Unknown"
+                row["population"] is not None
+                and row["region"] != "Unknown"
+                and row["income_group"] != "Unknown"
                 for row in country_rows
             ),
             "future_observations_excluded": sum(
                 int(row["reference_year"]) > metrics["completed_year"]
-                for row in observations if row.get("reference_year") is not None
+                for row in observations
+                if row.get("reference_year") is not None
             ),
             "observation_status_counts": dict(sorted(status_counts.items())),
         },
@@ -589,76 +776,28 @@ def run_analysis(
             "goal": _group_summary(rows, "goal", bootstrap_repetitions),
             "family": _group_summary(rows, "family", bootstrap_repetitions),
         },
-        "population_association": {"spearman_rho": round(rho, 3), "ci_low": round(rho_low, 3), "ci_high": round(rho_high, 3)},
+        "country_distribution": _country_distributions(rows),
+        "income_goal_matrix": income_goal,
+        "goal_income_effects": goal_income_effects,
+        "reporting_status": _status_composition(
+            observations, specs, countries, metrics["completed_year"]
+        ),
+        "disaggregation_by_goal": _disaggregation_summary(rows),
+        "population_association": {
+            "spearman_rho": round(rho, 3),
+            "ci_low": round(rho_low, 3),
+            "ci_high": round(rho_high, 3),
+        },
         "pair_model": pair_model,
         "context_model": context_model,
         "country_model": country_model,
         "variance_decomposition": variance,
-        "concentration": concentration,
-        "leave_one_series_out": leave_one_out,
+        "concentration": {
+            **concentration,
+            "curve": _concentration_curve(concentration),
+        },
+        "leave_one_indicator_out": leave_one_out,
         "sensitivity": sensitivity,
-        "findings": [
-            {
-                "id": "income-gap",
-                "value": income_effect["estimate_percentage_points"],
-                "unit": "percentage points",
-                "label": "Adjusted low-income gap",
-                "plain_language": (
-                    "After accounting for region and population, low-income "
-                    "countries have more recent missingness than high-income countries."
-                ),
-                "ci_low": income_effect["ci_low"],
-                "ci_high": income_effect["ci_high"],
-            },
-            {
-                "id": "indicator-variation",
-                "value": variance["indicator_percent"],
-                "unit": "percent",
-                "label": "Variation between indicators",
-                "plain_language": (
-                    "Missingness differs much more from indicator to indicator "
-                    "than from country to country."
-                ),
-                "comparison_value": variance["country_percent"],
-            },
-        ],
-        "supporting_results": [
-            {
-                "id": "population",
-                "label": "Population",
-                "value": population_effect["estimate_percentage_points"],
-                "unit": "percentage points per standard deviation",
-                "plain_language": (
-                    "Larger populations are associated with less recent missingness "
-                    "after accounting for region and income."
-                ),
-                "ci_low": population_effect["ci_low"],
-                "ci_high": population_effect["ci_high"],
-            },
-            {
-                "id": "statistical-performance",
-                "label": "Statistical performance",
-                "value": statistical_performance_effect["estimate_percentage_points"],
-                "unit": "percentage points per 10-point score increase",
-                "plain_language": (
-                    "Higher World Bank statistical-performance scores are associated "
-                    "with less recent missingness after the other adjustments."
-                ),
-                "ci_low": statistical_performance_effect["ci_low"],
-                "ci_high": statistical_performance_effect["ci_high"],
-            },
-            {
-                "id": "concentration",
-                "label": "Concentration",
-                "value": concentration["top_quintile_share_of_missingness_pct"],
-                "unit": "percent",
-                "count": concentration["top_quintile_series"],
-                "plain_language": (
-                    "A small group of high-gap indicator series accounts for a "
-                    "disproportionate share of total missingness."
-                ),
-            },
-        ],
     }
     if not analysis["audit"]["rectangular_panel"]:
         raise ValueError("Research analysis requires a rectangular country-series panel")

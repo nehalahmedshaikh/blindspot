@@ -2,27 +2,27 @@
   "candidates": {
     "logistic_regression": {
       "metrics": {
-        "auroc": 0.835,
-        "average_precision": 0.8048,
-        "brier": 0.2124,
-        "n": 29336
+        "auroc": 0.8635,
+        "average_precision": 0.8987,
+        "brier": 0.1718,
+        "n": 154400
       },
       "weights": [
-        0.356075,
-        0.929932,
-        -2.715851,
-        -1.234276,
-        0.071313,
-        0.729122,
-        0.438393
+        0.377694,
+        1.741055,
+        -2.483077,
+        -1.505188,
+        0.131922,
+        0.196996,
+        0.193663
       ]
     },
     "series_rate_baseline": {
       "metrics": {
-        "auroc": 0.7873,
-        "average_precision": 0.7376,
-        "brier": 0.2072,
-        "n": 29336
+        "auroc": 0.8217,
+        "average_precision": 0.8782,
+        "brier": 0.1737,
+        "n": 154400
       }
     }
   },
@@ -41,7 +41,8 @@
     "Features describe associations and must not be interpreted causally."
   ],
   "schema_version": "1.0.0",
-  "selected": "series_rate_baseline",
+  "selected": "logistic_regression",
+  "snapshot_id": "d6804c3670508944",
   "split": {
     "temporal": true,
     "testing_from": 2022,

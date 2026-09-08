@@ -15,6 +15,7 @@ class SiteContractTests(unittest.TestCase):
         cls.countries = json.loads((cls.data / "countries.json").read_text())
         cls.series = json.loads((cls.data / "series.json").read_text())
         cls.rankings = json.loads((cls.data / "rankings.json").read_text())
+        cls.indicators = json.loads((cls.data / "indicators.json").read_text())
 
     def test_six_focused_pages_exist(self):
         pages = ["index.html", "explore/index.html", "indicators/index.html", "research/index.html", "methods/index.html", "data/index.html"]
@@ -36,6 +37,13 @@ class SiteContractTests(unittest.TestCase):
             payload = json.loads(path.read_text())
             self.assertTrue(set(payload) <= country_codes)
 
+    def test_every_official_indicator_has_one_representative(self):
+        ids = [item["id"] for item in self.indicators]
+        self.assertEqual(len(ids), len(set(ids)))
+        self.assertEqual(len(ids), self.meta["counts"]["indicators"])
+        self.assertTrue(all(item["representative"]["code"] for item in self.indicators))
+        self.assertTrue(all(item["variants"] for item in self.indicators))
+
     def test_interactive_ranking_contains_every_ranked_pair(self):
         expected = self.meta["counts"]["countries"] * self.meta["counts"]["universal_series"]
         self.assertEqual(len(self.rankings["rows"]), expected)
@@ -54,16 +62,39 @@ class SiteContractTests(unittest.TestCase):
     def test_research_and_glossary_are_data_driven(self):
         analysis = json.loads((self.data / "analysis.json").read_text())
         method = json.loads((self.data / "methodology.json").read_text())
-        self.assertEqual(len(analysis["findings"]), 2)
-        self.assertTrue(all(item.get("plain_language") for item in analysis["findings"]))
+        self.assertNotIn("findings", analysis)
+        self.assertNotIn("supporting_results", analysis)
+        self.assertEqual(len(analysis["country_distribution"]), self.meta["counts"]["countries"])
+        self.assertEqual(analysis["design"]["official_indicators"], self.meta["counts"]["indicators"])
+        self.assertTrue(analysis["income_goal_matrix"])
+        self.assertTrue(analysis["reporting_status"])
+        self.assertTrue(analysis["disaggregation_by_goal"])
+        self.assertTrue(all(item.get("ci_low") is not None for item in analysis["sensitivity"]))
         self.assertEqual(analysis["pair_model"]["clusters"], self.meta["counts"]["countries"])
         self.assertEqual(analysis["context_model"]["clusters"], self.meta["counts"]["statistical_performance_countries"])
         self.assertGreater(analysis["context_model"]["clusters"], 150)
         specifications = {item["specification"] for item in analysis["sensitivity"]}
-        self.assertTrue(any("Population-weighted" in item for item in specifications))
-        self.assertTrue(any("conditional series" in item for item in specifications))
+        self.assertEqual(len(specifications), 5)
+        self.assertIn("Countries weighted by population", specifications)
+        self.assertIn("Country-reported statuses only", specifications)
         terms = {item["term"] for item in method["glossary"]}
         self.assertTrue({"Adjusted comparison", "Bootstrap interval", "Measurement priority", "Missingness"} <= terms)
+
+    def test_published_snapshot_ids_match(self):
+        manifest = json.loads((self.data / "manifest.json").read_text())
+        model = json.loads((self.data / "model.json").read_text())
+        analysis = json.loads((self.data / "analysis.json").read_text())
+        snapshot_id = manifest["snapshot_id"]
+        expected = hashlib.sha256(
+            json.dumps(
+                [(item["source"], item["sha256"]) for item in manifest["sources"]],
+                separators=(",", ":"),
+            ).encode()
+        ).hexdigest()[:16]
+        self.assertEqual(snapshot_id, expected)
+        self.assertEqual(self.meta["meta"]["snapshot_id"], snapshot_id)
+        self.assertEqual(model["snapshot_id"], snapshot_id)
+        self.assertEqual(analysis["snapshot"]["snapshot_id"], snapshot_id)
 
     def test_published_checksums_match(self):
         checksums = json.loads((self.data / "checksums.json").read_text())
