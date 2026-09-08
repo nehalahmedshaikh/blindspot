@@ -2,7 +2,7 @@
 
 **An open atlas of what humanity has not measured.**
 
-[Explore the observatory](https://nehalahmedshaikh.github.io/blindspot/) for the project, methodology, sources, and research roadmap.
+[Explore the observatory](https://nehalahmedshaikh.github.io/blindspot/) for the atlas, research results, methodology, sources, and downloads.
 
 ## Quick start
 

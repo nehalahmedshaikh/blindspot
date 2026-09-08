@@ -3,6 +3,7 @@ import unittest
 from blindspot.analysis import (
     bootstrap_mean_interval,
     leave_one_series_out,
+    fit_pair_model,
     missingness_concentration,
     variance_decomposition,
 )
@@ -27,6 +28,30 @@ class AnalysisTests(unittest.TestCase):
         self.assertEqual(result["indicator_percent"], 100.0)
         self.assertEqual(result["interaction_and_residual_percent"], 0.0)
 
+
+    def test_pair_model_clusters_by_country(self):
+        rows = []
+        for country, income, region, population, offset in (
+            ("AAA", "High income", "Europe & Central Asia", 10, 0.0),
+            ("BBB", "High income", "Other", 20, 0.1),
+            ("CCC", "Low income", "Europe & Central Asia", 30, 0.3),
+            ("DDD", "Low income", "Other", 40, 0.4),
+        ):
+            for family, family_offset in (("People", 0.0), ("Planet", 0.1)):
+                rows.append({
+                    "country_alpha3": country,
+                    "income_group": income,
+                    "region": region,
+                    "family": family,
+                    "population": population,
+                    "missingness": offset + family_offset,
+                })
+        result = fit_pair_model(rows)
+        self.assertEqual(result["unit"], "country–indicator pair")
+        self.assertEqual(result["clustered_by"], "country")
+        self.assertEqual(result["clusters"], 4)
+        self.assertEqual(result["n"], 8)
+        self.assertTrue(any(item["term"].startswith("SDG family:") for item in result["coefficients"]))
 
     def test_leave_one_series_out_reports_every_estimate(self):
         rows = []

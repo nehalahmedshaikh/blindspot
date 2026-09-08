@@ -2,9 +2,11 @@
 
 const Blindspot = (() => {
   const pages = [
-    ["overview", "./", "Overview"], ["explore", "explore/", "Explore"],
-    ["indicators", "indicators/", "Indicators"], ["research", "research/", "Research"],
-    ["methods", "methods/", "Methods"], ["data", "data/", "Data"]
+    ["explore", "explore/", "Explore"],
+    ["indicators", "indicators/", "Indicators"],
+    ["research", "research/", "Research"],
+    ["methods", "methods/", "Methods"],
+    ["data", "data/", "Data"],
   ];
   const page = document.body.dataset.page;
   const header = document.querySelector("#site-header");
@@ -20,10 +22,11 @@ const Blindspot = (() => {
     return `${number > 0 ? "+" : number < 0 ? "−" : ""}${Math.abs(number).toFixed(digits)}`;
   };
   header.innerHTML = `<a class="brand" href="./">BLINDSPOT</a><nav aria-label="Primary">${pages.map(([id, href, label]) => `<a href="${href}"${id === page ? ' aria-current="page"' : ""}>${label}</a>`).join("")}</nav>`;
-  footer.innerHTML = `<strong>BLINDSPOT</strong><span>Evidence about the evidence.</span><a href="https://github.com/nehalahmedshaikh/blindspot">Source and documentation ↗</a><span id="freshness">Loading source status…</span>`;
+  footer.innerHTML = `<strong>BLINDSPOT</strong><a href="https://github.com/nehalahmedshaikh/blindspot">Source and documentation ↗</a><span id="freshness">Loading source status…</span>`;
   const metaPromise = fetchJSON("assets/data/meta.json").then(index => {
     document.querySelectorAll("[data-count]").forEach(node => { node.textContent = Number(index.counts[node.dataset.count]).toLocaleString(); });
     document.querySelectorAll("[data-window]").forEach(node => { node.textContent = index.meta.recent_window.join("—"); });
+    document.querySelectorAll("[data-observation-window]").forEach(node => { node.textContent = index.meta.observation_window.join("—"); });
     document.querySelector("#freshness").textContent = `Source snapshot ${new Date(index.meta.retrieved_at).toLocaleDateString()}`;
     if (index.meta.status !== "fresh") {
       const banner = document.querySelector("#status-banner");

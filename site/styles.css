@@ -170,6 +170,7 @@ td:last-child { font-weight: 900; color: var(--ink); }
 .coverage-bar { height: 7px; background: var(--paper); border: 1px solid var(--ink); margin-top: auto; }
 .coverage-bar i { display: block; height: 100%; background: var(--ink); }
 .coverage-label { font-size: .68rem; color: var(--muted); margin-top: .5rem; }
+.breakdown-label { margin-top: .45rem; color: var(--muted); font-size: .64rem; line-height: 1.35; }
 .series-card a { font-size: .7rem; margin-top: 1rem; }
 
 .findings-intro { max-width: none; margin: -1rem 0 1.5rem; color: var(--muted); font-size: .86rem; line-height: 1.55; white-space: nowrap; }
@@ -179,6 +180,11 @@ td:last-child { font-weight: 900; color: var(--ink); }
 .finding-strip strong { font-family: Georgia, serif; font-size: clamp(2.3rem, 4.2vw, 3.6rem); font-weight: 400; line-height: 1; letter-spacing: -.045em; white-space: nowrap; }
 .finding-strip span { margin-top: .8rem; font-size: .67rem; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
 .finding-strip p { margin-top: .35rem; font-size: .75rem; line-height: 1.4; }
+.comparison-view { border: 1px solid var(--line); padding: 1.25rem 1.5rem 1.5rem; }
+.comparison-view > label { display: flex; align-items: center; gap: .8rem; max-width: 420px; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.comparison-view select { flex: 1; }
+.comparison-view > p { margin: .8rem 0 0; color: var(--muted); font-size: .76rem; }
+.comparison-view .bar-row { grid-template-columns: minmax(13rem, 1fr) minmax(12rem, 2fr) 3.5rem; }
 .finding-charts { display: grid; grid-template-columns: repeat(2, 1fr); border-left: 1px solid var(--line); }
 .finding-charts > article { padding: 1.5rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .finding-charts h3 { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 400; margin: 0 0 .25rem; }
@@ -283,16 +289,8 @@ footer span:last-child { margin-left: auto; color: color-mix(in srgb, var(--pape
   font: 400 clamp(3.2rem, 7vw, 7rem)/.92 Georgia, "Times New Roman", serif;
   letter-spacing: -.055em;
 }
-.page-hero p { max-width: 920px; margin: .35rem 0 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
+.page-hero p { max-width: none; margin: .35rem 0 0; color: var(--muted); font-size: .88rem; line-height: 1.55; }
 .overview-hero { min-height: 570px; }
-.route-panel .section-heading { margin-bottom: 1.5rem; }
-.route-grid { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-.route-grid a { min-height: 190px; padding: 1.35rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); text-decoration: none; }
-.route-grid span, .route-grid strong { display: block; }
-.route-grid span { color: var(--muted); font-size: .66rem; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
-.route-grid strong { margin-top: 1rem; font: 400 1.35rem/1.18 Georgia, serif; }
-.route-grid a:hover, .route-grid a:focus { background: var(--ink); color: var(--paper); outline: 0; }
-.route-grid a:hover span, .route-grid a:focus span { color: color-mix(in srgb, var(--paper) 68%, var(--ink)); }
 .catalogue-controls { display: grid; grid-template-columns: 2fr 1fr 1fr; border: 1px solid var(--ink); background: var(--ink); gap: 1px; }
 .catalogue-controls label { padding: .8rem 1rem; background: var(--paper); }
 .catalogue-controls input, .catalogue-controls select, .glossary-search input { display: block; width: 100%; margin-top: .45rem; border: 0; background: transparent; color: var(--ink); font: inherit; font-size: .95rem; letter-spacing: 0; text-transform: none; }
@@ -303,7 +301,8 @@ footer span:last-child { margin-left: auto; color: color-mix(in srgb, var(--pape
 .pagination button:disabled { opacity: .35; cursor: default; }
 .pagination span { color: var(--muted); font-size: .75rem; }
 .support-grid, .robustness-grid, .method-grid, .component-grid, .snapshot-grid { display: grid; border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
-.support-grid, .robustness-grid { grid-template-columns: repeat(2, 1fr); }
+.support-grid { grid-template-columns: repeat(3, 1fr); }
+.robustness-grid { grid-template-columns: repeat(3, 1fr); }
 .support-grid article, .robustness-grid article, .method-grid article, .component-grid article, .snapshot-grid article { padding: 1.4rem; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 .support-grid > article > strong, .robustness-grid > article > strong { display: block; font: 400 clamp(2.4rem, 5vw, 4rem)/1 Georgia, serif; letter-spacing: -.04em; }
 .support-grid h3, .robustness-grid h3 { font-size: .72rem; letter-spacing: .09em; text-transform: uppercase; }
@@ -315,7 +314,7 @@ footer span:last-child { margin-left: auto; color: color-mix(in srgb, var(--pape
 .formula { padding: 1.5rem; background: var(--ink); color: var(--paper); }
 .formula span, .formula strong { display: block; }
 .formula span { font-size: .65rem; font-weight: 850; letter-spacing: .14em; text-transform: uppercase; }
-.formula strong { margin-top: .7rem; font: 400 clamp(1.25rem, 2.6vw, 2.2rem)/1.25 Georgia, serif; }
+.formula strong { margin-top: .7rem; font: 400 clamp(1rem, 1.9vw, 1.45rem)/1.25 Georgia, serif; white-space: nowrap; }
 .component-grid { grid-template-columns: repeat(4, 1fr); }
 .component-grid article > strong { font: 400 2.2rem/1 Georgia, serif; }
 .component-grid h3, .method-grid h3 { margin: .8rem 0 .4rem; }
@@ -341,7 +340,6 @@ footer span:last-child { margin-left: auto; color: color-mix(in srgb, var(--pape
 .priority-panel { background: var(--paper); }
 
 @media (max-width: 1000px) {
-  .route-grid { grid-template-columns: repeat(2, 1fr); }
   .component-grid, .snapshot-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 850px) {
@@ -350,11 +348,50 @@ footer span:last-child { margin-left: auto; color: color-mix(in srgb, var(--pape
 }
 @media (max-width: 520px) {
   .page-hero h1 { font-size: 12vw; }
-  .route-grid, .component-grid, .snapshot-grid { grid-template-columns: 1fr; }
-  .route-grid a { min-height: 130px; }
   .glossary-list article { grid-template-columns: 1fr; gap: .4rem; }
   .finding-strip strong { font-size: 2.25rem; }
 }
 
 .research-results .finding-strip { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 850px) { .research-results .finding-strip { grid-template-columns: 1fr; } }
+
+@media (max-width: 700px) {
+  .comparison-view .bar-row { grid-template-columns: minmax(7rem, 1fr) 1.4fr 3rem; gap: .5rem; }
+  .support-grid, .robustness-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+  .formula strong { white-space: normal; }
+}
+
+/* Research findings grow as editorial rows, without a card grid. */
+.finding-list, .result-list, .check-list { border-top: 1px solid var(--ink); }
+.finding-list article, .result-list article, .check-list article {
+  display: grid;
+  grid-template-columns: minmax(12rem, .4fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: start;
+  padding: clamp(1.1rem, 2vw, 1.65rem) 0;
+  border-bottom: 1px solid var(--line);
+}
+.finding-list article > strong, .result-list article > strong, .check-list article > strong {
+  font: 400 clamp(2rem, 3.8vw, 3.5rem)/.95 Georgia, serif;
+  letter-spacing: -.05em;
+  white-space: nowrap;
+}
+.finding-list span, .result-list h3, .check-list h3 {
+  display: block;
+  margin: .2rem 0 .65rem;
+  font-size: .7rem;
+  font-weight: 850;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.finding-list p, .result-list p, .check-list p { max-width: 48rem; font-size: .86rem; line-height: 1.55; }
+.result-list small { display: block; margin-top: .7rem; color: var(--muted); }
+.result-list article > strong, .check-list article > strong { font-size: clamp(1.8rem, 3.2vw, 2.8rem); }
+@media (max-width: 700px) {
+  .finding-list article, .result-list article, .check-list article { grid-template-columns: 1fr; gap: .8rem; }
+}
+
+.research-results, .supporting-panel, .robustness-panel { padding-top: clamp(2.5rem, 4vw, 4rem); padding-bottom: clamp(2.5rem, 4vw, 4rem); }

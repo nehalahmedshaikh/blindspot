@@ -2,7 +2,7 @@
 
 ```text
 UN SDG API ─┐
-            ├─ fetch → normalized current snapshot → metrics → model → static contracts
+            ├─ fetch → normalized current snapshot → metrics → model + analysis → static contracts
 World Bank ─┘                 │                                │
                              └─ baseline + append-only deltas  └─ GitHub Pages
 ```

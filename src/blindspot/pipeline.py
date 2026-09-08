@@ -273,7 +273,8 @@ def export() -> dict[str, Any]:
         {"label": "Gap rankings", "format": "CSV", "href": "assets/data/downloads/gap_rankings.csv", "description": "Every ranked country–indicator pair."},
         {"label": "Country scores", "format": "CSV", "href": "assets/data/downloads/country_scores.csv", "description": "Country-level atlas summaries."},
         {"label": "Group analysis", "format": "CSV", "href": "assets/data/downloads/analysis_groups.csv", "description": "Income, region, goal, and SDG-family comparisons."},
-        {"label": "Adjusted model", "format": "CSV", "href": "assets/data/downloads/analysis_model.csv", "description": "Country-level model estimates and intervals."},
+        {"label": "Adjusted model", "format": "CSV", "href": "assets/data/downloads/analysis_model.csv", "description": "Country–indicator estimates with country-clustered intervals."},
+        {"label": "Statistical-performance model", "format": "CSV", "href": "assets/data/downloads/analysis_context_model.csv", "description": "Secondary estimates adding World Bank statistical performance."},
         {"label": "Sensitivity analysis", "format": "CSV", "href": "assets/data/downloads/analysis_sensitivity.csv", "description": "Alternative windows and reporting-status rules."},
         {"label": "Full research results", "format": "JSON", "href": "assets/data/analysis.json", "description": "Complete analysis contract, including robustness checks."},
         {"label": "Method contract", "format": "JSON", "href": "assets/data/methodology.json", "description": "Definitions, formulas, and glossary."},
@@ -284,6 +285,10 @@ def export() -> dict[str, Any]:
         "meta": {
             "completed_year": metrics["completed_year"],
             "recent_window": metrics["recent_window"],
+            "observation_window": [
+                min(year for item in metrics["country_series"] for year in item["observed_years"]),
+                max(year for item in metrics["country_series"] for year in item["observed_years"]),
+            ],
             "retrieved_at": manifest["retrieved_at"],
             "status": manifest["status"],
         },
@@ -293,6 +298,7 @@ def export() -> dict[str, Any]:
             "goals": len(goals),
             "country_series_assessments": len(metrics["country_series"]),
             "universal_series": analysis_result["design"]["universal_series"],
+            "statistical_performance_countries": analysis_result["context_model"]["clusters"],
         },
     }
     data_catalog = {
@@ -303,6 +309,7 @@ def export() -> dict[str, Any]:
             {"label": "Open Data Inventory", "href": "https://odin.opendatawatch.com/", "description": "National statistics coverage and openness."},
             {"label": "PARIS21 Statistical Capacity Monitor", "href": "https://www.paris21.org/our-impact/matching-capacity-needs-how-paris21s-statistical-capacity-monitor-helping-put-data-and", "description": "Statistical capacity indicators and resources."},
             {"label": "Sustainable Development Report", "href": "https://dashboards.sdgindex.org/", "description": "SDG outcome reporting and dashboards."},
+            {"label": "World Bank Statistical Performance Indicators", "href": "https://www.worldbank.org/en/programs/statistical-performance-indicators", "description": "Country statistical-system context used in the secondary analysis."},
             {"label": "World Bank Missing Evidence", "href": "https://blogs.worldbank.org/en/opendata/missing-evidence-tracking-academic-data-use-around-world", "description": "Related work on gaps in evidence use."},
         ],
     }
@@ -391,6 +398,8 @@ def export() -> dict[str, Any]:
             "income_group",
             "population",
             "population_year",
+            "statistical_performance",
+            "statistical_performance_year",
             "completeness",
             "staleness",
             "priority",
@@ -415,7 +424,18 @@ def export() -> dict[str, Any]:
     )
     _write_csv(
         downloads / "analysis_model.csv",
-        analysis_result["country_model"]["coefficients"],
+        analysis_result["pair_model"]["coefficients"],
+        [
+            "term",
+            "estimate_percentage_points",
+            "standard_error",
+            "ci_low",
+            "ci_high",
+        ],
+    )
+    _write_csv(
+        downloads / "analysis_context_model.csv",
+        analysis_result["context_model"]["coefficients"],
         [
             "term",
             "estimate_percentage_points",
@@ -448,15 +468,18 @@ def export() -> dict[str, Any]:
             "scope": "Only universal series receive a measurement-priority score.",
         },
         "research": [
-            {"label": "What is compared", "text": "Recent missingness, averaged equally across the same universal series for each country."},
-            {"label": "Adjusted comparisons", "text": "Country groups are compared descriptively; adjusted results account for region, income group, and log population as stated."},
-            {"label": "Intervals", "text": "Country-bootstrap intervals show stability to country composition. Model intervals use robust standard errors."},
+            {"label": "What is compared", "text": "Each country–indicator pair contributes its share of expected recent observations that are absent."},
+            {"label": "Adjusted comparisons", "text": "The model includes income group, region, population, and SDG family."},
+            {"label": "Intervals", "text": "Model uncertainty is clustered by country; chart intervals come from resampling countries."},
+            {"label": "Available context", "text": "The main model uses income group, region, population, and SDG family. A secondary model adds World Bank statistical performance; collection cost and conflict exposure are unavailable."},
             {"label": "How to read the results", "text": "Associations describe this source and selection of series; they do not establish causes or measure all data a country collects."},
         ],
         "glossary": [
             {"term": "Adjusted comparison", "definition": "A comparison made after accounting for other named characteristics in the model."},
             {"term": "Bootstrap interval", "definition": "A range obtained by repeatedly resampling countries and recalculating the result."},
+            {"term": "Breakdown coverage", "definition": "The share of countries where more than one sex, age, or location category is visible."},
             {"term": "Conditional series", "definition": "An indicator series that applies only where the measured subject exists."},
+            {"term": "Clustered uncertainty", "definition": "An uncertainty calculation that allows results from the same country to be related."},
             {"term": "Confidence interval", "definition": "A model-based range showing the uncertainty around an estimate."},
             {"term": "Country–indicator pair", "definition": "One country evaluated for one indicator series."},
             {"term": "Coverage", "definition": "The share of countries meeting an indicator's expected recent reporting cadence."},
@@ -467,6 +490,7 @@ def export() -> dict[str, Any]:
             {"term": "Percentage point", "definition": "The direct difference between two percentages; 50% minus 40% is 10 percentage points."},
             {"term": "Sensitivity analysis", "definition": "Recalculating a result under reasonable alternative choices to see whether it persists."},
             {"term": "Staleness", "definition": "How overdue the latest observation is relative to its expected reporting cadence."},
+            {"term": "Statistical performance", "definition": "The World Bank’s 0–100 assessment of how well a national statistical system serves users."},
             {"term": "Sustainable Development Goal", "definition": "One of the UN's 17 shared development goals."},
             {"term": "Universal series", "definition": "An indicator series intended to apply to every country."},
         ],
@@ -532,6 +556,19 @@ def validate() -> list[str]:
         errors.append("Analysis panel is not rectangular")
     if not analysis_result.get("audit", {}).get("rectangular_panel"):
         errors.append("Analysis rectangular-panel audit failed")
+    pair_model = analysis_result.get("pair_model", {})
+    if pair_model.get("n") != len(countries) * universal_count:
+        errors.append("Country–indicator model does not cover the full research panel")
+    if pair_model.get("clusters") != len(countries) or pair_model.get("clustered_by") != "country":
+        errors.append("Country–indicator model uncertainty is not clustered by country")
+    context_model = analysis_result.get("context_model", {})
+    if not 0 < context_model.get("clusters", 0) <= len(countries):
+        errors.append("Statistical-performance context model has invalid country coverage")
+    sensitivity_labels = {item.get("specification", "") for item in analysis_result.get("sensitivity", [])}
+    if not any("Population-weighted" in label for label in sensitivity_labels):
+        errors.append("Population-weighted sensitivity is missing")
+    if not any("conditional series" in label for label in sensitivity_labels):
+        errors.append("Conditional-series sensitivity is missing")
     if analysis_result.get("snapshot", {}).get("retrieved_at") != manifest.get("retrieved_at"):
         errors.append("Analysis and source snapshots do not match")
     for item in metrics.get("country_series", []):
@@ -551,7 +588,8 @@ def validate() -> list[str]:
         "Every configured series has member-state observations",
         "All normalized scores within declared bounds",
         f"Research panel: {len(countries):,} countries × {universal_count} universal series",
-        "Research snapshot, model, and source provenance agree",
+        "Research snapshot, clustered model, sensitivities, and source provenance agree",
+        f"Statistical-performance context: {context_model['clusters']:,} countries",
     ]
 
 

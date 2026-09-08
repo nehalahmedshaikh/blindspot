@@ -14,8 +14,16 @@
       "term": "Bootstrap interval"
     },
     {
+      "definition": "The share of countries where more than one sex, age, or location category is visible.",
+      "term": "Breakdown coverage"
+    },
+    {
       "definition": "An indicator series that applies only where the measured subject exists.",
       "term": "Conditional series"
+    },
+    {
+      "definition": "An uncertainty calculation that allows results from the same country to be related.",
+      "term": "Clustered uncertainty"
     },
     {
       "definition": "A model-based range showing the uncertainty around an estimate.",
@@ -56,6 +64,10 @@
     {
       "definition": "How overdue the latest observation is relative to its expected reporting cadence.",
       "term": "Staleness"
+    },
+    {
+      "definition": "The World Bank\u2019s 0\u2013100 assessment of how well a national statistical system serves users.",
+      "term": "Statistical performance"
     },
     {
       "definition": "One of the UN's 17 shared development goals.",
@@ -104,15 +116,19 @@
   "research": [
     {
       "label": "What is compared",
-      "text": "Recent missingness, averaged equally across the same universal series for each country."
+      "text": "Each country\u2013indicator pair contributes its share of expected recent observations that are absent."
     },
     {
       "label": "Adjusted comparisons",
-      "text": "Country groups are compared descriptively; adjusted results account for region, income group, and log population as stated."
+      "text": "The model includes income group, region, population, and SDG family."
     },
     {
       "label": "Intervals",
-      "text": "Country-bootstrap intervals show stability to country composition. Model intervals use robust standard errors."
+      "text": "Model uncertainty is clustered by country; chart intervals come from resampling countries."
+    },
+    {
+      "label": "Available context",
+      "text": "The main model uses income group, region, population, and SDG family. A secondary model adds World Bank statistical performance; collection cost and conflict exposure are unavailable."
     },
     {
       "label": "How to read the results",

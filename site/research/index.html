@@ -14,10 +14,10 @@
   <aside id="status-banner" class="status-banner" hidden></aside>
   <main id="main">
     <section class="page-hero"><div class="eyebrow">Research</div><h1>What patterns do the gaps reveal?</h1><p id="research-scope">Loading the analysis…</p></section>
-    <section class="panel research-results"><div class="section-heading"><div><h2>Main results</h2></div></div><div id="finding-strip" class="finding-strip"></div></section>
-    <section class="panel comparison-panel"><div class="section-heading"><div><h2>Group comparisons</h2></div></div><div class="finding-charts"><article><h3>By income group</h3><p>Average recent missingness; interval lines show stability to country composition.</p><div id="income-bars" class="bar-chart"></div></article><article><h3>By SDG family</h3><p>Average recent missingness across the UN's <a href="https://sdgs.un.org/2030agenda" rel="noreferrer">five-part framing ↗</a>.</p><div id="family-bars" class="bar-chart"></div></article></div></section>
-    <section class="panel supporting-panel"><div class="section-heading"><div><h2>Supporting results</h2></div></div><div id="supporting-results" class="support-grid"></div></section>
-    <section class="panel robustness-panel"><div class="section-heading"><div><h2>Robustness checks</h2></div></div><div id="robustness-results" class="robustness-grid"></div><p class="method-link"><a href="methods/#research-method">Definitions and analysis method ↗</a></p></section>
+    <section class="panel research-results"><div class="section-heading"><div><h2>Main results</h2></div></div><div id="finding-strip" class="finding-list"></div></section>
+    <section class="panel comparison-panel"><div class="section-heading"><div><h2>Group comparisons</h2></div></div><div class="comparison-view"><label>Compare by<select id="comparison-dimension"><option value="income">Income group</option><option value="region">Region</option><option value="goal">Goal</option><option value="family">SDG family</option></select></label><p id="comparison-note"></p><div id="comparison-bars" class="bar-chart"></div></div></section>
+    <section class="panel supporting-panel"><div class="section-heading"><div><h2>Supporting results</h2></div></div><div id="supporting-results" class="result-list"></div></section>
+    <section class="panel robustness-panel"><div class="section-heading"><div><h2>Robustness checks</h2></div></div><div id="robustness-results" class="check-list"></div><p class="method-link"><a href="methods/#research-method">Definitions and analysis method ↗</a></p></section>
   </main>
   <footer id="site-footer"></footer>
   <script src="shell.js" defer></script><script src="research.js" defer></script>

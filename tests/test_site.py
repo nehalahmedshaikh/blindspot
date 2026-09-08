@@ -37,8 +37,8 @@ class SiteContractTests(unittest.TestCase):
             self.assertTrue(set(payload) <= country_codes)
 
     def test_interactive_ranking_contains_every_ranked_pair(self):
-        metrics = json.loads((PROJECT_ROOT / "data" / "current" / "metrics.json").read_text())
-        self.assertEqual(len(self.rankings["rows"]), len(metrics["rankings"]))
+        expected = self.meta["counts"]["countries"] * self.meta["counts"]["universal_series"]
+        self.assertEqual(len(self.rankings["rows"]), expected)
         self.assertEqual(
             self.rankings["fields"],
             ["country_alpha3", "series_code", "latest_year", "staleness", "missingness", "global_scarcity", "population"],
@@ -56,6 +56,12 @@ class SiteContractTests(unittest.TestCase):
         method = json.loads((self.data / "methodology.json").read_text())
         self.assertEqual(len(analysis["findings"]), 2)
         self.assertTrue(all(item.get("plain_language") for item in analysis["findings"]))
+        self.assertEqual(analysis["pair_model"]["clusters"], self.meta["counts"]["countries"])
+        self.assertEqual(analysis["context_model"]["clusters"], self.meta["counts"]["statistical_performance_countries"])
+        self.assertGreater(analysis["context_model"]["clusters"], 150)
+        specifications = {item["specification"] for item in analysis["sensitivity"]}
+        self.assertTrue(any("Population-weighted" in item for item in specifications))
+        self.assertTrue(any("conditional series" in item for item in specifications))
         terms = {item["term"] for item in method["glossary"]}
         self.assertTrue({"Adjusted comparison", "Bootstrap interval", "Measurement priority", "Missingness"} <= terms)
 

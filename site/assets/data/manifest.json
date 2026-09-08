@@ -6,7 +6,7 @@
     "removed": 0
   },
   "last_error": null,
-  "retrieved_at": "2026-09-07T17:44:14+00:00",
+  "retrieved_at": "2026-09-08T13:40:19+00:00",
   "schema_version": "1.0.0",
   "sources": [
     {
@@ -18,12 +18,22 @@
       "url": "https://unstats.un.org/SDGAPI/v1/sdg/Series/List?allreleases=false"
     },
     {
-      "retrieved_at": "2026-09-07T17:30:56+00:00",
+      "retrieved_at": "2026-09-08T13:40:19+00:00",
       "rows": 193,
-      "sha256": "fc1025da8e6223b79102f0e64c386a9e102e745591b920d036d63325ad0ce9af",
-      "source": "World Bank Indicators API",
+      "sha256": "d96f189a1aae46304c5f22c51c809b14424b5f192fc919a0b8a2b53e9e55ef09",
+      "source": "World Bank population and statistical performance",
       "status": "fresh",
-      "url": "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2023%3A2030&format=json&per_page=10000"
+      "url": "https://raw.githubusercontent.com/worldbank/SPI/master/03_output_data/SPI_index.csv",
+      "urls": [
+        "https://api.worldbank.org/v2/country/all/indicator/SP.POP.TOTL?date=2023%3A2030&format=json&per_page=10000",
+        "https://raw.githubusercontent.com/worldbank/SPI/master/03_output_data/SPI_index.csv"
+      ],
+      "variables": [
+        "population",
+        "region",
+        "income group",
+        "statistical performance"
+      ]
     },
     {
       "retrieved_at": "2026-09-07T17:30:56+00:00",

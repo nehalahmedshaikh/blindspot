@@ -69,6 +69,7 @@
     }
     if (writeURL) updateURL();
     renderMap();
+    if (state.selected) await selectCountry(state.selected, false);
   }
   async function selectCountry(alpha3, writeURL = true) {
     if (!alpha3) return;
@@ -77,16 +78,22 @@
     if (writeURL) updateURL();
     renderMap();
     const country = state.countries.find(item => item.alpha3 === alpha3);
-    const allSeries = (await countrySeries(country)).sort((a, b) => (b.measurement_priority_v1 ?? -1) - (a.measurement_priority_v1 ?? -1));
+    const countryRows = [...(await countrySeries(country))].sort((a, b) => (b.measurement_priority_v1 ?? -1) - (a.measurement_priority_v1 ?? -1));
     if (state.selected !== alpha3) return;
+    const allSeries = state.goal === "all" ? countryRows : countryRows.filter(item => String(item.goal) === state.goal);
     const scored = allSeries.filter(item => item.score_components);
-    const average = key => 100 * scored.reduce((sum, item) => sum + item.score_components[key], 0) / scored.length;
+    const average = key => scored.length ? 100 * scored.reduce((sum, item) => sum + item.score_components[key], 0) / scored.length : null;
+    const averagePriority = scored.length ? scored.reduce((sum, item) => sum + item.measurement_priority_v1, 0) / scored.length : null;
+    const display = value => value == null ? "—" : value.toFixed(0);
     const gaps = scored.slice(0, 3);
     const tableRows = allSeries.map(item => {
       const series = seriesMap.get(item.series_code), priority = item.measurement_priority_v1 == null ? "Not ranked" : item.measurement_priority_v1.toFixed(1);
-      return `<tr><td>${item.goal}. ${goalMap.get(String(item.goal))?.label || "Unknown goal"}</td><td><strong>${escapeHTML(series?.description || item.series_code)}</strong><small>${escapeHTML(item.series_code)}</small></td><td>${item.latest_year || "None since 2015"}</td><td>${(item.recent_completeness * 100).toFixed(0)}%</td><td>${priority}</td></tr>`;
+      const breakdowns = Object.entries(item.disaggregation).filter(([, visible]) => visible).map(([name]) => name).join(", ");
+      return `<tr><td>${item.goal}. ${goalMap.get(String(item.goal))?.label || "Unknown goal"}</td><td><strong>${escapeHTML(series?.description || item.series_code)}</strong><small>${escapeHTML(item.series_code)}</small></td><td>${item.latest_year || "None since 2015"}</td><td>${(item.recent_completeness * 100).toFixed(0)}%</td><td>${breakdowns || "—"}</td><td>${priority}</td></tr>`;
     }).join("");
-    q("#country-profile").innerHTML = `<div class="profile-head"><div class="profile-identity"><small>${escapeHTML(country.region)} · ${escapeHTML(country.income_group)}</small><h3>${escapeHTML(country.name)}</h3></div><div class="profile-metrics"><div class="profile-stat profile-stat-primary"><strong>${country.priority.toFixed(0)}</strong><span>Average measurement priority</span></div><div class="profile-stat"><strong>${average("staleness").toFixed(0)}</strong><span>Staleness</span></div><div class="profile-stat"><strong>${average("completeness_deficit").toFixed(0)}</strong><span>Missingness</span></div><div class="profile-stat"><strong>${average("global_scarcity").toFixed(0)}</strong><span>Global scarcity</span></div><div class="profile-stat"><strong>${average("population_percentile").toFixed(0)}</strong><span>Population</span></div></div></div><div class="profile-label"><strong>Three indicator series with highest measurement priority</strong></div><div class="profile-gaps">${gaps.map(gap => `<article><small class="gap-goal">Goal ${gap.goal}: ${goalMap.get(String(gap.goal))?.label || "Unknown goal"}</small><b>${escapeHTML(seriesMap.get(gap.series_code)?.description || gap.series_code)}</b><span>Latest year: ${gap.latest_year || "none since 2015"} · Measurement priority: ${gap.measurement_priority_v1.toFixed(1)}</span></article>`).join("")}</div><details class="all-series"><summary>See all ${allSeries.length} selected series for ${escapeHTML(country.name)}</summary><div class="table-wrap"><table><thead><tr><th>Goal</th><th>Indicator series</th><th>Latest year</th><th>Recent completeness</th><th>Measurement priority</th></tr></thead><tbody>${tableRows}</tbody></table></div></details>`;
+    const scope = state.goal === "all" ? "all goals" : `Goal ${state.goal}: ${goalMap.get(state.goal)?.label || "Unknown goal"}`;
+    const gapCards = gaps.length ? gaps.map(gap => `<article><small class="gap-goal">Goal ${gap.goal}: ${goalMap.get(String(gap.goal))?.label || "Unknown goal"}</small><b>${escapeHTML(seriesMap.get(gap.series_code)?.description || gap.series_code)}</b><span>Latest year: ${gap.latest_year || "none since 2015"} · Measurement priority: ${gap.measurement_priority_v1.toFixed(1)}</span></article>`).join("") : `<div class="empty-state">No measurement-priority scores are available for ${escapeHTML(scope)}.</div>`;
+    q("#country-profile").innerHTML = `<div class="profile-head"><div class="profile-identity"><small>${escapeHTML(country.region)} · ${escapeHTML(country.income_group)}</small><h3>${escapeHTML(country.name)}</h3></div><div class="profile-metrics"><div class="profile-stat profile-stat-primary"><strong>${display(averagePriority)}</strong><span>Average measurement priority</span></div><div class="profile-stat"><strong>${display(average("staleness"))}</strong><span>Staleness</span></div><div class="profile-stat"><strong>${display(average("completeness_deficit"))}</strong><span>Missingness</span></div><div class="profile-stat"><strong>${display(average("global_scarcity"))}</strong><span>Global scarcity</span></div><div class="profile-stat"><strong>${display(average("population_percentile"))}</strong><span>Population</span></div></div></div><div class="profile-label"><strong>Highest measurement priority · ${escapeHTML(scope)}</strong></div><div class="profile-gaps">${gapCards}</div><details class="all-series"><summary>See all ${allSeries.length} selected series for ${escapeHTML(country.name)} · ${escapeHTML(scope)}</summary><div class="table-wrap"><table><thead><tr><th>Goal</th><th>Indicator series</th><th>Latest year</th><th>Recent completeness</th><th>Breakdowns</th><th>Measurement priority</th></tr></thead><tbody>${tableRows}</tbody></table></div></details>`;
   }
   function adjustedRank(row) {
     const keys = ["staleness", "completeness_deficit", "global_scarcity", "population_percentile"];

@@ -1,7 +1,9 @@
 from __future__ import annotations
 
+import csv
 import gzip
 import hashlib
+import io
 import json
 import sys
 import time
@@ -19,6 +21,7 @@ from .config import CACHE_DIR, Country, SeriesSpec, ensure_directories
 UN_BASE = "https://unstats.un.org/SDGAPI/v1/sdg"
 WB_BASE = "https://api.worldbank.org/v2"
 USER_AGENT = "blindspot/0.1 (+https://github.com/nehalahmedshaikh/blindspot)"
+SPI_CSV = "https://raw.githubusercontent.com/worldbank/SPI/master/03_output_data/SPI_index.csv"
 
 
 class SourceError(RuntimeError):
@@ -37,6 +40,20 @@ def fetch_json(url: str, retries: int = 3, timeout: int = 60) -> Any:
             with urllib.request.urlopen(request, timeout=timeout) as response:
                 return json.loads(response.read().decode("utf-8-sig"))
         except (urllib.error.URLError, TimeoutError, json.JSONDecodeError) as exc:
+            error = exc
+            if attempt + 1 < retries:
+                time.sleep(2**attempt)
+    raise SourceError(f"Failed after {retries} attempts: {url}: {error}")
+
+
+def fetch_text(url: str, retries: int = 3, timeout: int = 120) -> str:
+    request = urllib.request.Request(url, headers={"User-Agent": USER_AGENT, "Accept": "text/csv"})
+    error: Exception | None = None
+    for attempt in range(retries):
+        try:
+            with urllib.request.urlopen(request, timeout=timeout) as response:
+                return response.read().decode("utf-8-sig")
+        except (urllib.error.URLError, TimeoutError, UnicodeDecodeError) as exc:
             error = exc
             if attempt + 1 < retries:
                 time.sleep(2**attempt)
@@ -197,6 +214,7 @@ def fetch_world_bank_context(
     )
     metadata_payload = fetch_json(metadata_url)
     population_payload = fetch_json(population_url)
+    spi_rows = list(csv.DictReader(io.StringIO(fetch_text(SPI_CSV))))
     context: dict[str, dict[str, Any]] = {}
     for item in metadata_payload[1]:
         code = item.get("id")
@@ -206,6 +224,8 @@ def fetch_world_bank_context(
                 "income_group": (item.get("incomeLevel") or {}).get("value") or "Unknown",
                 "population": None,
                 "population_year": None,
+                "statistical_performance": None,
+                "statistical_performance_year": None,
             }
     for item in population_payload[1]:
         code = item.get("countryiso3code")
@@ -216,13 +236,29 @@ def fetch_world_bank_context(
             if current_year is None or year > current_year:
                 context[code]["population"] = int(value)
                 context[code]["population_year"] = year
+    for item in spi_rows:
+        code = item.get("iso3c")
+        value = item.get("SPI.INDEX")
+        if code not in context or not value:
+            continue
+        try:
+            score = float(value)
+        except ValueError:
+            continue
+        year = int(item["date"])
+        current_year = context[code]["statistical_performance_year"]
+        if current_year is None or year > current_year:
+            context[code]["statistical_performance"] = round(score, 3)
+            context[code]["statistical_performance_year"] = year
     raw = json.dumps(context, sort_keys=True).encode()
     return context, {
-        "source": "World Bank Indicators API",
+        "source": "World Bank population and statistical performance",
         "retrieved_at": utc_now(),
-        "url": population_url,
+        "url": SPI_CSV,
+        "urls": [population_url, SPI_CSV],
         "sha256": hashlib.sha256(raw).hexdigest(),
         "rows": len(context),
+        "variables": ["population", "region", "income group", "statistical performance"],
         "status": "fresh",
     }
 

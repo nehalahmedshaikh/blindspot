@@ -1,1 +1,1 @@
-{"counts":{"countries":193,"country_series_assessments":9843,"goals":17,"series":51,"universal_series":46},"meta":{"completed_year":2025,"recent_window":[2021,2025],"retrieved_at":"2026-09-07T17:44:14+00:00","status":"fresh"}}
+{"counts":{"countries":193,"country_series_assessments":9843,"goals":17,"series":51,"statistical_performance_countries":187,"universal_series":46},"meta":{"completed_year":2025,"observation_window":[2015,2025],"recent_window":[2021,2025],"retrieved_at":"2026-09-08T13:40:19+00:00","status":"fresh"}}

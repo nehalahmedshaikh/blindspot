@@ -186,6 +186,8 @@ def calculate_metrics(
                 "income_group": str(ctx.get("income_group", "Unknown")).strip(),
                 "population": ctx.get("population"),
                 "population_year": ctx.get("population_year"),
+                "statistical_performance": ctx.get("statistical_performance"),
+                "statistical_performance_year": ctx.get("statistical_performance_year"),
                 "completeness": round(100 * statistics.mean(x["recent_completeness"] for x in items), 2),
                 "staleness": round(100 * statistics.mean(x["staleness"] for x in items), 2),
                 "priority": round(statistics.mean(x["measurement_priority_v1"] for x in items), 2),
@@ -213,6 +215,15 @@ def calculate_metrics(
                 "cadence": spec.cadence,
                 "applicability": spec.applicability,
                 "coverage": round(100 * (1 - scarcity_counts[spec.code] / len(countries)), 2),
+                "aggregate_coverage": round(
+                    100 * sum(item["has_aggregate_slice"] for item in relevant) / len(relevant), 1
+                ),
+                "disaggregation_coverage": {
+                    dimension: round(
+                        100 * sum(item["disaggregation"][dimension] for item in relevant) / len(relevant), 1
+                    )
+                    for dimension in ("sex", "age", "location")
+                },
                 "latest_year": max((x["latest_year"] for x in relevant if x["latest_year"]), default=None),
             }
         )
