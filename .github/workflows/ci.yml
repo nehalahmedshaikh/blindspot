@@ -18,8 +18,10 @@ jobs:
           python-version: "3.12"
       - run: PYTHONPATH=src python -m unittest discover -s tests -v
       - run: python -m compileall -q src
-      - run: node --check site/app.js
-      - run: node --check site/geo.js
+      - run: for file in site/*.js; do node --check "$file"; done
       - run: node tests/test_geo.js
       - run: PYTHONPATH=src python -m blindspot build
+      - run: PYTHONPATH=src python -m blindspot model
+      - run: PYTHONPATH=src python -m blindspot analyze
       - run: PYTHONPATH=src python -m blindspot validate
+      - run: PYTHONPATH=src python -m blindspot export

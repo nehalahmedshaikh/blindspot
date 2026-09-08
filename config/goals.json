@@ -1,0 +1,87 @@
+[
+  {
+    "id": 1,
+    "label": "No poverty",
+    "family": "People"
+  },
+  {
+    "id": 2,
+    "label": "Zero hunger",
+    "family": "People"
+  },
+  {
+    "id": 3,
+    "label": "Good health and well-being",
+    "family": "People"
+  },
+  {
+    "id": 4,
+    "label": "Quality education",
+    "family": "People"
+  },
+  {
+    "id": 5,
+    "label": "Gender equality",
+    "family": "People"
+  },
+  {
+    "id": 6,
+    "label": "Clean water and sanitation",
+    "family": "Planet"
+  },
+  {
+    "id": 7,
+    "label": "Affordable and clean energy",
+    "family": "Prosperity"
+  },
+  {
+    "id": 8,
+    "label": "Decent work and economic growth",
+    "family": "Prosperity"
+  },
+  {
+    "id": 9,
+    "label": "Industry, innovation and infrastructure",
+    "family": "Prosperity"
+  },
+  {
+    "id": 10,
+    "label": "Reduced inequalities",
+    "family": "Prosperity"
+  },
+  {
+    "id": 11,
+    "label": "Sustainable cities and communities",
+    "family": "Prosperity"
+  },
+  {
+    "id": 12,
+    "label": "Responsible consumption and production",
+    "family": "Planet"
+  },
+  {
+    "id": 13,
+    "label": "Climate action",
+    "family": "Planet"
+  },
+  {
+    "id": 14,
+    "label": "Life below water",
+    "family": "Planet"
+  },
+  {
+    "id": 15,
+    "label": "Life on land",
+    "family": "Planet"
+  },
+  {
+    "id": 16,
+    "label": "Peace, justice and strong institutions",
+    "family": "Peace"
+  },
+  {
+    "id": 17,
+    "label": "Partnerships for the goals",
+    "family": "Partnership"
+  }
+]

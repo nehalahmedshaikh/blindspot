@@ -1,0 +1,744 @@
+{
+  "audit": {
+    "countries_with_complete_context": 193,
+    "future_observations_excluded": 198,
+    "manifest_status": "fresh",
+    "observation_status_counts": {
+      "C": 111428,
+      "CA": 4609,
+      "E": 68676,
+      "G": 12825,
+      "M": 9786,
+      "NA": 2495
+    },
+    "rectangular_panel": true
+  },
+  "concentration": {
+    "top_quintile_series": 10,
+    "top_quintile_share_of_missingness_pct": 37.1,
+    "top_series": [
+      {
+        "description": "Proportion of land that is degraded over total land area (%)",
+        "goal": 15,
+        "mean_missingness_pct": 100.0,
+        "missing_expected_observations": 193.0,
+        "series_code": "AG_LND_DGRD"
+      },
+      {
+        "description": "Proportion of time spent on unpaid domestic chores and care work, by sex, age and location (%)",
+        "goal": 5,
+        "mean_missingness_pct": 85.0,
+        "missing_expected_observations": 164.0,
+        "series_code": "SL_DOM_TSPD"
+      },
+      {
+        "description": "Completion rate, by sex, location, wealth quintile and education level (%)",
+        "goal": 4,
+        "mean_missingness_pct": 83.4,
+        "missing_expected_observations": 161.0,
+        "series_code": "SE_TOT_CPLR"
+      },
+      {
+        "description": "Parties meeting their commitments and obligations in transmitting information as required by Basel Convention on hazardous waste, and other chemicals (%)",
+        "goal": 12,
+        "mean_missingness_pct": 80.3,
+        "missing_expected_observations": 155.0,
+        "series_code": "SG_HAZ_CMRBASEL"
+      },
+      {
+        "description": "Forest area as a proportion of total land area (%)",
+        "goal": 15,
+        "mean_missingness_pct": 80.0,
+        "missing_expected_observations": 154.4,
+        "series_code": "AG_LND_FRST"
+      }
+    ]
+  },
+  "country_model": {
+    "coefficients": [
+      {
+        "ci_high": 39.8,
+        "ci_low": 35.57,
+        "estimate_percentage_points": 37.69,
+        "standard_error": 1.08,
+        "term": "Intercept"
+      },
+      {
+        "ci_high": -5.12,
+        "ci_low": -7.74,
+        "estimate_percentage_points": -6.43,
+        "standard_error": 0.67,
+        "term": "Log population (1 SD)"
+      },
+      {
+        "ci_high": 20.0,
+        "ci_low": 11.2,
+        "estimate_percentage_points": 15.6,
+        "standard_error": 2.25,
+        "term": "Income: Low income vs High income"
+      },
+      {
+        "ci_high": 11.99,
+        "ci_low": 5.01,
+        "estimate_percentage_points": 8.5,
+        "standard_error": 1.78,
+        "term": "Income: Lower middle income vs High income"
+      },
+      {
+        "ci_high": 6.68,
+        "ci_low": 0.68,
+        "estimate_percentage_points": 3.68,
+        "standard_error": 1.53,
+        "term": "Income: Upper middle income vs High income"
+      },
+      {
+        "ci_high": 9.62,
+        "ci_low": 2.55,
+        "estimate_percentage_points": 6.09,
+        "standard_error": 1.8,
+        "term": "Region: East Asia & Pacific vs Europe & Central Asia"
+      },
+      {
+        "ci_high": 9.22,
+        "ci_low": 0.95,
+        "estimate_percentage_points": 5.08,
+        "standard_error": 2.11,
+        "term": "Region: Latin America & Caribbean vs Europe & Central Asia"
+      },
+      {
+        "ci_high": 13.89,
+        "ci_low": 5.93,
+        "estimate_percentage_points": 9.91,
+        "standard_error": 2.03,
+        "term": "Region: Middle East, North Africa, Afghanistan & Pakistan vs Europe & Central Asia"
+      },
+      {
+        "ci_high": 17.01,
+        "ci_low": -9.59,
+        "estimate_percentage_points": 3.71,
+        "standard_error": 6.79,
+        "term": "Region: North America vs Europe & Central Asia"
+      },
+      {
+        "ci_high": 13.42,
+        "ci_low": 4.13,
+        "estimate_percentage_points": 8.77,
+        "standard_error": 2.37,
+        "term": "Region: South Asia vs Europe & Central Asia"
+      },
+      {
+        "ci_high": 10.3,
+        "ci_low": 1.92,
+        "estimate_percentage_points": 6.11,
+        "standard_error": 2.14,
+        "term": "Region: Sub-Saharan Africa vs Europe & Central Asia"
+      }
+    ],
+    "income_reference": "High income",
+    "n": 193,
+    "outcome": "recent missingness",
+    "r_squared": 0.5796,
+    "region_reference": "Europe & Central Asia",
+    "unit": "country mean across the same universally applicable series"
+  },
+  "design": {
+    "bootstrap_repetitions": 1000,
+    "countries": 193,
+    "country_series_pairs": 8878,
+    "interpretation": "descriptive associations, not causal effects",
+    "primary_outcome": "recent missingness",
+    "unit": "country, averaged equally across the same universally applicable series",
+    "universal_series": 46
+  },
+  "findings": [
+    {
+      "ci_high": 20.0,
+      "ci_low": 11.2,
+      "id": "income-gap",
+      "label": "Adjusted low-income gap",
+      "plain_language": "After accounting for region and population, low-income countries have more recent missingness than high-income countries.",
+      "unit": "percentage points",
+      "value": 15.6
+    },
+    {
+      "comparison_value": 8.1,
+      "id": "indicator-variation",
+      "label": "Variation between indicators",
+      "plain_language": "Missingness differs much more from indicator to indicator than from country to country.",
+      "unit": "percent",
+      "value": 49.8
+    }
+  ],
+  "leave_one_series_out": {
+    "baseline_low_minus_high_income_pp": 14.33,
+    "estimates": [
+      {
+        "description": "Proportion of land that is degraded over total land area (%)",
+        "excluded_series": "AG_LND_DGRD",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Forest area as a proportion of total land area (%)",
+        "excluded_series": "AG_LND_FRST",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Prevalence of moderate or severe food insecurity in the population (%)",
+        "excluded_series": "AG_PRD_FIESMS",
+        "low_minus_high_income_pp": 14.68
+      },
+      {
+        "description": "Current account balance as a proportion of GDP (%)",
+        "excluded_series": "BN_CAB_XOKA_GD_ZS",
+        "low_minus_high_income_pp": 13.98
+      },
+      {
+        "description": "Proportion of population with access to electricity, by urban/rural (%)",
+        "excluded_series": "EG_ACS_ELEC",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Proportion of population with primary reliance on clean fuels and technology (%)",
+        "excluded_series": "EG_EGY_CLEAN",
+        "low_minus_high_income_pp": 14.67
+      },
+      {
+        "description": "Renewable energy share in the total final energy consumption (%)",
+        "excluded_series": "EG_FEC_RNEW",
+        "low_minus_high_income_pp": 14.88
+      },
+      {
+        "description": "Annual mean levels of fine particulate matter (population-weighted), by location (micrograms per cubic meter)",
+        "excluded_series": "EN_ATM_PM25",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Electronic waste recycled, per capita (Kg)",
+        "excluded_series": "EN_EWT_RCYPCAP",
+        "low_minus_high_income_pp": 13.43
+      },
+      {
+        "description": "Proportion of urban population living in inadequate housing (%)",
+        "excluded_series": "EN_LND_INDQTHSNG",
+        "low_minus_high_income_pp": 13.53
+      },
+      {
+        "description": "Domestic material consumption per capita, by type of raw material (tonnes)",
+        "excluded_series": "EN_MAT_DOMCMPC",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Level of water stress: freshwater withdrawal as a proportion of available freshwater resources (%)",
+        "excluded_series": "ER_H2O_STRESS",
+        "low_minus_high_income_pp": 14.79
+      },
+      {
+        "description": "Red List Index",
+        "excluded_series": "ER_RSK_LST",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Research and development expenditure as a proportion of GDP (%)",
+        "excluded_series": "GB_XPD_RSDV",
+        "low_minus_high_income_pp": 13.77
+      },
+      {
+        "description": "Total government revenue (budgetary central government) as a proportion of GDP (%)",
+        "excluded_series": "GR_G14_GDP",
+        "low_minus_high_income_pp": 14.13
+      },
+      {
+        "description": "Proportion of women in managerial positions - 13th ICLS (%)",
+        "excluded_series": "IC_GEN_MGTL",
+        "low_minus_high_income_pp": 13.55
+      },
+      {
+        "description": "Proportion of individuals using the Internet (%)",
+        "excluded_series": "IT_USE_ii99",
+        "low_minus_high_income_pp": 14.17
+      },
+      {
+        "description": "Manufacturing value added (constant 2020 United States dollars) as a proportion of GDP (%)",
+        "excluded_series": "NV_IND_MANF",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Annual growth rate of real GDP per capita (%)",
+        "excluded_series": "NY_GDP_PCAP",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Youth/adult literacy rate (%)",
+        "excluded_series": "SE_ADT_LITR",
+        "low_minus_high_income_pp": 15.14
+      },
+      {
+        "description": "Completion rate, by sex, location, wealth quintile and education level (%)",
+        "excluded_series": "SE_TOT_CPLR",
+        "low_minus_high_income_pp": 14.57
+      },
+      {
+        "description": "Proportion of children and young people achieving a minimum proficiency level in reading and mathematics (%)",
+        "excluded_series": "SE_TOT_PRFL",
+        "low_minus_high_income_pp": 13.1
+      },
+      {
+        "description": "Score of adoption and implementation of national DRR strategies in line with the Sendai Framework",
+        "excluded_series": "SG_DSR_LGRGSR",
+        "low_minus_high_income_pp": 13.98
+      },
+      {
+        "description": "Proportion of local governments that adopt and implement local disaster risk reduction strategies in line with national disaster risk reduction strategies (%)",
+        "excluded_series": "SG_DSR_SILS",
+        "low_minus_high_income_pp": 14.07
+      },
+      {
+        "description": "Proportion of seats held by women in national parliaments (% of total number of seats)",
+        "excluded_series": "SG_GEN_PARL",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Parties meeting their commitments and obligations in transmitting information as required by Basel Convention on hazardous waste, and other chemicals (%)",
+        "excluded_series": "SG_HAZ_CMRBASEL",
+        "low_minus_high_income_pp": 14.63
+      },
+      {
+        "description": "Proportion of countries with independent National Human Rights Institutions in compliance with the Paris Principles (%)",
+        "excluded_series": "SG_NHR_IMPL",
+        "low_minus_high_income_pp": 14.65
+      },
+      {
+        "description": "Neonatal mortality rate (deaths per 1,000 live births)",
+        "excluded_series": "SH_DYN_NMRT",
+        "low_minus_high_income_pp": 14.67
+      },
+      {
+        "description": "Proportion of population using safely managed drinking water services, by urban/rural (%)",
+        "excluded_series": "SH_H2O_SAFE",
+        "low_minus_high_income_pp": 14.04
+      },
+      {
+        "description": "Proportion of population practicing open defecation, by urban/rural (%)",
+        "excluded_series": "SH_SAN_DEFECT",
+        "low_minus_high_income_pp": 14.63
+      },
+      {
+        "description": "Maternal mortality ratio",
+        "excluded_series": "SH_STA_MORT",
+        "low_minus_high_income_pp": 14.67
+      },
+      {
+        "description": "Proportion of children moderately or severely stunted (%)",
+        "excluded_series": "SH_STA_STNT",
+        "low_minus_high_income_pp": 15.62
+      },
+      {
+        "description": "Tuberculosis incidence (per 100,000 population)",
+        "excluded_series": "SH_TBS_INCD",
+        "low_minus_high_income_pp": 14.67
+      },
+      {
+        "description": "[ILO] Proportion of population covered by at least one social protection benefit, by sex (%)",
+        "excluded_series": "SI_COV_BENFTS",
+        "low_minus_high_income_pp": 14.48
+      },
+      {
+        "description": "Growth rates of household expenditure or income per capita (%)",
+        "excluded_series": "SI_HEI_TOTL",
+        "low_minus_high_income_pp": 14.31
+      },
+      {
+        "description": "Proportion of people living below 50 percent of median income (%)",
+        "excluded_series": "SI_POV_50MI",
+        "low_minus_high_income_pp": 13.87
+      },
+      {
+        "description": "Proportion of population below international poverty line (%)",
+        "excluded_series": "SI_POV_DAY1",
+        "low_minus_high_income_pp": 13.87
+      },
+      {
+        "description": "Proportion of time spent on unpaid domestic chores and care work, by sex, age and location (%)",
+        "excluded_series": "SL_DOM_TSPD",
+        "low_minus_high_income_pp": 14.09
+      },
+      {
+        "description": "Proportion of youth not in education, employment or training, by sex and age - 13th ICLS (%)",
+        "excluded_series": "SL_TLF_NEET",
+        "low_minus_high_income_pp": 13.7
+      },
+      {
+        "description": "Unemployment rate, by sex and age - 13th ICLS (%)",
+        "excluded_series": "SL_TLF_UEM",
+        "low_minus_high_income_pp": 13.51
+      },
+      {
+        "description": "Prevalence of undernourishment (%)",
+        "excluded_series": "SN_ITK_DEFC",
+        "low_minus_high_income_pp": 14.86
+      },
+      {
+        "description": "Proportion of population using basic drinking water services, by location (%)",
+        "excluded_series": "SP_ACS_BSRVH2O",
+        "low_minus_high_income_pp": 14.61
+      },
+      {
+        "description": "Proportion of population that has convenient access to public transport (%)",
+        "excluded_series": "SP_TRN_PUBL",
+        "low_minus_high_income_pp": 14.5
+      },
+      {
+        "description": "Number of people affected by disaster (number)",
+        "excluded_series": "VC_DSR_AFFCT",
+        "low_minus_high_income_pp": 14.44
+      },
+      {
+        "description": "Number of victims of intentional homicide per 100,000 population, by sex (victims per 100,000 population)",
+        "excluded_series": "VC_IHR_PSRC",
+        "low_minus_high_income_pp": 13.36
+      },
+      {
+        "description": "Proportion of population reporting having felt discriminated against, by grounds of discrimination, sex and disability (%)",
+        "excluded_series": "VC_VOV_GDSD",
+        "low_minus_high_income_pp": 13.59
+      }
+    ],
+    "maximum_pp": 15.62,
+    "minimum_pp": 13.1,
+    "most_amplifying": {
+      "description": "Proportion of children moderately or severely stunted (%)",
+      "excluded_series": "SH_STA_STNT",
+      "low_minus_high_income_pp": 15.62
+    },
+    "most_attenuating": {
+      "description": "Proportion of children and young people achieving a minimum proficiency level in reading and mathematics (%)",
+      "excluded_series": "SE_TOT_PRFL",
+      "low_minus_high_income_pp": 13.1
+    }
+  },
+  "population_association": {
+    "ci_high": -0.211,
+    "ci_low": -0.478,
+    "spearman_rho": -0.354
+  },
+  "sensitivity": [
+    {
+      "low_minus_high_income_pp": 14.3,
+      "mean_missingness_pct": 47.6,
+      "specification": "All official statuses, 5-year window"
+    },
+    {
+      "low_minus_high_income_pp": 12.6,
+      "mean_missingness_pct": 56.4,
+      "specification": "All official statuses, 3-year window"
+    },
+    {
+      "low_minus_high_income_pp": 13.6,
+      "mean_missingness_pct": 41.9,
+      "specification": "All official statuses, 7-year window"
+    },
+    {
+      "low_minus_high_income_pp": 13.5,
+      "mean_missingness_pct": 79.2,
+      "specification": "Country and country-adjusted statuses only, 5-year window"
+    }
+  ],
+  "snapshot": {
+    "completed_year": 2025,
+    "recent_window": [
+      2021,
+      2025
+    ],
+    "retrieved_at": "2026-09-07T17:44:14+00:00"
+  },
+  "summaries": {
+    "family": [
+      {
+        "ci_high": 44.2,
+        "ci_low": 39.1,
+        "countries": 193,
+        "group": "Partnership",
+        "mean_missingness_pct": 41.5,
+        "mean_staleness": 56.0
+      },
+      {
+        "ci_high": 31.3,
+        "ci_low": 26.1,
+        "countries": 193,
+        "group": "Peace",
+        "mean_missingness_pct": 28.7,
+        "mean_staleness": 33.4
+      },
+      {
+        "ci_high": 43.8,
+        "ci_low": 40.2,
+        "countries": 193,
+        "group": "People",
+        "mean_missingness_pct": 41.9,
+        "mean_staleness": 46.0
+      },
+      {
+        "ci_high": 60.2,
+        "ci_low": 56.9,
+        "countries": 193,
+        "group": "Planet",
+        "mean_missingness_pct": 58.6,
+        "mean_staleness": 51.9
+      },
+      {
+        "ci_high": 50.2,
+        "ci_low": 46.3,
+        "countries": 193,
+        "group": "Prosperity",
+        "mean_missingness_pct": 48.4,
+        "mean_staleness": 51.5
+      }
+    ],
+    "goal": [
+      {
+        "ci_high": 52.5,
+        "ci_low": 47.3,
+        "countries": 193,
+        "group": "1",
+        "mean_missingness_pct": 50.1,
+        "mean_staleness": 49.8
+      },
+      {
+        "ci_high": 72.9,
+        "ci_low": 63.6,
+        "countries": 193,
+        "group": "10",
+        "mean_missingness_pct": 68.3,
+        "mean_staleness": 58.4
+      },
+      {
+        "ci_high": 66.9,
+        "ci_low": 61.9,
+        "countries": 193,
+        "group": "11",
+        "mean_missingness_pct": 64.6,
+        "mean_staleness": 59.4
+      },
+      {
+        "ci_high": 74.6,
+        "ci_low": 70.8,
+        "countries": 193,
+        "group": "12",
+        "mean_missingness_pct": 72.8,
+        "mean_staleness": 61.9
+      },
+      {
+        "ci_high": 69.2,
+        "ci_low": 58.6,
+        "countries": 193,
+        "group": "13",
+        "mean_missingness_pct": 64.2,
+        "mean_staleness": 67.5
+      },
+      {
+        "ci_high": 60.0,
+        "ci_low": 60.0,
+        "countries": 193,
+        "group": "15",
+        "mean_missingness_pct": 60.0,
+        "mean_staleness": 24.9
+      },
+      {
+        "ci_high": 31.4,
+        "ci_low": 26.2,
+        "countries": 193,
+        "group": "16",
+        "mean_missingness_pct": 28.7,
+        "mean_staleness": 33.4
+      },
+      {
+        "ci_high": 44.0,
+        "ci_low": 38.9,
+        "countries": 193,
+        "group": "17",
+        "mean_missingness_pct": 41.5,
+        "mean_staleness": 56.0
+      },
+      {
+        "ci_high": 16.8,
+        "ci_low": 9.7,
+        "countries": 193,
+        "group": "2",
+        "mean_missingness_pct": 13.1,
+        "mean_staleness": 16.2
+      },
+      {
+        "ci_high": 27.8,
+        "ci_low": 26.7,
+        "countries": 193,
+        "group": "3",
+        "mean_missingness_pct": 27.0,
+        "mean_staleness": 44.7
+      },
+      {
+        "ci_high": 74.8,
+        "ci_low": 68.7,
+        "countries": 193,
+        "group": "4",
+        "mean_missingness_pct": 71.8,
+        "mean_staleness": 69.8
+      },
+      {
+        "ci_high": 50.2,
+        "ci_low": 44.4,
+        "countries": 193,
+        "group": "5",
+        "mean_missingness_pct": 47.4,
+        "mean_staleness": 49.2
+      },
+      {
+        "ci_high": 39.8,
+        "ci_low": 35.2,
+        "countries": 193,
+        "group": "6",
+        "mean_missingness_pct": 37.3,
+        "mean_staleness": 53.3
+      },
+      {
+        "ci_high": 25.7,
+        "ci_low": 24.6,
+        "countries": 193,
+        "group": "7",
+        "mean_missingness_pct": 25.2,
+        "mean_staleness": 41.6
+      },
+      {
+        "ci_high": 47.1,
+        "ci_low": 40.5,
+        "countries": 193,
+        "group": "8",
+        "mean_missingness_pct": 43.8,
+        "mean_staleness": 53.9
+      },
+      {
+        "ci_high": 37.7,
+        "ci_low": 33.4,
+        "countries": 193,
+        "group": "9",
+        "mean_missingness_pct": 35.6,
+        "mean_staleness": 40.3
+      }
+    ],
+    "income": [
+      {
+        "ci_high": 45.3,
+        "ci_low": 39.8,
+        "countries": 64,
+        "group": "High income",
+        "mean_missingness_pct": 42.4,
+        "mean_staleness": 45.9
+      },
+      {
+        "ci_high": 59.1,
+        "ci_low": 54.4,
+        "countries": 25,
+        "group": "Low income",
+        "mean_missingness_pct": 56.7,
+        "mean_staleness": 56.0
+      },
+      {
+        "ci_high": 52.9,
+        "ci_low": 48.8,
+        "countries": 46,
+        "group": "Lower middle income",
+        "mean_missingness_pct": 50.9,
+        "mean_staleness": 51.6
+      },
+      {
+        "ci_high": 49.7,
+        "ci_low": 43.9,
+        "countries": 58,
+        "group": "Upper middle income",
+        "mean_missingness_pct": 46.8,
+        "mean_staleness": 48.3
+      }
+    ],
+    "region": [
+      {
+        "ci_high": 53.6,
+        "ci_low": 47.0,
+        "countries": 30,
+        "group": "East Asia & Pacific",
+        "mean_missingness_pct": 50.1,
+        "mean_staleness": 51.9
+      },
+      {
+        "ci_high": 42.5,
+        "ci_low": 37.2,
+        "countries": 52,
+        "group": "Europe & Central Asia",
+        "mean_missingness_pct": 39.7,
+        "mean_staleness": 43.5
+      },
+      {
+        "ci_high": 52.6,
+        "ci_low": 43.9,
+        "countries": 33,
+        "group": "Latin America & Caribbean",
+        "mean_missingness_pct": 48.0,
+        "mean_staleness": 49.5
+      },
+      {
+        "ci_high": 53.6,
+        "ci_low": 47.4,
+        "countries": 22,
+        "group": "Middle East, North Africa, Afghanistan & Pakistan",
+        "mean_missingness_pct": 50.6,
+        "mean_staleness": 52.2
+      },
+      {
+        "ci_high": 34.8,
+        "ci_low": 31.4,
+        "countries": 2,
+        "group": "North America",
+        "mean_missingness_pct": 33.1,
+        "mean_staleness": 36.8
+      },
+      {
+        "ci_high": 54.6,
+        "ci_low": 45.5,
+        "countries": 6,
+        "group": "South Asia",
+        "mean_missingness_pct": 50.1,
+        "mean_staleness": 50.4
+      },
+      {
+        "ci_high": 55.4,
+        "ci_low": 51.2,
+        "countries": 48,
+        "group": "Sub-Saharan Africa",
+        "mean_missingness_pct": 53.3,
+        "mean_staleness": 52.8
+      }
+    ]
+  },
+  "supporting_results": [
+    {
+      "ci_high": -5.12,
+      "ci_low": -7.74,
+      "id": "population",
+      "label": "Population",
+      "plain_language": "Larger populations are associated with less recent missingness after accounting for region and income.",
+      "unit": "percentage points per standard deviation",
+      "value": -6.43
+    },
+    {
+      "count": 10,
+      "id": "concentration",
+      "label": "Concentration",
+      "plain_language": "A small group of high-gap indicator series accounts for a disproportionate share of total missingness.",
+      "unit": "percent",
+      "value": 37.1
+    }
+  ],
+  "variance_decomposition": {
+    "country_percent": 8.1,
+    "indicator_percent": 49.8,
+    "interaction_and_residual_percent": 42.0
+  }
+}

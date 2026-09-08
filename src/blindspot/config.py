@@ -9,7 +9,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 CONFIG_DIR = PROJECT_ROOT / "config"
 DATA_DIR = PROJECT_ROOT / "data"
 CACHE_DIR = DATA_DIR / "current"
-SITE_DATA_DIR = PROJECT_ROOT / "site" / "data"
+SITE_DATA_DIR = PROJECT_ROOT / "site" / "assets" / "data"
 
 
 @dataclass(frozen=True)
@@ -36,6 +36,10 @@ def _read_json(path: Path) -> Any:
 
 def load_series() -> list[SeriesSpec]:
     return [SeriesSpec(**item) for item in _read_json(CONFIG_DIR / "series.json")]
+
+
+def load_goals() -> list[dict[str, Any]]:
+    return _read_json(CONFIG_DIR / "goals.json")
 
 
 def load_countries() -> list[Country]:

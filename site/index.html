@@ -3,135 +3,38 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Blindspot maps where global development evidence is missing, stale, or fragile.">
+  <meta name="description" content="Blindspot maps missing and late evidence in global development data.">
   <title>Blindspot — Global measurement-gap observatory</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body data-page="overview">
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="masthead">
-    <a class="brand" href="#">BLINDSPOT</a>
-    <nav aria-label="Primary">
-      <a href="#atlas">Atlas</a><a href="#priority">Measurement priority</a><a href="#indicators">Indicators</a><a href="#roadmap">Roadmap</a><a href="#resources">Sources</a>
-    </nav>
-    <a class="data-link" href="data/downloads/gap_rankings.csv">Download data ↗</a>
-  </header>
-
+  <header id="site-header" class="masthead"></header>
+  <aside id="status-banner" class="status-banner" hidden></aside>
   <main id="main">
-    <section class="hero">
+    <section class="hero overview-hero">
       <div class="eyebrow">Global measurement-gap observatory</div>
       <h1>We cannot act on<br>what we <em>cannot see.</em></h1>
-      <p class="lede"><strong>Who is visible in global development data?</strong> Blindspot makes country–series–year gaps reproducible, then studies how they vary across regions, income groups, populations, and indicator families.</p>
+      <p class="lede"><strong>Who is visible in global development data?</strong> Blindspot tracks which expected observations appear in the UN source, then makes the gaps explorable and reproducible.</p>
       <div class="hero-meta">
-        <div><strong id="country-count">193</strong><span>UN member states</span></div>
-        <div><strong>51</strong><span>selected indicator series</span></div>
-        <div><strong>17</strong><span>UN development goals</span></div>
-        <div><strong id="window-label">2015—now</strong><span>recent-data window</span></div>
+        <div><strong data-count="countries">—</strong><span>UN member states</span></div>
+        <div><strong data-count="series">—</strong><span>selected indicator series</span></div>
+        <div><strong data-count="goals">—</strong><span>UN development goals</span></div>
+        <div><strong data-window>—</strong><span>recent-data window</span></div>
       </div>
     </section>
-
-    <aside id="status-banner" class="status-banner" hidden></aside>
-
-    <section id="guide" class="panel guide-panel">
-      <div class="section-heading">
-        <div><span class="number">00</span><h2>Read this first</h2></div>
-      </div>
-      <div class="definition-grid">
-        <article><span class="term">Indicator series</span><p>One statistic tracked over time, such as maternal mortality or access to electricity. Blindspot selects three for each goal.</p></article>
-        <article><span class="term">Global goal</span><p>One of the UN's 17 SDGs, covering shared priorities such as poverty, health, climate, and institutions.</p></article>
-        <article><span class="term">Measurement gap</span><p>Evidence that is absent or late in the UN source when expected.</p></article>
-      </div>
-      <p class="source-line">Definitions and indicator details: <a href="https://unstats.un.org/sdgs/metadata/" rel="noreferrer">official UN SDG metadata ↗</a></p>
-    </section>
-
-    <section id="atlas" class="panel atlas-panel">
-      <div class="section-heading">
-        <div><span class="number">01</span><h2>The atlas of absence</h2></div>
-      </div>
-      <p class="metric-intro">Measurement priority is a 0–100 weighted average; higher means a larger measurement gap. Only universally applicable indicators are scored.<span class="metric-weights"><strong>Default weights:</strong> 35% staleness, 25% missingness, 20% global scarcity, and 20% population rank based on log population.</span></p>
-      <div class="controls" aria-label="Atlas filters">
-        <label>Goal
-          <select id="goal-select"><option value="all">All 17 goals</option></select>
-        </label>
-        <label>Find country
-          <select id="country-select"><option value="">Choose a country</option></select>
-        </label>
-      </div>
-      <div class="map-wrap">
-        <svg id="world-map" role="img" aria-label="World map colored by measurement gaps" viewBox="0 0 1000 500"></svg>
-        <div id="tooltip" class="tooltip" role="status" hidden></div>
-        <div class="legend"><span>Lower gap</span><i></i><i></i><i></i><i></i><i></i><span>Higher gap</span></div>
-      </div>
-      <div id="country-profile" class="country-profile" aria-live="polite">
-        <div class="empty-state">Select a country on the map to inspect its evidence profile.</div>
-      </div>
-    </section>
-
-    <section id="priority" class="panel dark-panel">
-      <div class="section-heading inverse">
-        <div><span class="number">02</span><h2>What should we measure next?</h2></div>
-      </div>
-      <p class="priority-summary">Each row is a country–indicator pair ranked by measurement priority; use the sliders to change how strongly each component counts.</p>
-      <div class="weight-grid">
-        <label>Staleness <output id="out-staleness">35%</output><span class="control-help">Favors older latest reports.</span><input id="weight-staleness" type="range" min="0" max="100" value="35"></label>
-        <label>Missingness <output id="out-completeness_deficit">25%</output><span class="control-help">Favors absent expected years.</span><input id="weight-completeness_deficit" type="range" min="0" max="100" value="25"></label>
-        <label>Global scarcity <output id="out-global_scarcity">20%</output><span class="control-help">Favors series reported by fewer countries.</span><input id="weight-global_scarcity" type="range" min="0" max="100" value="20"></label>
-        <label>Population <output id="out-population_percentile">20%</output><span class="control-help">Favors gaps affecting larger populations.</span><input id="weight-population_percentile" type="range" min="0" max="100" value="20"></label>
-      </div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>#</th><th>Country</th><th>Goal</th><th>Indicator series</th><th>Latest</th><th>Measurement priority</th></tr></thead>
-          <tbody id="ranking-body"></tbody>
-        </table>
-      </div>
-    </section>
-
-    <section id="indicators" class="panel">
-      <div class="section-heading">
-        <div><span class="number">03</span><h2>Indicator coverage</h2></div>
-      </div>
-      <p class="source-line coverage-intro"><strong>Coverage</strong> is the share of countries meeting the expected reporting cadence during the latest five completed years. Consult the <a href="https://unstats.un.org/sdgs/metadata/" rel="noreferrer">official definitions and full UN framework ↗</a>.</p>
-      <label class="search-label">Search indicators <input id="series-search" type="search" placeholder="Try ‘water’, ‘poverty’, or ‘16’"></label>
-      <div id="series-grid" class="series-grid"></div>
-    </section>
-
-
-    <section id="roadmap" class="panel roadmap-panel">
-      <div class="section-heading">
-        <div><span class="number">04</span><h2>What comes next</h2></div>
-      </div>
-      <div class="research-grid">
-        <article><span class="status-tag">Shipped</span><h3>Reproducible observatory</h3><p>Official-source ingestion, 9,843 country–series assessments, interactive scores, revision tracking, downloads, weekly refreshes, and validation.</p></article>
-        <article><span class="status-tag">Next</span><h3>Peer-check and inequality analysis</h3><p>Review the first frozen snapshot, then test whether measurement gaps are associated with region, income group, population, and indicator family—with uncertainty and sensitivity analyses.</p></article>
-        <article><span class="status-tag">Later</span><h3>Broader evidence system</h3><p>Add defensible country-level applicability, deeper disaggregation, more indicators and national sources, and enough publication vintages to study revisions over time.</p></article>
-      </div>
-    </section>
-
-    <section id="resources" class="panel resources-panel">
-      <div class="section-heading">
-        <div><span class="number">05</span><h2>Sources and downloads</h2></div>
-      </div>
-      <div class="sources">
-        <a href="https://unstats.un.org/sdgs/metadata/" rel="noreferrer">UN SDG indicator metadata <span>↗</span></a>
-        <a href="https://unstats.un.org/sdgs/iaeg-sdgs/sdmx-working-group/" rel="noreferrer">UN SDMX data system <span>↗</span></a>
-        <a href="https://datahelpdesk.worldbank.org/knowledgebase/topics/125589-developer-information" rel="noreferrer">World Bank Indicators API <span>↗</span></a>
-        <a href="https://odin.opendatawatch.com/" rel="noreferrer">Open Data Inventory <span>↗</span></a>
-        <a href="https://www.paris21.org/our-impact/matching-capacity-needs-how-paris21s-statistical-capacity-monitor-helping-put-data-and" rel="noreferrer">PARIS21 Statistical Capacity Monitor <span>↗</span></a>
-        <a href="https://dashboards.sdgindex.org/" rel="noreferrer">Sustainable Development Report <span>↗</span></a>
-        <a href="https://blogs.worldbank.org/en/opendata/missing-evidence-tracking-academic-data-use-around-world" rel="noreferrer">World Bank: Missing Evidence <span>↗</span></a>
-      </div>
-      <p class="source-line">Downloads preserve observation status: country-reported, adjusted, estimated, modeled, or global-monitoring.</p>
-      <div class="downloads">
-        <a href="data/downloads/gap_rankings.csv">Gap rankings <span>CSV ↗</span></a>
-        <a href="data/downloads/country_scores.csv">Country scores <span>CSV ↗</span></a>
-        <a href="data/methodology.json">Method contract <span>JSON ↗</span></a>
-        <a href="data/manifest.json">Provenance manifest <span>JSON ↗</span></a>
+    <section class="panel route-panel">
+      <div class="section-heading"><div><h2>Start with a question</h2></div></div>
+      <div class="route-grid">
+        <a href="explore/"><span>Explore</span><strong>Where are the largest gaps?</strong></a>
+        <a href="indicators/"><span>Indicators</span><strong>Which statistics are covered?</strong></a>
+        <a href="research/"><span>Research</span><strong>What patterns appear across countries?</strong></a>
+        <a href="methods/"><span>Methods</span><strong>What do the scores and terms mean?</strong></a>
+        <a href="data/"><span>Data</span><strong>Where do the data come from?</strong></a>
       </div>
     </section>
   </main>
-
-  <footer><strong>BLINDSPOT</strong><span>Evidence about the evidence.</span><a href="https://github.com/nehalahmedshaikh/blindspot">Source and documentation ↗</a><span id="freshness">Loading source status…</span></footer>
-  <script src="geo.js" defer></script>
-  <script src="app.js" defer></script>
+  <footer id="site-footer"></footer>
+  <script src="shell.js" defer></script>
 </body>
 </html>

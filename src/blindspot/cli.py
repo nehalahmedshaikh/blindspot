@@ -4,7 +4,7 @@ import argparse
 import json
 import sys
 
-from .pipeline import build, export, model, refresh, validate
+from .pipeline import analyze, build, export, model, refresh, validate
 from .sources import SourceError
 
 
@@ -15,9 +15,10 @@ def parser() -> argparse.ArgumentParser:
     build_parser = subcommands.add_parser("build", help="Calculate descriptive metrics and rankings")
     build_parser.add_argument("--completed-year", type=int, default=None)
     subcommands.add_parser("model", help="Backtest the reporting-continuity model")
+    subcommands.add_parser("analyze", help="Analyze inequalities and robustness")
     subcommands.add_parser("validate", help="Validate configuration and generated metrics")
     subcommands.add_parser("export", help="Create static-site datasets and downloads")
-    subcommands.add_parser("all", help="Run fetch, build, model, validate, and export")
+    subcommands.add_parser("all", help="Run the complete research and export pipeline")
     return result
 
 
@@ -33,16 +34,24 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "model":
             result = model()
             print(json.dumps({"selected": result["selected"], "candidates": result["candidates"]}, indent=2))
+        elif args.command == "analyze":
+            result = analyze()
+            design = result["design"]
+            print(
+                f"Analyzed {design['countries']} countries across "
+                f"{design['universal_series']} universal series."
+            )
         elif args.command == "validate":
             for check in validate():
                 print(f"✓ {check}")
         elif args.command == "export":
             result = export()
-            print(f"Exported dashboard for {len(result['countries'])} countries.")
+            print(f"Exported partitioned site data for {len(result['countries'])} countries.")
         elif args.command == "all":
             refresh()
             build()
             model()
+            analyze()
             for check in validate():
                 print(f"✓ {check}")
             export()

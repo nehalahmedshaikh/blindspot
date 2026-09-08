@@ -1,0 +1,194 @@
+m49,alpha3,name,region,income_group,population,population_year,completeness,staleness,priority
+4,AFG,Afghanistan,"Middle East, North Africa, Afghanistan & Pakistan",Low income,43844111,2025,43.04,60.87,67.87
+8,ALB,Albania,Europe & Central Asia,Upper middle income,2349580,2025,59.2,44.3,46.89
+12,DZA,Algeria,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,47435312,2025,48.99,52.54,63.78
+20,AND,Andorra,Europe & Central Asia,High income,82904,2025,41.88,59.54,52.28
+24,AGO,Angola,Sub-Saharan Africa,Lower middle income,39040039,2025,46.81,52.29,63.62
+28,ATG,Antigua and Barbuda,Latin America & Caribbean,High income,94209,2025,36.81,63.89,55.17
+32,ARG,Argentina,Latin America & Caribbean,Upper middle income,45851378,2025,59.2,42.03,57.34
+51,ARM,Armenia,Europe & Central Asia,Upper middle income,3086700,2025,63.33,40.82,45.57
+36,AUS,Australia,East Asia & Pacific,High income,27614411,2025,60.07,40.84,54.63
+40,AUT,Austria,Europe & Central Asia,High income,9208163,2025,67.9,40.22,48.08
+31,AZE,Azerbaijan,Europe & Central Asia,Upper middle income,10246996,2025,52.9,49.81,55.49
+44,BHS,Bahamas,Latin America & Caribbean,High income,403033,2025,32.61,67.51,58.85
+48,BHR,Bahrain,"Middle East, North Africa, Afghanistan & Pakistan",High income,1600366,2025,50.94,52.54,51.21
+50,BGD,Bangladesh,South Asia,Lower middle income,175686899,2025,56.59,45.17,61.91
+52,BRB,Barbados,Latin America & Caribbean,High income,282623,2025,47.68,54.71,50.29
+112,BLR,Belarus,Europe & Central Asia,Upper middle income,9085991,2025,58.04,40.87,50.56
+56,BEL,Belgium,Europe & Central Asia,High income,11941781,2025,67.61,39.54,49.58
+84,BLZ,Belize,Latin America & Caribbean,Upper middle income,422924,2025,44.2,55.94,52.0
+204,BEN,Benin,Sub-Saharan Africa,Lower middle income,14814460,2025,48.91,53.84,59.88
+64,BTN,Bhutan,South Asia,Lower middle income,796682,2025,46.16,53.38,51.45
+68,BOL,"Bolivia, Plurinational State of",Latin America & Caribbean,Lower middle income,12581843,2025,60.0,42.56,52.85
+70,BIH,Bosnia and Herzegovina,Europe & Central Asia,Upper middle income,3140095,2025,53.55,48.79,51.02
+72,BWA,Botswana,Sub-Saharan Africa,Upper middle income,2562122,2025,54.13,47.7,49.66
+76,BRA,Brazil,Latin America & Caribbean,Upper middle income,212812405,2025,65.07,35.34,56.45
+96,BRN,Brunei Darussalam,East Asia & Pacific,High income,466330,2025,40.94,60.0,54.34
+100,BGR,Bulgaria,Europe & Central Asia,High income,6433302,2025,70.07,35.92,44.67
+854,BFA,Burkina Faso,Sub-Saharan Africa,Low income,24074580,2025,50.94,49.27,59.44
+108,BDI,Burundi,Sub-Saharan Africa,Low income,14390003,2025,43.33,54.13,61.17
+132,CPV,Cabo Verde,Sub-Saharan Africa,Upper middle income,527326,2025,46.23,55.12,51.42
+116,KHM,Cambodia,East Asia & Pacific,Lower middle income,17847982,2025,49.71,52.9,59.66
+120,CMR,Cameroon,Sub-Saharan Africa,Lower middle income,29879337,2025,43.99,57.85,65.02
+124,CAN,Canada,North America,High income,41651653,2025,68.62,35.65,52.44
+140,CAF,Central African Republic,Sub-Saharan Africa,Low income,5513282,2025,40.43,57.87,58.93
+148,TCD,Chad,Sub-Saharan Africa,Low income,21003705,2025,42.25,54.13,62.9
+152,CHL,Chile,Latin America & Caribbean,High income,19859921,2025,72.46,33.16,47.8
+156,CHN,China,East Asia & Pacific,Upper middle income,1406585000,2025,52.03,50.17,65.42
+170,COL,Colombia,Latin America & Caribbean,Upper middle income,53425635,2025,70.94,32.27,51.72
+174,COM,Comoros,Sub-Saharan Africa,Lower middle income,882847,2025,45.07,54.9,52.57
+178,COG,Congo,Sub-Saharan Africa,Lower middle income,6484437,2025,35.22,67.39,64.51
+180,COD,"Congo, The Democratic Republic of the",Sub-Saharan Africa,Low income,112832473,2025,43.77,53.79,67.4
+188,CRI,Costa Rica,Latin America & Caribbean,High income,5152950,2025,69.71,33.21,42.36
+191,HRV,Croatia,Europe & Central Asia,High income,3876200,2025,62.9,43.41,47.21
+192,CUB,Cuba,Latin America & Caribbean,Upper middle income,10937203,2025,37.54,60.51,63.81
+196,CYP,Cyprus,Europe & Central Asia,High income,1370754,2025,63.84,41.47,43.9
+203,CZE,Czechia,Europe & Central Asia,High income,10886878,2025,69.64,36.28,47.2
+384,CIV,Côte d'Ivoire,Sub-Saharan Africa,Lower middle income,32711547,2025,52.9,49.01,59.8
+208,DNK,Denmark,Europe & Central Asia,High income,6009169,2025,62.9,41.35,48.06
+262,DJI,Djibouti,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,1184076,2025,37.83,63.28,57.52
+212,DMA,Dominica,Latin America & Caribbean,Upper middle income,65871,2025,36.52,63.89,55.04
+214,DOM,Dominican Republic,Latin America & Caribbean,Upper middle income,11520487,2025,61.09,39.37,50.84
+218,ECU,Ecuador,Latin America & Caribbean,Upper middle income,18289896,2025,64.49,36.42,50.41
+818,EGY,Egypt,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,118365995,2025,59.42,42.63,59.79
+222,SLV,El Salvador,Latin America & Caribbean,Upper middle income,6365503,2025,61.01,41.98,48.96
+226,GNQ,Equatorial Guinea,Sub-Saharan Africa,Upper middle income,1938431,2025,32.9,67.39,61.23
+232,ERI,Eritrea,Sub-Saharan Africa,Low income,3607003,2025,27.25,72.46,66.19
+233,EST,Estonia,Europe & Central Asia,High income,1366475,2025,69.13,35.05,40.13
+748,SWZ,Eswatini,Sub-Saharan Africa,Lower middle income,1256174,2025,56.38,46.84,47.34
+231,ETH,Ethiopia,Sub-Saharan Africa,Low income,135472051,2025,49.2,51.33,65.7
+242,FJI,Fiji,East Asia & Pacific,Upper middle income,933154,2025,53.41,47.17,47.88
+246,FIN,Finland,Europe & Central Asia,High income,5646436,2025,67.25,39.4,45.97
+250,FRA,France,Europe & Central Asia,High income,68720337,2025,66.81,39.76,55.89
+266,GAB,Gabon,Sub-Saharan Africa,Upper middle income,2593130,2025,38.7,59.42,57.72
+270,GMB,Gambia,Sub-Saharan Africa,Low income,2822093,2025,46.74,48.07,51.84
+268,GEO,Georgia,Europe & Central Asia,Upper middle income,3935766,2025,67.46,35.29,43.34
+276,DEU,Germany,Europe & Central Asia,High income,83491249,2025,68.33,39.25,55.75
+288,GHA,Ghana,Sub-Saharan Africa,Lower middle income,35064272,2025,55.72,47.34,58.82
+300,GRC,Greece,Europe & Central Asia,High income,10413962,2025,63.33,40.87,49.86
+308,GRD,Grenada,Latin America & Caribbean,Upper middle income,117303,2025,35.07,64.37,56.19
+320,GTM,Guatemala,Latin America & Caribbean,Upper middle income,18687881,2025,62.97,39.69,52.04
+324,GIN,Guinea,Sub-Saharan Africa,Lower middle income,15099727,2025,40.14,55.43,62.74
+624,GNB,Guinea-Bissau,Sub-Saharan Africa,Low income,2249515,2025,45.65,56.16,54.32
+328,GUY,Guyana,Latin America & Caribbean,High income,835986,2025,42.39,56.3,53.52
+332,HTI,Haiti,Latin America & Caribbean,Lower middle income,11906095,2025,39.86,60.99,63.92
+340,HND,Honduras,Latin America & Caribbean,Lower middle income,11005850,2025,58.33,42.05,52.26
+348,HUN,Hungary,Europe & Central Asia,High income,9514251,2025,62.68,43.16,50.52
+352,ISL,Iceland,Europe & Central Asia,High income,392404,2025,48.77,50.12,48.62
+356,IND,India,South Asia,Lower middle income,1463865525,2025,57.46,44.35,62.13
+360,IDN,Indonesia,East Asia & Pacific,Upper middle income,285721236,2025,61.38,41.3,59.77
+364,IRN,"Iran, Islamic Republic of","Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,92417681,2025,55.07,47.1,62.02
+368,IRQ,Iraq,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,47020774,2025,45.29,54.27,65.21
+372,IRL,Ireland,Europe & Central Asia,High income,5484367,2025,60.29,43.26,48.65
+376,ISR,Israel,"Middle East, North Africa, Afghanistan & Pakistan",High income,10122800,2025,61.38,44.18,51.3
+380,ITA,Italy,Europe & Central Asia,High income,58915656,2025,66.81,38.09,55.1
+388,JAM,Jamaica,Latin America & Caribbean,Upper middle income,2837077,2025,60.87,44.15,47.04
+392,JPN,Japan,East Asia & Pacific,High income,123366734,2025,60.36,41.88,59.4
+400,JOR,Jordan,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,11520684,2025,58.41,48.07,54.65
+398,KAZ,Kazakhstan,Europe & Central Asia,Upper middle income,20843754,2025,60.94,42.66,54.11
+404,KEN,Kenya,Sub-Saharan Africa,Lower middle income,57532493,2025,62.32,42.12,57.53
+296,KIR,Kiribati,East Asia & Pacific,Lower middle income,136488,2025,47.54,50.29,48.36
+408,PRK,"Korea, Democratic People's Republic of",East Asia & Pacific,Low income,26571036,2025,33.7,68.36,70.75
+410,KOR,"Korea, Republic of",East Asia & Pacific,High income,51684564,2025,64.06,39.4,55.83
+414,KWT,Kuwait,"Middle East, North Africa, Afghanistan & Pakistan",High income,4865298,2025,43.99,55.68,56.55
+417,KGZ,Kyrgyzstan,Europe & Central Asia,Lower middle income,7343064,2025,61.23,41.96,49.52
+418,LAO,Lao People's Democratic Republic,East Asia & Pacific,Lower middle income,7873046,2025,53.99,44.64,52.58
+428,LVA,Latvia,Europe & Central Asia,High income,1847785,2025,64.42,40.99,44.01
+422,LBN,Lebanon,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,5849421,2025,43.77,55.68,57.75
+426,LSO,Lesotho,Sub-Saharan Africa,Lower middle income,2363325,2025,45.07,49.08,52.3
+430,LBR,Liberia,Sub-Saharan Africa,Low income,5731206,2025,39.71,60.87,60.48
+434,LBY,Libya,"Middle East, North Africa, Afghanistan & Pakistan",Upper middle income,7458555,2025,39.2,61.84,62.09
+438,LIE,Liechtenstein,Europe & Central Asia,High income,41024,2025,28.12,70.77,59.34
+440,LTU,Lithuania,Europe & Central Asia,High income,2888774,2025,71.16,36.16,41.78
+442,LUX,Luxembourg,Europe & Central Asia,High income,686970,2025,59.64,45.22,45.12
+450,MDG,Madagascar,Sub-Saharan Africa,Low income,32740678,2025,45.72,55.72,64.05
+454,MWI,Malawi,Sub-Saharan Africa,Low income,22216120,2025,45.43,47.46,60.08
+458,MYS,Malaysia,East Asia & Pacific,Upper middle income,35977838,2025,59.2,43.24,56.72
+462,MDV,Maldives,South Asia,Upper middle income,529676,2025,40.72,55.8,53.13
+466,MLI,Mali,Sub-Saharan Africa,Low income,25198821,2025,47.46,50.41,60.81
+470,MLT,Malta,"Middle East, North Africa, Afghanistan & Pakistan",High income,579704,2025,63.99,41.59,42.45
+584,MHL,Marshall Islands,East Asia & Pacific,Upper middle income,36282,2025,37.1,63.16,54.22
+478,MRT,Mauritania,Sub-Saharan Africa,Lower middle income,5315065,2025,38.99,57.37,58.6
+480,MUS,Mauritius,Sub-Saharan Africa,Upper middle income,1243741,2025,58.62,42.61,45.19
+484,MEX,Mexico,Latin America & Caribbean,Upper middle income,131946900,2025,71.01,33.07,53.75
+583,FSM,"Micronesia, Federated States of",East Asia & Pacific,Upper middle income,113683,2025,28.48,70.29,59.81
+498,MDA,"Moldova, Republic of",Europe & Central Asia,Upper middle income,2360527,2025,65.07,36.45,42.78
+492,MCO,Monaco,Europe & Central Asia,High income,38341,2025,31.3,64.61,56.28
+496,MNG,Mongolia,East Asia & Pacific,Upper middle income,3568978,2025,65.0,38.74,44.85
+499,MNE,Montenegro,Europe & Central Asia,Upper middle income,623129,2025,57.9,43.12,44.61
+504,MAR,Morocco,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,38430770,2025,51.01,51.57,62.1
+508,MOZ,Mozambique,Sub-Saharan Africa,Low income,35631653,2025,52.25,48.67,60.26
+104,MMR,Myanmar,East Asia & Pacific,Lower middle income,54850648,2025,48.7,52.37,64.42
+516,NAM,Namibia,Sub-Saharan Africa,Lower middle income,3092816,2025,48.55,52.54,53.47
+520,NRU,Nauru,East Asia & Pacific,High income,12025,2025,46.38,55.72,48.99
+524,NPL,Nepal,South Asia,Lower middle income,29618118,2025,46.67,53.77,62.81
+528,NLD,Netherlands,Europe & Central Asia,High income,18087633,2025,63.33,41.23,52.28
+554,NZL,New Zealand,East Asia & Pacific,High income,5324700,2025,55.29,49.69,51.94
+558,NIC,Nicaragua,Latin America & Caribbean,Lower middle income,7007502,2025,36.16,64.49,63.46
+562,NER,Niger,Sub-Saharan Africa,Low income,27917831,2025,45.22,54.35,63.17
+566,NGA,Nigeria,Sub-Saharan Africa,Lower middle income,237527782,2025,59.35,41.98,60.31
+807,MKD,North Macedonia,Europe & Central Asia,Upper middle income,1820909,2025,52.03,45.58,48.61
+578,NOR,Norway,Europe & Central Asia,High income,5610870,2025,66.59,39.18,45.95
+512,OMN,Oman,"Middle East, North Africa, Afghanistan & Pakistan",High income,5494691,2025,53.12,46.86,51.8
+586,PAK,Pakistan,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,255219554,2025,49.64,43.55,63.39
+585,PLW,Palau,East Asia & Pacific,High income,17663,2025,39.28,60.39,52.5
+591,PAN,Panama,Latin America & Caribbean,High income,4571189,2025,56.96,44.56,49.31
+598,PNG,Papua New Guinea,East Asia & Pacific,Lower middle income,10762817,2025,44.2,57.85,60.8
+600,PRY,Paraguay,Latin America & Caribbean,Upper middle income,7013078,2025,58.33,42.12,50.2
+604,PER,Peru,Latin America & Caribbean,Upper middle income,34576665,2025,65.65,38.91,53.28
+608,PHL,Philippines,East Asia & Pacific,Upper middle income,116786962,2025,62.68,41.42,58.45
+616,POL,Poland,Europe & Central Asia,High income,36435861,2025,68.77,36.57,52.1
+620,PRT,Portugal,Europe & Central Asia,High income,10804871,2025,69.64,36.64,47.22
+634,QAT,Qatar,"Middle East, North Africa, Afghanistan & Pakistan",High income,2972215,2025,48.99,53.55,53.51
+642,ROU,Romania,Europe & Central Asia,High income,19020271,2025,68.26,37.25,50.07
+643,RUS,Russian Federation,Europe & Central Asia,High income,143513328,2025,65.51,38.67,57.3
+646,RWA,Rwanda,Sub-Saharan Africa,Low income,14569341,2025,54.64,45.7,55.5
+659,KNA,Saint Kitts and Nevis,Latin America & Caribbean,High income,46922,2025,34.35,66.79,56.49
+662,LCA,Saint Lucia,Latin America & Caribbean,Upper middle income,180149,2025,42.17,59.78,53.13
+670,VCT,Saint Vincent and the Grenadines,Latin America & Caribbean,Upper middle income,99924,2025,33.91,66.42,56.89
+882,WSM,Samoa,East Asia & Pacific,Upper middle income,219306,2025,46.16,55.7,50.81
+674,SMR,San Marino,Europe & Central Asia,High income,34109,2025,33.99,67.15,56.29
+678,STP,Sao Tome and Principe,Sub-Saharan Africa,Lower middle income,240254,2025,41.88,57.13,52.48
+682,SAU,Saudi Arabia,"Middle East, North Africa, Afghanistan & Pakistan",High income,36973555,2025,52.1,49.27,60.82
+686,SEN,Senegal,Sub-Saharan Africa,Lower middle income,18931966,2025,51.67,44.93,56.8
+688,SRB,Serbia,Europe & Central Asia,Upper middle income,6549143,2025,69.06,34.39,44.6
+690,SYC,Seychelles,Sub-Saharan Africa,High income,122730,2025,44.2,54.35,50.51
+694,SLE,Sierra Leone,Sub-Saharan Africa,Low income,8819794,2025,39.57,57.97,61.06
+702,SGP,Singapore,East Asia & Pacific,High income,6111175,2025,55.29,50.05,53.11
+703,SVK,Slovakia,Europe & Central Asia,High income,5413813,2025,59.42,44.61,49.23
+705,SVN,Slovenia,Europe & Central Asia,High income,2130986,2025,68.33,37.85,42.14
+90,SLB,Solomon Islands,East Asia & Pacific,Lower middle income,838645,2025,39.35,62.92,56.7
+706,SOM,Somalia,Sub-Saharan Africa,Low income,19654739,2025,42.25,57.25,63.68
+710,ZAF,South Africa,Sub-Saharan Africa,Upper middle income,64747319,2025,56.88,44.47,59.92
+728,SSD,South Sudan,Sub-Saharan Africa,Low income,12188788,2025,36.81,65.22,66.37
+724,ESP,Spain,Europe & Central Asia,High income,49355143,2025,65.72,38.19,54.68
+144,LKA,Sri Lanka,South Asia,Upper middle income,21756000,2025,51.74,49.95,59.17
+729,SDN,Sudan,Sub-Saharan Africa,Low income,51662147,2025,38.33,62.56,70.27
+740,SUR,Suriname,Latin America & Caribbean,Upper middle income,639850,2025,44.42,54.4,52.03
+752,SWE,Sweden,Europe & Central Asia,High income,10596620,2025,63.91,41.57,50.07
+756,CHE,Switzerland,Europe & Central Asia,High income,9092436,2025,64.28,40.39,48.94
+760,SYR,Syrian Arab Republic,"Middle East, North Africa, Afghanistan & Pakistan",Low income,25620427,2025,39.13,60.63,66.58
+762,TJK,Tajikistan,Europe & Central Asia,Lower middle income,10786734,2025,49.2,53.14,58.0
+834,TZA,"Tanzania, United Republic of",Sub-Saharan Africa,Lower middle income,70545865,2025,48.77,47.46,63.31
+764,THA,Thailand,East Asia & Pacific,Upper middle income,71619863,2025,58.84,39.59,58.14
+626,TLS,Timor-Leste,East Asia & Pacific,Lower middle income,1418517,2025,44.71,61.23,55.71
+768,TGO,Togo,Sub-Saharan Africa,Lower middle income,8591626,2025,54.2,47.32,53.57
+776,TON,Tonga,East Asia & Pacific,Upper middle income,103742,2025,49.49,50.51,47.53
+780,TTO,Trinidad and Tobago,Latin America & Caribbean,High income,1367764,2025,54.71,47.9,48.33
+788,TUN,Tunisia,"Middle East, North Africa, Afghanistan & Pakistan",Lower middle income,12348573,2025,52.9,51.55,57.67
+795,TKM,Turkmenistan,Europe & Central Asia,Upper middle income,7618847,2025,39.2,61.74,62.16
+798,TUV,Tuvalu,East Asia & Pacific,Upper middle income,9492,2025,37.9,64.4,54.04
+792,TUR,Türkiye,Europe & Central Asia,Upper middle income,85878556,2025,64.71,39.78,56.95
+800,UGA,Uganda,Sub-Saharan Africa,Low income,51384894,2025,51.52,45.77,60.99
+804,UKR,Ukraine,Europe & Central Asia,Upper middle income,38980376,2025,52.83,50.24,61.29
+784,ARE,United Arab Emirates,"Middle East, North Africa, Afghanistan & Pakistan",High income,11513149,2025,50.72,50.6,57.25
+826,GBR,United Kingdom,Europe & Central Asia,High income,69487000,2025,58.26,43.04,59.29
+840,USA,United States,North America,High income,341784857,2025,65.22,37.97,57.75
+858,URY,Uruguay,Latin America & Caribbean,High income,3384688,2025,62.03,41.55,46.47
+860,UZB,Uzbekistan,Europe & Central Asia,Lower middle income,37053428,2025,59.13,46.59,58.23
+548,VUT,Vanuatu,East Asia & Pacific,Lower middle income,335169,2025,43.41,56.81,52.19
+862,VEN,"Venezuela, Bolivarian Republic of",Latin America & Caribbean,Lower middle income,28516896,2025,37.17,64.01,68.67
+704,VNM,Viet Nam,East Asia & Pacific,Upper middle income,101598527,2025,57.03,44.9,60.87
+887,YEM,Yemen,"Middle East, North Africa, Afghanistan & Pakistan",Low income,41773878,2025,37.1,61.59,69.51
+894,ZMB,Zambia,Sub-Saharan Africa,Lower middle income,21913874,2025,55.72,42.99,55.84
+716,ZWE,Zimbabwe,Sub-Saharan Africa,Lower middle income,16950795,2025,51.16,47.97,57.47

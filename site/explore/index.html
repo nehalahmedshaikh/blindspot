@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore country and indicator measurement gaps in Blindspot.">
+  <title>Explore — Blindspot</title>
+  <base href="../">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="explore">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header id="site-header" class="masthead"></header>
+  <aside id="status-banner" class="status-banner" hidden></aside>
+  <main id="main">
+    <section class="page-hero"><div class="eyebrow">Explore</div><h1>Where are the measurement gaps?</h1><p>Select a country or change the ranking weights.</p></section>
+    <section id="atlas" class="panel atlas-panel">
+      <div class="section-heading"><div><h2>Country atlas</h2></div></div>
+      <p class="metric-intro">Measurement priority runs from 0 to 100; higher values indicate a larger reporting gap under the selected weights. <a href="methods/#measurement-priority">How it works ↗</a></p>
+      <div class="controls" aria-label="Atlas filters">
+        <label>Goal<select id="goal-select"><option value="all">All goals</option></select></label>
+        <label>Find country<select id="country-select"><option value="">Choose a country</option></select></label>
+      </div>
+      <div class="map-wrap">
+        <svg id="world-map" role="img" aria-label="World map colored by measurement priority" viewBox="0 0 1000 500"></svg>
+        <div id="tooltip" class="tooltip" role="status" hidden></div>
+        <div class="legend"><span>Lower gap</span><i></i><i></i><i></i><i></i><i></i><span>Higher gap</span></div>
+      </div>
+      <div id="country-profile" class="country-profile" aria-live="polite"><div class="empty-state">Select a country to inspect its evidence profile.</div></div>
+    </section>
+    <section id="ranking" class="panel priority-panel">
+      <div class="section-heading"><div><h2>Measurement priority ranking</h2></div></div>
+      <p class="priority-summary">Each row is one country–indicator pair. Move a slider to change how strongly that component counts.</p>
+      <div class="weight-grid">
+        <label>Staleness <output id="out-staleness">35%</output><span class="control-help">Favors older latest reports.</span><input id="weight-staleness" type="range" min="0" max="100" value="35"></label>
+        <label>Missingness <output id="out-completeness_deficit">25%</output><span class="control-help">Favors absent expected years.</span><input id="weight-completeness_deficit" type="range" min="0" max="100" value="25"></label>
+        <label>Global scarcity <output id="out-global_scarcity">20%</output><span class="control-help">Favors series reported by fewer countries.</span><input id="weight-global_scarcity" type="range" min="0" max="100" value="20"></label>
+        <label>Population <output id="out-population_percentile">20%</output><span class="control-help">Favors gaps affecting larger populations.</span><input id="weight-population_percentile" type="range" min="0" max="100" value="20"></label>
+      </div>
+      <div class="table-wrap"><table><thead><tr><th>#</th><th>Country</th><th>Goal</th><th>Indicator series</th><th>Latest</th><th>Measurement priority</th></tr></thead><tbody id="ranking-body"></tbody></table></div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="shell.js" defer></script><script src="geo.js" defer></script><script src="explore.js" defer></script>
+</body>
+</html>

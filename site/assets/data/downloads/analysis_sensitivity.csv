@@ -1,0 +1,5 @@
+specification,mean_missingness_pct,low_minus_high_income_pp
+"All official statuses, 5-year window",47.6,14.3
+"All official statuses, 3-year window",56.4,12.6
+"All official statuses, 7-year window",41.9,13.6
+"Country and country-adjusted statuses only, 5-year window",79.2,13.5

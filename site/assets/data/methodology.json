@@ -1,0 +1,122 @@
+{
+  "applicability": {
+    "conditional": "Applies only where the measured subject exists.",
+    "universal": "Applies to every country."
+  },
+  "coverage": "The share of countries meeting the expected reporting cadence during the latest five completed years.",
+  "glossary": [
+    {
+      "definition": "A comparison made after accounting for other named characteristics in the model.",
+      "term": "Adjusted comparison"
+    },
+    {
+      "definition": "A range obtained by repeatedly resampling countries and recalculating the result.",
+      "term": "Bootstrap interval"
+    },
+    {
+      "definition": "An indicator series that applies only where the measured subject exists.",
+      "term": "Conditional series"
+    },
+    {
+      "definition": "A model-based range showing the uncertainty around an estimate.",
+      "term": "Confidence interval"
+    },
+    {
+      "definition": "One country evaluated for one indicator series.",
+      "term": "Country\u2013indicator pair"
+    },
+    {
+      "definition": "The share of countries meeting an indicator's expected recent reporting cadence.",
+      "term": "Coverage"
+    },
+    {
+      "definition": "How rarely an indicator series is reported across countries.",
+      "term": "Global scarcity"
+    },
+    {
+      "definition": "One statistic tracked over time, such as maternal mortality or access to electricity.",
+      "term": "Indicator series"
+    },
+    {
+      "definition": "A 0\u2013100 ranking that combines staleness, missingness, global scarcity, and population.",
+      "term": "Measurement priority"
+    },
+    {
+      "definition": "The share of expected recent observations absent from the selected UN source.",
+      "term": "Missingness"
+    },
+    {
+      "definition": "The direct difference between two percentages; 50% minus 40% is 10 percentage points.",
+      "term": "Percentage point"
+    },
+    {
+      "definition": "Recalculating a result under reasonable alternative choices to see whether it persists.",
+      "term": "Sensitivity analysis"
+    },
+    {
+      "definition": "How overdue the latest observation is relative to its expected reporting cadence.",
+      "term": "Staleness"
+    },
+    {
+      "definition": "One of the UN's 17 shared development goals.",
+      "term": "Sustainable Development Goal"
+    },
+    {
+      "definition": "An indicator series intended to apply to every country.",
+      "term": "Universal series"
+    }
+  ],
+  "measurement_priority": {
+    "formula": "100 \u00d7 weighted average of staleness, missingness, global scarcity, and population rank",
+    "scale": "0 to 100; higher means a larger reporting gap under the chosen weights.",
+    "scope": "Only universal series receive a measurement-priority score.",
+    "weights": [
+      {
+        "id": "staleness",
+        "label": "Staleness",
+        "meaning": "How overdue the latest observation is.",
+        "weight": 0.35
+      },
+      {
+        "id": "missingness",
+        "label": "Missingness",
+        "meaning": "How many expected recent reporting years are absent.",
+        "weight": 0.25
+      },
+      {
+        "id": "global_scarcity",
+        "label": "Global scarcity",
+        "meaning": "How rarely the series is reported across countries.",
+        "weight": 0.2
+      },
+      {
+        "id": "population",
+        "label": "Population",
+        "meaning": "How large the affected population is, using log-population rank.",
+        "weight": 0.2
+      }
+    ]
+  },
+  "recent_window": [
+    2021,
+    2025
+  ],
+  "research": [
+    {
+      "label": "What is compared",
+      "text": "Recent missingness, averaged equally across the same universal series for each country."
+    },
+    {
+      "label": "Adjusted comparisons",
+      "text": "Country groups are compared descriptively; adjusted results account for region, income group, and log population as stated."
+    },
+    {
+      "label": "Intervals",
+      "text": "Country-bootstrap intervals show stability to country composition. Model intervals use robust standard errors."
+    },
+    {
+      "label": "How to read the results",
+      "text": "Associations describe this source and selection of series; they do not establish causes or measure all data a country collects."
+    }
+  ]
+}

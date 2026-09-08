@@ -1,0 +1,12 @@
+term,estimate_percentage_points,standard_error,ci_low,ci_high
+Intercept,37.69,1.08,35.57,39.8
+Log population (1 SD),-6.43,0.67,-7.74,-5.12
+Income: Low income vs High income,15.6,2.25,11.2,20.0
+Income: Lower middle income vs High income,8.5,1.78,5.01,11.99
+Income: Upper middle income vs High income,3.68,1.53,0.68,6.68
+Region: East Asia & Pacific vs Europe & Central Asia,6.09,1.8,2.55,9.62
+Region: Latin America & Caribbean vs Europe & Central Asia,5.08,2.11,0.95,9.22
+"Region: Middle East, North Africa, Afghanistan & Pakistan vs Europe & Central Asia",9.91,2.03,5.93,13.89
+Region: North America vs Europe & Central Asia,3.71,6.79,-9.59,17.01
+Region: South Asia vs Europe & Central Asia,8.77,2.37,4.13,13.42
+Region: Sub-Saharan Africa vs Europe & Central Asia,6.11,2.14,1.92,10.3

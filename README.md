@@ -25,6 +25,7 @@ Open <http://localhost:8000>. A full source refresh currently takes roughly 10â€
 | `make fetch` | Transactionally refresh official sources |
 | `make build` | Calculate metrics and rankings |
 | `make model` | Run temporal continuity evaluation |
+| `make analyze` | Estimate gap inequalities and robustness |
 | `make validate` | Enforce configuration and score invariants |
 | `make export` | Generate site contracts and downloads |
 | `make all` | Run the complete pipeline |
