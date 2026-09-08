@@ -1,5 +1,7 @@
 # Research note: who is visible in global development data?
 
+**Status:** The v0.1 infrastructure and first validated snapshot are published. The inferential analysis below has not yet been run.
+
 ## Preregistered question
 
 Are recent reporting gaps across the selected SDG series associated with income group, region, population, and indicator family?

@@ -2,7 +2,7 @@
 
 ## Unit of analysis
 
-Blindspot evaluates a country–series–reference-year cell. The first release covers 193 UN member states, 51 configured headline series (three per SDG), and reference years from 2015 onward.
+Blindspot evaluates a country–series–reference-year cell. The first release covers 193 UN member states, 51 selected indicator series (three per SDG), and reference years from 2015 onward.
 
 “Observed” means that the current official UN SDG Global Database contains at least one observation for the cell. It does **not** prove that a national aggregate was collected, nor does “unobserved” prove that a country failed to collect data. Aggregate-slice availability and disaggregation are reported separately.
 

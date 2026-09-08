@@ -6,6 +6,6 @@ version: 0.1.0
 date-released: 2026-09-07
 license: MIT
 repository-code: "https://github.com/nehalahmedshaikh/blindspot"
-abstract: "A reproducible atlas of missing, stale, and fragile evidence across headline Sustainable Development Goal indicators."
+abstract: "A reproducible atlas of missing, stale, and fragile evidence across selected Sustainable Development Goal indicator series."
 authors:
   - name: "nehalahmedshaikh"

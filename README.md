@@ -2,7 +2,7 @@
 
 **An open atlas of what humanity has not measured.**
 
-Blindspot maps missing, stale, irregular, and fragile evidence across 51 headline Sustainable Development Goal series and all 193 UN member states. It asks a different question from most development dashboards: not “how is a country performing?” but “where is the evidence too weak to know?”
+Blindspot maps missing, stale, irregular, and fragile evidence across 51 selected indicator series—three for each UN Sustainable Development Goal—and all 193 UN member states. It asks a different question from most development dashboards: not “how is a country performing?” but “where is the evidence too weak to know?”
 
 ## What is already implemented
 
@@ -14,6 +14,10 @@ Blindspot maps missing, stale, irregular, and fragile evidence across 51 headlin
 - Compact snapshot and append-only revision tracking.
 - A dependency-free static atlas with CSV and JSON downloads.
 - Weekly GitHub Pages deployment and offline unit tests.
+
+## Research status
+
+The reproducible observatory is complete as a v0.1; the broader research program is not. Next comes peer review of the first frozen snapshot and the preregistered analysis of how reporting gaps vary by region, income group, population, and indicator family. Later phases expand country-level applicability, disaggregation, indicator and national-source coverage, and longitudinal revision analysis. The public site presents this roadmap alongside the methodology and novelty boundary.
 
 ## Quick start
 
