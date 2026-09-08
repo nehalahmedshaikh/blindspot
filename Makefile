@@ -1,8 +1,4 @@
-.PHONY: bootstrap fetch build model validate export test serve all
-
-bootstrap:
-	python3 -m venv .venv
-	.venv/bin/pip install -e .
+.PHONY: fetch build model validate export test serve all
 
 fetch:
 	PYTHONPATH=src python3 -m blindspot fetch

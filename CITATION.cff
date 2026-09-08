@@ -2,8 +2,6 @@ cff-version: 1.2.0
 title: "Blindspot: Global Measurement-Gap Observatory"
 message: "If you use Blindspot or its derived datasets, cite this repository and the upstream UN and World Bank sources."
 type: software
-version: 0.1.0
-date-released: 2026-09-07
 license: MIT
 repository-code: "https://github.com/nehalahmedshaikh/blindspot"
 abstract: "A reproducible atlas of missing, stale, and fragile evidence across selected Sustainable Development Goal indicator series."

@@ -99,7 +99,6 @@ def refresh() -> bool:
         "manifest.json",
         {
             "schema_version": "1.0.0",
-            "pipeline_version": "0.1.0",
             "status": "fresh",
             "retrieved_at": utc_now(),
             "sources": [catalog_manifest, context_manifest, observations_manifest],
@@ -252,7 +251,7 @@ def export() -> dict[str, Any]:
         ],
     )
     methodology = {
-        "version": "measurement_priority_v1",
+        "method": "measurement_priority",
         "recent_window": metrics["recent_window"],
         "weights": {
             "staleness": 0.35,

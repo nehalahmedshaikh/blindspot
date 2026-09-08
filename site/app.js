@@ -1,6 +1,6 @@
 "use strict";
 
-const state = { data: null, topology: null, metric: "priority", goal: "all", selected: null };
+const state = { data: null, topology: null, goal: "all", selected: null };
 const q = (selector) => document.querySelector(selector);
 const totalCodes = new Set(["010", "017", "018", "019", "029", "030", "034", "035", "039", "053", "054", "057", "061", "142", "143", "145", "150", "151", "154", "155", "202", "419"]);
 const goalNames = [
@@ -14,14 +14,8 @@ const goalNames = [
 
 function countryValue(country) {
   if (!country) return null;
-  if (state.goal !== "all") {
-    const goal = country.goals[state.goal];
-    if (!goal) return null;
-    if (state.metric === "priority") return goal.priority;
-    if (state.metric === "missingness") return 100 - goal.completeness;
-  }
-  if (state.metric === "missingness") return 100 - country.completeness;
-  return country[state.metric];
+  if (state.goal !== "all") return country.goals[state.goal]?.priority ?? null;
+  return country.priority;
 }
 
 function color(value) {
@@ -55,12 +49,11 @@ function renderMap() {
 function showTooltip(event, country) {
   if (!country) return;
   const tip = q("#tooltip"), rect = q(".map-wrap").getBoundingClientRect();
-  tip.innerHTML = `<strong>${country.name}</strong><br>${labelForMetric()}: ${countryValue(country)?.toFixed(1) ?? "n/a"} / 100`;
+  tip.innerHTML = `<strong>${country.name}</strong><br>Measurement priority: ${countryValue(country)?.toFixed(1) ?? "n/a"} / 100`;
   tip.style.left = `${Math.min(rect.width - 190, (event.clientX || rect.left + 20) - rect.left + 12)}px`;
   tip.style.top = `${Math.max(10, (event.clientY || rect.top + 20) - rect.top - 45)}px`; tip.hidden = false;
 }
 function hideTooltip() { q("#tooltip").hidden = true; }
-function labelForMetric() { return state.metric === "missingness" ? "Missingness" : state.metric[0].toUpperCase() + state.metric.slice(1); }
 
 function selectCountry(alpha3) {
   if (!alpha3) return;
@@ -70,6 +63,8 @@ function selectCountry(alpha3) {
   const allSeries = state.data.country_series
     .filter(item => item.country_alpha3 === alpha3)
     .sort((a,b) => (b.measurement_priority_v1 ?? -1) - (a.measurement_priority_v1 ?? -1));
+  const scoredSeries = allSeries.filter(item => item.score_components);
+  const averageComponent = key => 100 * scoredSeries.reduce((sum, item) => sum + item.score_components[key], 0) / scoredSeries.length;
   const gaps = allSeries.filter(item => item.measurement_priority_v1 != null).slice(0,3);
   const seriesRows = allSeries.map(item => {
     const series = seriesMap.get(item.series_code);
@@ -78,14 +73,18 @@ function selectCountry(alpha3) {
   }).join("");
   q("#country-profile").innerHTML = `
     <div class="profile-head">
-      <div><small>${country.region} · ${country.income_group}</small><h3>${country.name}</h3><p>Summary across Blindspot's universally applicable selected series.</p></div>
-      <div class="profile-stat"><strong>${country.completeness.toFixed(0)}%</strong><span>recent completeness</span><small>Average expected observations present</small></div>
-      <div class="profile-stat"><strong>${country.staleness.toFixed(0)}</strong><span>staleness / 100</span><small>Average reporting delay</small></div>
-      <div class="profile-stat"><strong>${country.priority.toFixed(0)}</strong><span>priority / 100</span><small>Average triage score</small></div>
+      <div class="profile-identity"><small>${country.region} · ${country.income_group}</small><h3>${country.name}</h3></div>
+      <div class="profile-metrics">
+        <div class="profile-stat profile-stat-primary"><strong>${country.priority.toFixed(0)}</strong><span>Average measurement priority</span></div>
+        <div class="profile-stat"><strong>${averageComponent("staleness").toFixed(0)}</strong><span>Staleness</span></div>
+        <div class="profile-stat"><strong>${averageComponent("completeness_deficit").toFixed(0)}</strong><span>Missingness</span></div>
+        <div class="profile-stat"><strong>${averageComponent("global_scarcity").toFixed(0)}</strong><span>Global scarcity</span></div>
+        <div class="profile-stat"><strong>${averageComponent("population_percentile").toFixed(0)}</strong><span>Population</span></div>
+      </div>
     </div>
-    <div class="profile-label"><strong>Three highest-priority indicator series</strong><span>These are the top three series regardless of which goals they belong to; they are not the country's only gaps.</span></div>
-    <div class="profile-gaps">${gaps.map(gap => `<article><b>Goal ${gap.goal}: ${goalNames[gap.goal]}</b><span>${seriesMap.get(gap.series_code)?.description || gap.series_code}</span><span>Latest year: ${gap.latest_year || "none since 2015"} · Priority: ${gap.measurement_priority_v1.toFixed(1)} / 100</span></article>`).join("")}</div>
-    <details class="all-series"><summary>See all ${allSeries.length} selected series for ${country.name}</summary><div class="table-wrap"><table><thead><tr><th>Goal</th><th>Indicator series</th><th>Latest year</th><th>Recent completeness</th><th>Priority / 100</th></tr></thead><tbody>${seriesRows}</tbody></table></div></details>`;
+    <div class="profile-label"><strong>Three indicator series with highest measurement priority</strong></div>
+    <div class="profile-gaps">${gaps.map(gap => `<article><small class="gap-goal">Goal ${gap.goal}: ${goalNames[gap.goal]}</small><b>${seriesMap.get(gap.series_code)?.description || gap.series_code}</b><span>Latest year: ${gap.latest_year || "none since 2015"} · Measurement priority: ${gap.measurement_priority_v1.toFixed(1)} / 100</span></article>`).join("")}</div>
+    <details class="all-series"><summary>See all ${allSeries.length} selected series for ${country.name}</summary><div class="table-wrap"><table><thead><tr><th>Goal</th><th>Indicator series</th><th>Latest year</th><th>Recent completeness</th><th>Measurement priority / 100</th></tr></thead><tbody>${seriesRows}</tbody></table></div></details>`;
 }
 
 function adjustedRank(item) {
@@ -110,7 +109,6 @@ function renderSeries(filter="") {
 function populateControls() {
   for (let goal=1; goal<=17; goal++) q("#goal-select").insertAdjacentHTML("beforeend", `<option value="${goal}">Goal ${goal}: ${goalNames[goal]}</option>`);
   state.data.countries.forEach(country => q("#country-select").insertAdjacentHTML("beforeend", `<option value="${country.alpha3}">${country.name}</option>`));
-  q("#metric-select").addEventListener("change", event => { state.metric=event.target.value; renderMap(); });
   q("#goal-select").addEventListener("change", event => { state.goal=event.target.value; renderMap(); });
   q("#country-select").addEventListener("change", event => selectCountry(event.target.value));
   q("#series-search").addEventListener("input", event => renderSeries(event.target.value));
@@ -126,9 +124,6 @@ async function init() {
     q("#window-label").textContent=state.data.meta.recent_window.join("—");
     q("#freshness").textContent=`Source snapshot ${new Date(state.data.meta.retrieved_at).toLocaleDateString()}`;
     if (state.data.meta.status !== "fresh") { const banner=q("#status-banner"); banner.hidden=false; banner.textContent="Latest source refresh failed. The atlas is showing the last validated snapshot; inspect the provenance manifest for details."; }
-    const selected=state.data.model.selected.replaceAll("_"," ");
-    const result=state.data.model.candidates[state.data.model.selected]?.metrics;
-    q("#model-summary").textContent=`Testing on years from ${state.data.model.split.testing_from} selected the ${selected} (Brier score ${result?.brier ?? "n/a"}; lower is better). It estimates reporting continuity, not causes or development outcomes.`;
     populateControls(); renderMap(); renderRankings(); renderSeries();
   } catch (error) {
     const banner=q("#status-banner"); banner.hidden=false; banner.textContent=error.message;
