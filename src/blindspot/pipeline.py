@@ -23,7 +23,6 @@ from .config import (
     load_series,
 )
 from .metrics import calculate_metrics
-from .model import train_continuity_model
 from .sources import (
     SourceError,
     fetch_series_catalog,
@@ -173,23 +172,6 @@ def build(completed_year: int | None = None) -> dict[str, Any]:
     return metrics
 
 
-def model() -> dict[str, Any]:
-    try:
-        metrics = read_cache_json("metrics.json")
-    except SourceError:
-        metrics = build()
-    result = train_continuity_model(
-        load_cached_observations(),
-        load_series(),
-        load_countries(),
-        read_cache_json("context.json"),
-        metrics["completed_year"],
-    )
-    result["snapshot_id"] = metrics.get("snapshot_id")
-    write_cache_json("model.json", result)
-    return result
-
-
 def analyze() -> dict[str, Any]:
     try:
         metrics = read_cache_json("metrics.json")
@@ -229,10 +211,6 @@ def export() -> dict[str, Any]:
         metrics = read_cache_json("metrics.json")
     except SourceError:
         metrics = build()
-    try:
-        model_result = read_cache_json("model.json")
-    except SourceError:
-        model_result = model()
     manifest = read_cache_json("manifest.json")
     try:
         analysis_result = read_cache_json("analysis.json")
@@ -253,7 +231,6 @@ def export() -> dict[str, Any]:
             "retrieved_at": manifest["retrieved_at"],
             "status": manifest["status"],
             "snapshot_id": manifest.get("snapshot_id"),
-            "model_selected": model_result["selected"],
         },
         "countries": metrics["countries"],
         "series": metrics["series"],
@@ -280,7 +257,6 @@ def export() -> dict[str, Any]:
             for item in metrics["country_series"]
         ],
         "top_rankings": metrics["rankings"][:500],
-        "model": model_result,
     }
     compact_dashboard = json.dumps(
         dashboard, ensure_ascii=False, separators=(",", ":"), sort_keys=True
@@ -454,7 +430,7 @@ def export() -> dict[str, Any]:
             json.dumps(payload, ensure_ascii=False, separators=(",", ":"), sort_keys=True) + "\n",
             encoding="utf-8",
         )
-    for name in ("manifest.json", "model.json", "analysis.json"):
+    for name in ("manifest.json", "analysis.json"):
         shutil.copy2(CACHE_DIR / name, output_dir / name)
     downloads = output_dir / "downloads"
     if downloads.exists():
@@ -776,9 +752,6 @@ def validate() -> list[str]:
         errors.append("Source manifest has no snapshot identifier")
     if metrics.get("snapshot_id") != snapshot_id:
         errors.append("Metrics and source snapshots do not match")
-    model_result = read_cache_json("model.json")
-    if model_result.get("snapshot_id") != snapshot_id:
-        errors.append("Model and source snapshots do not match")
     if len(metrics.get("countries", [])) != len(countries):
         errors.append("Metrics country count does not match configuration")
     if len(metrics.get("series", [])) != len(specs):

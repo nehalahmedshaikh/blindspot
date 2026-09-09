@@ -55,6 +55,7 @@ class SiteContractTests(unittest.TestCase):
     def test_site_uses_partitioned_contract(self):
         self.assertFalse((self.data / "dashboard.json").exists())
         self.assertFalse((self.data / "index.json").exists())
+        self.assertFalse((self.data / "model.json").exists())
         self.assertEqual(self.meta["counts"]["countries"], len(self.countries))
         self.assertEqual(self.meta["counts"]["series"], len(self.series))
         self.assertEqual(len(list((self.data / "countries").glob("*.json"))), len(self.countries))
@@ -82,7 +83,6 @@ class SiteContractTests(unittest.TestCase):
 
     def test_published_snapshot_ids_match(self):
         manifest = json.loads((self.data / "manifest.json").read_text())
-        model = json.loads((self.data / "model.json").read_text())
         analysis = json.loads((self.data / "analysis.json").read_text())
         snapshot_id = manifest["snapshot_id"]
         expected = hashlib.sha256(
@@ -93,7 +93,6 @@ class SiteContractTests(unittest.TestCase):
         ).hexdigest()[:16]
         self.assertEqual(snapshot_id, expected)
         self.assertEqual(self.meta["meta"]["snapshot_id"], snapshot_id)
-        self.assertEqual(model["snapshot_id"], snapshot_id)
         self.assertEqual(analysis["snapshot"]["snapshot_id"], snapshot_id)
 
     def test_published_checksums_match(self):

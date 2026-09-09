@@ -1,10 +1,9 @@
 from __future__ import annotations
 
 import argparse
-import json
 import sys
 
-from .pipeline import analyze, build, export, model, refresh, validate
+from .pipeline import analyze, build, export, refresh, validate
 from .sources import SourceError
 
 
@@ -14,7 +13,6 @@ def parser() -> argparse.ArgumentParser:
     subcommands.add_parser("fetch", help="Refresh official source data")
     build_parser = subcommands.add_parser("build", help="Calculate descriptive metrics and rankings")
     build_parser.add_argument("--completed-year", type=int, default=None)
-    subcommands.add_parser("model", help="Backtest the reporting-continuity model")
     subcommands.add_parser("analyze", help="Analyze inequalities and robustness")
     subcommands.add_parser("validate", help="Validate configuration and generated metrics")
     subcommands.add_parser("export", help="Create static-site datasets and downloads")
@@ -31,9 +29,6 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "build":
             result = build(args.completed_year)
             print(f"Built {len(result['country_series']):,} country-series assessments.")
-        elif args.command == "model":
-            result = model()
-            print(json.dumps({"selected": result["selected"], "candidates": result["candidates"]}, indent=2))
         elif args.command == "analyze":
             result = analyze()
             design = result["design"]
@@ -51,7 +46,6 @@ def main(argv: list[str] | None = None) -> int:
             if not refresh():
                 raise SourceError("Source refresh failed; retained the previous validated snapshot")
             build()
-            model()
             analyze()
             for check in validate():
                 print(f"✓ {check}")

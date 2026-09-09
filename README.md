@@ -1,8 +1,6 @@
 # Blindspot
 
-**An open atlas of what humanity has not measured.**
-
-[Explore the observatory](https://nehalahmedshaikh.github.io/blindspot/) for the atlas, research results, methodology, sources, and downloads.
+**An open atlas of what humanity has not measured.** [Explore the observatory](https://nehalahmedshaikh.github.io/blindspot/) for the atlas, research results, methodology, sources, and downloads.
 
 ## Quick start
 
@@ -24,7 +22,6 @@ Open <http://localhost:8000>.
 |---|---|
 | `make fetch` | Transactionally refresh official sources |
 | `make build` | Calculate metrics and rankings |
-| `make model` | Run temporal continuity evaluation |
 | `make analyze` | Estimate gap inequalities and robustness |
 | `make validate` | Enforce configuration and score invariants |
 | `make export` | Generate site contracts and downloads |
@@ -34,7 +31,7 @@ Open <http://localhost:8000>.
 
 ```text
 UN SDG API ─┐
-            ├─ fetch → normalized snapshot → metrics → model + analysis → static site data
+            ├─ fetch → normalized snapshot → metrics → analysis → static site data
 World Bank ─┘                 │
                               └─ baseline + append-only revision deltas
 ```

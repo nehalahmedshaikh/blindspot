@@ -26,7 +26,6 @@ jobs:
         with:
           python-version: "3.12"
       - run: PYTHONPATH=src python -m blindspot build
-      - run: PYTHONPATH=src python -m blindspot model
       - run: PYTHONPATH=src python -m blindspot analyze
       - run: PYTHONPATH=src python -m blindspot validate
       - run: PYTHONPATH=src python -m blindspot export

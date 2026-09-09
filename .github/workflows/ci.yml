@@ -20,10 +20,9 @@ jobs:
       - run: for file in site/*.js; do node --check "$file"; done
       - run: node tests/test_geo.js
       - run: PYTHONPATH=src python -m blindspot build
-      - run: PYTHONPATH=src python -m blindspot model
       - run: PYTHONPATH=src python -m blindspot analyze
       - run: PYTHONPATH=src python -m blindspot validate
       - run: PYTHONPATH=src python -m blindspot export
       - run: PYTHONPATH=src python -m unittest discover -s tests -v
       - name: Verify generated data is current
-        run: git diff --exit-code -- data/current/analysis.json data/current/model.json site/assets/data
+        run: git diff --exit-code -- data/current/analysis.json site/assets/data
